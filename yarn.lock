@@ -42,6 +42,7 @@ __metadata:
     "@types/react": "npm:18.2.18"
     "@types/react-dom": "npm:18.2.7"
     "@types/webpack-env": "npm:^1.18.1"
+    "@vercel/speed-insights": "npm:^1.0.2"
     autoprefixer: "npm:^10.4.12"
     cheerio: "npm:^1.0.0-rc.12"
     clsx: "npm:^1.2.1"
@@ -703,6 +704,13 @@ __metadata:
     "@typescript-eslint/types": "npm:6.18.1"
     eslint-visitor-keys: "npm:^3.4.1"
   checksum: f3dacdd1db7347908ac207968da4fa72efb31e38a6dde652651633c5283f054832045f2ad00b4ca7478e7f2e09fe4ae6e3a32b76580c036b9e5c7b8dd55af9f3
+  languageName: node
+  linkType: hard
+
+"@vercel/speed-insights@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@vercel/speed-insights@npm:1.0.2"
+  checksum: 221d17846d845d0ec7b0f63467807449e281f763f5b6950074fa89b65e0ddef8f10cc1720996874f2b2252d732e9ede6c218355762e07131fc2bdcaa063b7068
   languageName: node
   linkType: hard
 

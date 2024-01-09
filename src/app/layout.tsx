@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { Providers } from '@/app/providers';
 import { Layout } from '@/components/Layout';
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                         <Layout>{children}</Layout>
                     </div>
                 </Providers>
+                <SpeedInsights />
             </body>
         </html>
     );
