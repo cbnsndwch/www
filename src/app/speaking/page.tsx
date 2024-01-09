@@ -1,0 +1,110 @@
+import type { ComponentPropsWithoutRef } from 'react';
+import type { Metadata } from 'next';
+
+import { Card } from '@/components/Card';
+import { Section } from '@/components/Section';
+import { SimpleLayout } from '@/components/SimpleLayout';
+
+function SpeakingSection({
+    children,
+    ...props
+}: ComponentPropsWithoutRef<typeof Section>) {
+    return (
+        <Section {...props}>
+            <div className="space-y-16">{children}</div>
+        </Section>
+    );
+}
+
+type AppearanceProps = {
+    title: string;
+    description: string;
+    event: string;
+    cta: string;
+    href: string;
+};
+
+function Appearance({ title, description, event, cta, href }: AppearanceProps) {
+    return (
+        <Card as="article">
+            <Card.Title as="h3" href={href}>
+                {title}
+            </Card.Title>
+            <Card.Eyebrow decorate>{event}</Card.Eyebrow>
+            <Card.Description>{description}</Card.Description>
+            <Card.Cta>{cta}</Card.Cta>
+        </Card>
+    );
+}
+
+export const metadata: Metadata = {
+    title: 'Speaking',
+    description: 'I’ve been interviewed on a few really cool podcasts.',
+    // 'I’ve spoken at events all around the world and been interviewed for many podcasts.',
+};
+
+export default function Speaking() {
+    return (
+        <SimpleLayout
+            title="Discover Insights on App Development: My YouTube Channel and Podcast Features."
+            intro={[
+                "Welcome to my digital hub, where I specialize in educating developers and marketing agencies on the intricacies of building apps for the HighLevel Marketplace. Through my YouTube channel, I delve into the specifics of app development, offering tutorials, tips, and industry insights. My content is designed to empower both aspiring and experienced developers with the knowledge and tools needed to thrive in this dynamic marketplace. It's a resource-rich platform where learning and practical application go hand-in-hand.",
+                "In addition to my YouTube channel, I have had the opportunity to share my experiences and perspectives on various podcasts. These podcast interviews provide a more conversational exploration of topics related to app development, digital marketing, and technology trends. They serve as a complementary resource, where listeners can gain additional insights and learn from my journey in the tech industry. I love podcast interviews because they give me the opportunity to reach audiences far beyond what's possible with in person events.",
+                "Whether you are a developer looking to enhance your skills, a marketing agency aiming to expand your services, or just someone interested in the world of app development, there is content here for you. And if you're organizing a conference or event and need a speaker who can bring valuable insights to your audience, feel free to reach out. Let's collaborate to share knowledge and drive innovation in the digital space.",
+            ]}
+        >
+            <div className="space-y-20">
+                <SpeakingSection title="My YouTube Channel">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=3rveQDuVlR0&list=PLxp-vlg1uh-aajKG9OYjKfsa-2SCC0Qf4"
+                        title="Building a High-Level Marketplace App that automatically logs users in"
+                        description="How to implement Single Sign-On for your HighLevel Marketplace app."
+                        event="HighLevel Marketplace for Developers"
+                        cta="Watch video"
+                    />
+                    <Appearance
+                        href="#"
+                        title="Playlist: HighLevel Marketplace for Developers"
+                        description="Go from zero to hero building apps for the HighLevel Marketplace."
+                        event="Last updated: December 2023"
+                        cta="View playlist"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="Propel Data">
+                    <Appearance
+                        href="https://www.linkedin.com/events/chathq-llms-analyticsandthepowe7117905754963013632"
+                        title="ChatHQ: LLMs, Analytics and the power of white label CRO SaaS"
+                        description="On Using AI, Lanrge Language Models, and Analytics to power white label Conversion rate Optmization."
+                        event="Propel Data Stream on LinkedIn Live, March 2023"
+                        cta="Watch stream"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="Data Chaos Podcast">
+                    <Appearance
+                        href="https://open.spotify.com/episode/0Dfs7aZbA37KiGyyxg9o12"
+                        title="Sergio Leon: Fourier from Cuba to Cutting-Edge AI"
+                        description="On my 17-year journey from creating desktop applications to breaking new ground in the world of AI."
+                        event="Data Chaos Podcast, March 2023"
+                        cta="Listen to episode"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="HighLevel Spotlight Sessions">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=kXeX-9GaNVQ"
+                        title="Increase Engagement with Customizable Widgets"
+                        description="On building branded, contex-rich experiences for brands by driving website traffic engagement."
+                        event="HighLevel Spotlight Sessions, March 2023"
+                        cta="Watch episode"
+                    />
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
+                        title="Integrating Chat Technologies for Enhanced User Experiences"
+                        description="On the importance of creating seamless experiences between HighLevel extensions and the main app."
+                        event="HighLevel Spotlight Sessions, February 2021"
+                        cta="Watch episode"
+                    />
+                </SpeakingSection>
+            </div>
+        </SimpleLayout>
+    );
+}
