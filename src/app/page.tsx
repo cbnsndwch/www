@@ -214,8 +214,8 @@ function Resume() {
             company: 'Night Owl SP',
             title: 'Solutions Architect',
             logo: logoNowl,
-            start: '2020',
-            end: '2017',
+            start: '2017',
+            end: '2019',
         },
         {
             company: "Ke Hay Pa' Hoy?",
