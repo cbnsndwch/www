@@ -63,7 +63,7 @@ export default function Speaking() {
                         cta="Watch video"
                     />
                     <Appearance
-                        href="#"
+                        href="https://www.youtube.com/playlist?list=PLxp-vlg1uh-aajKG9OYjKfsa-2SCC0Qf4"
                         title="Playlist: HighLevel Marketplace for Developers"
                         description="Go from zero to hero building apps for the HighLevel Marketplace."
                         event="Last updated: December 2023"
