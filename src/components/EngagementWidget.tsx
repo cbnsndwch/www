@@ -1,0 +1,51 @@
+'use client';
+
+import { useEffect, useMemo } from 'react';
+
+export type EngagementWidgetProps = {
+    /**
+     * The widget ID.
+     */
+    widgetId: string;
+
+    /**
+     * Pass custom data here.
+     */
+    extras?: Record<string, unknown>;
+};
+
+export default function EngagementWidget({
+    widgetId,
+    extras,
+}: EngagementWidgetProps) {
+    useEffect(() => {
+        window.engagementContextExtra = Object.assign(
+            window.engagementContextExtra || {},
+            extras,
+        );
+    }, [extras]);
+
+    const widgetData = useMemo(
+        () => ({
+            async: '1',
+            crossorigin: '1',
+            type: 'module',
+            id: 'engagementWidget',
+            src: 'https://cdn.chatwidgets.net/widget/livechat/bundle.js',
+            'data-env': 'portal-api',
+            'data-instance': widgetId,
+            'data-container': '#engagement-widget-container',
+        }),
+        [widgetId],
+    );
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        Object.entries(widgetData).forEach(([k, v]) =>
+            script.setAttribute(k, v),
+        );
+        document.body.appendChild(script);
+    }, [widgetData]);
+
+    return <div id="engagement-widget-container" />;
+}

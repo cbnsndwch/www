@@ -1,9 +1,10 @@
 import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Providers } from '@/app/providers';
 import { Layout } from '@/components/Layout';
+import EngagementWidget from '@/components/EngagementWidget';
 
 import '@/styles/tailwind.css';
 
@@ -32,6 +33,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     </div>
                 </Providers>
                 <SpeedInsights />
+                <EngagementWidget
+                    widgetId={process.env.VITE_ENGAGEMENT_WIDGET_ID || ''}
+                />
             </body>
         </html>
     );
