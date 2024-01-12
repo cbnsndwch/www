@@ -353,10 +353,12 @@ export default async function Home() {
             <Container className="mt-24 md:mt-28">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">
-                        {!posts?.length && (
+                        {!posts?.length ? (
                             <p className="text-center">
                                 No posts yet. Check back soon!
                             </p>
+                        ) : (
+                            <p className="text-xl font-bold text-left">My latest blog posts</p>
                         )}
                         {posts.map((post) => (
                             <PostSummary key={post.slug} post={post} />

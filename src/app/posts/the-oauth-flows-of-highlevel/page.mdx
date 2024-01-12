@@ -3,10 +3,10 @@ import Image from 'next/image';
 
 export const post = {
     author: 'Sergio Leon',
-    date: '2023-01-11',
+    date: '2024-01-11',
     title: 'The OAuth Flows of HighLevel',
     description:
-        "Learn how to implement HighLevel's OAuth 2.0 flow for your app or integration.",
+        "Learn how to implement HighLevel's OAuth 2.0 flows for your app or integration.",
 };
 
 export const metadata = {
@@ -21,29 +21,29 @@ export default function (props) {
     return <PostLayout post={post} {...props} />;
 }
 
-HighLevel's API v2 uses the OAuth 2.0 Authorization Code Grant flow for authentication. This means that in order for your app or integration to make API calls, you'll need to implement an OAuth client that can receive Authorzation Codes, exchange them for an Access Token + Refresh Token pair, and save them both in persistent storage for continued access.
+HighLevel's API v2 uses the OAuth 2.0 Authorization Code flow for authentication. This means that in order for your app or integration to make API calls, you'll need to implement an OAuth client that can receive Authorzation Codes, exchange them for a pair of `Access Token` + `Refresh Token`, and save them both to persistent storage for continued use.
 
 See the [Authorization page in HighLevel's API docs](https://highlevel.stoplight.io/docs/integrations/a04191c0fabf9-authorization) for a getting-started guide and a list of all the scopes available.
 
 ## Understanding the OAuth Flows for Marketplace Apps
 
-The OAuth Authorization Code Grant as implemented by HighLevel present two different variants or flavors, depending on whether your app is a public app or a private app.
+The OAuth Authorization Code flow as implemented by HighLevel presents two variants or flavors, depending on whether you're building a Public App or a Private App.
 
 ### Public Marketplace Apps
 
-For verified, approved, public Marketplace Apps, the HighLevel web app takes care of most of the heavy lifting by providing discovery and UI for installing apps into agencies and/or locations. Here's what the flow looks like:
+For verified, approved, public Marketplace Apps, the HighLevel web app takes care of most of the heavy lifting. It provides discovery and a UI for installing apps into agencies and/or locations. Here's what the flow looks like:
 
 <Image src={publicAppsFlow} alt="HighLevel Authorization Code flow for public Marketplace Apps" />
 
 ### Private Marketplace Apps
 
-For private Marketplace Apps - that is, apps that have not been reviewed by HighLevel and will therefore not be listed inside the web app - you are responsible for initiating the OAuth flow by preparing an Authorize URL and sending the user to it. Here's what the flow looks like:
+For private Marketplace Apps — that is, apps that have not been reviewed by HighLevel and will therefore not be listed inside the HighLevel web app — you are responsible for initiating the OAuth flow on your end. You will need to prepare an Authorization URL containing your app's Client ID and any scopes your app needs, and send the user to it. Here's what the flow looks like:
 
 <Image src={privateAppsFlow} alt="HighLevel Authorization Code flow for private Marketplace Apps" />
 
 ## OAuth 2.0 FAQs
 
-Highlevel lists a few FAQs on their API docs that I've reproduced and clarified below. I'll add more as I answer questions in the Dev Council. Feel free to tag me in there and I'll do my best to get you an answer.
+Highlevel lists a few Frequently Asked Questions (FAQs) on their API docs. I've clarified the most critical ones below. I will add more as I answer questions in the Dev Council. Feel free to tag me in there and I'll do my best to get you an answer.
 
 ### How long are Access Tokens valid for?
 
@@ -51,8 +51,8 @@ Access Tokens are valid for a day. After that, you can use the Refresh Token to 
 
 ### How long are Refresh Tokens valid for?
 
-Refresh Tokens are valid for a year or until they are used once, whichever comes first. When you call the `/token` endpoint with an Refresh Token instead of an Authorizationi Code that refresh Token will become invalid and you'll get a new one in the response. Save the new token in your database or storage service in place of the original one.
+Refresh Tokens are valid for a year or until they are used once, whichever comes first. When you call the `/token` endpoint with a Refresh Token instead of an Authorization Code, that refresh Token will become invalid and you'll get a new one in the response. Save the new token in your database or storage service in place of the original one.
 
 ## Have more questions?
 
-Feel free to reach out to me on the Dev Council or on Twitter [@cbnsndwch](https://twitter.com/cbnsndwch). I'm happy to help!
+Reach out to me on the Dev Council Slack Channel or on Twitter [@cbnsndwch](https://twitter.com/cbnsndwch). I'm happy to help!
