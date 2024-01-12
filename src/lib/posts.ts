@@ -40,3 +40,18 @@ export async function getAllPosts() {
 
     return sortedActivePosts;
 }
+
+export async function getRecentPosts(count = 5) {
+    let articleFilenames = await glob('*/page.mdx', {
+        cwd: './src/app/posts',
+    });
+
+    let posts = await Promise.all(articleFilenames.map(importPost));
+
+    const sortedActivePosts = posts
+        .filter((post) => !post.draft)
+        .sort((a, z) => +new Date(z.date) - +new Date(a.date))
+        .slice(0, count);
+
+    return sortedActivePosts;
+}

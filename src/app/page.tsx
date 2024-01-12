@@ -11,6 +11,9 @@ import {
     LinkedInIcon,
     TwitterIcon,
 } from '@/components/SocialIcons';
+import { type PostWithSlug, getRecentPosts } from '@/lib/posts';
+import { formatDate } from '@/lib/formatDate';
+
 import logoChatHQ from '@/images/logos/chathq.svg';
 import logo1NationUp from '@/images/logos/1nationup.svg';
 import logoNowl from '@/images/logos/nowl.png';
@@ -21,8 +24,6 @@ import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.jpg';
-import { type PostWithSlug, getAllPosts } from '@/lib/posts';
-import { formatDate } from '@/lib/formatDate';
 
 function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
@@ -288,7 +289,7 @@ function Photos() {
 }
 
 export default async function Home() {
-    let posts = await getAllPosts().then((posts) => posts.slice(0, 4));
+    let posts = await getRecentPosts();
 
     return (
         <>
@@ -358,7 +359,9 @@ export default async function Home() {
                                 No posts yet. Check back soon!
                             </p>
                         ) : (
-                            <p className="text-xl font-bold text-left">My latest blog posts</p>
+                            <p className="text-left text-xl font-bold">
+                                My latest blog posts
+                            </p>
                         )}
                         {posts.map((post) => (
                             <PostSummary key={post.slug} post={post} />
