@@ -1,9 +1,15 @@
 'use client';
+
+import type { PropsWithChildren } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
-export function NavItem({ href, children }: { href: string; children: ReactNode; }) {
+type NavItemProps = PropsWithChildren<{
+    href: string;
+}>;
+
+export function NavItem({ href, children }: NavItemProps) {
     let isActive = usePathname() === href;
 
     return (
@@ -14,7 +20,7 @@ export function NavItem({ href, children }: { href: string; children: ReactNode;
                     'relative block px-3 py-2 transition',
                     isActive
                         ? 'text-amber-500 dark:text-amber-400'
-                        : 'hover:text-amber-500 dark:hover:text-amber-400'
+                        : 'hover:text-amber-500 dark:hover:text-amber-400',
                 )}
             >
                 {children}
