@@ -6,6 +6,7 @@ interface Post {
     description: string;
     author: string;
     date: string;
+    draft?: boolean;
 }
 
 export interface PostWithSlug extends Post {
@@ -18,10 +19,7 @@ type PostModule = {
 };
 
 async function importPost(postFilename: string): Promise<PostWithSlug> {
-    let { post } = (await import(`../app/posts/${postFilename}`)) as {
-        default: React.ComponentType;
-        post: Post;
-    };
+    let { post } = (await import(`../app/posts/${postFilename}`)) as PostModule;
 
     return {
         slug: postFilename.replace(/(\/page)?\.mdx$/, ''),
@@ -36,5 +34,9 @@ export async function getAllPosts() {
 
     let posts = await Promise.all(articleFilenames.map(importPost));
 
-    return posts.sort((a, z) => +new Date(z.date) - +new Date(a.date));
+    const sortedActivePosts = posts
+        .filter((post) => !post.draft)
+        .sort((a, z) => +new Date(z.date) - +new Date(a.date));
+
+    return sortedActivePosts;
 }
