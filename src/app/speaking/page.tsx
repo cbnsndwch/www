@@ -73,7 +73,7 @@ export default function Speaking() {
                 <SpeakingSection title="Propel Data">
                     <Appearance
                         href="https://www.linkedin.com/events/chathq-llms-analyticsandthepowe7117905754963013632"
-                        title="ChatHQ: LLMs, Analytics and the power of white label Conversion Rate Optmization Software"
+                        title="ChatHQ: LLMs, Analytics and the power of white label Conversion Rate Optimization Software"
                         description="On Using Artifical Intelligence (AI), Large Language Models (LLMS), and Analytics to power white label Conversion Rate Optmization for businesses."
                         event="Propel Data Stream on LinkedIn Live, March 2023"
                         cta="Watch replay"
