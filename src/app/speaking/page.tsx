@@ -88,7 +88,7 @@ export default function Speaking() {
                         cta="Listen to episode"
                     />
                 </SpeakingSection>
-                <SpeakingSection title="HighLevel Spotlight Sessions">
+                <SpeakingSection title="HighLevel Spotlight">
                     <Appearance
                         href="https://www.youtube.com/watch?v=kXeX-9GaNVQ"
                         title="Increase Engagement with Customizable Widgets"
