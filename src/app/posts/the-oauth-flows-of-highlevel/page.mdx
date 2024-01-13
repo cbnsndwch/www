@@ -3,20 +3,25 @@ import Image from 'next/image';
 
 import coverImage from './cover.jpg';
 
-export const post= {
+export const post = {
     author: 'Sergio Leon',
     date: '2024-01-11',
     title: 'The OAuth Flows of HighLevel',
     description:
         "Learn how to implement HighLevel's OAuth 2.0 flows for your app or integration.",
-    cover:{
+    cover: {
         image: coverImage,
         title: 'RFC 6749: The OAuth 2.0 Authorization framework',
-        creditUrl : 'https://datatracker.ietf.org/doc/html/rfc6749',
+        creditUrl: 'https://datatracker.ietf.org/doc/html/rfc6749',
     },
     tags: [
-        'software', 'ghl', 'Marketplace Apps', 'oauth', 'api', 'web standards'
-    ]
+        'software',
+        'ghl',
+        'Marketplace Apps',
+        'oauth',
+        'api',
+        'web standards',
+    ],
 };
 
 export const metadata = {
@@ -24,8 +29,8 @@ export const metadata = {
     description: post.description,
 };
 
-import privateAppsFlow  from './ghl-oauth-code-grant-flow-for-private-apps.svg';
-import publicAppsFlow  from './ghl-oauth-code-grant-flow-for-public-apps.svg';
+import privateAppsFlow from './ghl-oauth-code-grant-flow-for-private-apps.svg';
+import publicAppsFlow from './ghl-oauth-code-grant-flow-for-public-apps.svg';
 
 export default function (props) {
     return <PostLayout post={post} {...props} />;
@@ -43,13 +48,19 @@ The OAuth Authorization Code flow as implemented by HighLevel presents two varia
 
 For verified, approved, public Marketplace Apps, the HighLevel web app takes care of most of the heavy lifting. It provides discovery and a UI for installing apps into agencies and/or locations. Here's what the flow looks like:
 
-<Image src={publicAppsFlow} alt="HighLevel Authorization Code flow for public Marketplace Apps" />
+<Image
+    src={publicAppsFlow}
+    alt="HighLevel Authorization Code flow for public Marketplace Apps"
+/>
 
 ### Private Marketplace Apps
 
 For private Marketplace Apps — that is, apps that have not been reviewed by HighLevel and will therefore not be listed inside the HighLevel web app — you are responsible for initiating the OAuth flow on your end. You will need to prepare an Authorization URL containing your app's Client ID and any scopes your app needs, and send the user to it. Here's what the flow looks like:
 
-<Image src={privateAppsFlow} alt="HighLevel Authorization Code flow for private Marketplace Apps" />
+<Image
+    src={privateAppsFlow}
+    alt="HighLevel Authorization Code flow for private Marketplace Apps"
+/>
 
 ## OAuth 2.0 FAQs
 

@@ -11,18 +11,15 @@ export const post = {
     cover: {
         image: coverImage,
         title: 'Image credit: Christoph Scholz',
-        creditUrl : 'https://www.flickr.com/photos/140988606@N08/28953519841',
+        creditUrl: 'https://www.flickr.com/photos/140988606@N08/28953519841',
     },
-    tags: [
-        'software', 'ghl', 'Marketplace Apps', 'webhooks'
-    ]
+    tags: ['software', 'ghl', 'Marketplace Apps', 'webhooks'],
 };
 
 export const metadata = {
     title: post.title,
     description: post.description,
 };
-
 
 export default function (props) {
     return <PostLayout post={post} {...props} />;
@@ -49,7 +46,6 @@ See [AWS IP address ranges](https://docs.aws.amazon.com/vpc/latest/userguide/aws
 ### Google Cloud
 
 In Google Cloud Platform, each region has its own set of external IP addresses for use by zonal or regional resources. You can obtain the list of IP ranges used by Google Cloud Platform by downloading the JSON file from [https://www.gstatic.com/ipranges/cloud.json](https://www.gstatic.com/ipranges/cloud.json).
-
 
 See [IP addresses on GCP's Docs](https://cloud.google.com/vpc/docs/ip-addresses) for more details.
 
