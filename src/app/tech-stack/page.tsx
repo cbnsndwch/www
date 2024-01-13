@@ -1,40 +1,8 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
-
-import Card from '@/components/Card';
-import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { Prose } from '@/components/Prose';
 
-function ToolsSection({
-    children,
-    ...props
-}: ComponentPropsWithoutRef<typeof Section>) {
-    return (
-        <Section {...props}>
-            <ul role="list" className="space-y-16">
-                {children}
-            </ul>
-        </Section>
-    );
-}
-
-type ToolProps = PropsWithChildren<{
-    title: string;
-    href?: string;
-    cta?: string;
-}>;
-
-function Tool({ title, href, cta, children }: ToolProps) {
-    return (
-        <Card as="li">
-            <Card.Title as="h3" href={href}>
-                {title}
-            </Card.Title>
-            <Card.Description>{children}</Card.Description>
-            {cta && <Card.Cta>{cta}</Card.Cta>}
-        </Card>
-    );
-}
+import ToolsSection from './ToolsSection';
+import Tool from './Tool';
 
 export const metadata = {
     title: 'My Tech Stack',
@@ -42,7 +10,7 @@ export const metadata = {
         'Software I use, programming languages and frameworks I love, and other stuff I recommend.',
 };
 
-export default function Uses() {
+export default function TechStack() {
     return (
         <SimpleLayout
             title="Software I use, programming languages and frameworks I love, and other stuff I recommend."
