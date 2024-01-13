@@ -5,12 +5,14 @@ import { useRouter } from 'next/navigation';
 
 import { AppContext } from '@/app/providers';
 import { Container } from '@/components/Container';
-import { Prose } from '@/components/Prose';
-import { type PostWithSlug } from '@/lib/posts';
+import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';
+import { type PostWithSlug, isGuestPost } from '@/lib/posts/contracts';
 
 import ArrowLeftIcon from './ArrowLeftIcon';
 import CoverImage from './CoverImage';
+import PostTagList from '../Tags/PostTagList';
+import GuestPostAcknowledgement from './GuestPostAcknowledgement';
 
 type PostLayoutProps = {
     post: PostWithSlug;
@@ -22,7 +24,7 @@ export default function PostLayout({ post, children }: PostLayoutProps) {
     let { previousPathname } = useContext(AppContext);
 
     return (
-        <Container className="mt-16 lg:mt-32">
+        <Container className="mt-8 lg:mt-16">
             <div className="xl:relative">
                 <div className="mx-auto max-w-2xl">
                     {previousPathname && (
@@ -37,9 +39,6 @@ export default function PostLayout({ post, children }: PostLayoutProps) {
                     )}
                     <article>
                         <header className="flex flex-col">
-                            <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
-                                {post.title}
-                            </h1>
                             <time
                                 dateTime={post.date}
                                 className="order-first flex items-center text-base text-zinc-400 dark:text-zinc-500"
@@ -49,7 +48,28 @@ export default function PostLayout({ post, children }: PostLayoutProps) {
                                     {formatDate(post.date)}
                                 </span>
                             </time>
+
+                            <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                                {post.title}
+                            </h1>
+
+                            {post.tags?.length && (
+                                <PostTagList
+                                    tags={post.tags}
+                                    className="mt-4"
+                                    color="amber"
+                                />
+                            )}
+
+                            <p className="mt-3 pl-px text-sm font-light">
+                                by {post.author}
+                            </p>
+
+                            {isGuestPost(post) && (
+                                <GuestPostAcknowledgement post={post} />
+                            )}
                         </header>
+
                         <Prose className="mt-8" data-mdx-content>
                             <CoverImage cover={post.cover} />
 

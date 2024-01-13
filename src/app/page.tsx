@@ -1,9 +1,9 @@
+import type { ComponentPropsWithoutRef, ComponentType } from 'react';
 import Image, { type ImageProps } from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
 
 import { Button } from '@/components/Button';
-import Card from '@/components/Card';
 import { Container } from '@/components/Container';
 import {
     GitHubIcon,
@@ -11,8 +11,9 @@ import {
     LinkedInIcon,
     TwitterIcon,
 } from '@/components/SocialIcons';
-import { type PostWithSlug, getRecentPosts } from '@/lib/posts';
-import { formatDate } from '@/lib/formatDate';
+import PostSummaryList from '@/components/Home/PostSummaryList';
+
+import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
 
 import logoChatHQ from '@/images/logos/chathq.svg';
 import logo1NationUp from '@/images/logos/1nationup.svg';
@@ -25,7 +26,7 @@ import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.jpg';
 
-function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function MailIcon(props: ComponentPropsWithoutRef<'svg'>) {
     return (
         <svg
             viewBox="0 0 24 24"
@@ -48,7 +49,7 @@ function MailIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     );
 }
 
-function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function BriefcaseIcon(props: ComponentPropsWithoutRef<'svg'>) {
     return (
         <svg
             viewBox="0 0 24 24"
@@ -71,7 +72,7 @@ function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     );
 }
 
-function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+function ArrowDownIcon(props: ComponentPropsWithoutRef<'svg'>) {
     return (
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
             <path
@@ -84,31 +85,13 @@ function ArrowDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     );
 }
 
-type PostSummaryProps = {
-    post: PostWithSlug;
-};
+type SocialLinkProps = {
+    icon: ComponentType<{ className?: string }>;
+} & ComponentPropsWithoutRef<typeof Link>;
 
-function PostSummary({ post }: PostSummaryProps) {
+function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
     return (
-        <Card as="article">
-            <Card.Title href={`/posts/${post.slug}`}>{post.title}</Card.Title>
-            <Card.Eyebrow as="time" dateTime={post.date} decorate>
-                {formatDate(post.date)}
-            </Card.Eyebrow>
-            <Card.Description>{post.description}</Card.Description>
-            <Card.Cta>Read post</Card.Cta>
-        </Card>
-    );
-}
-
-function SocialLink({
-    icon: Icon,
-    ...props
-}: React.ComponentPropsWithoutRef<typeof Link> & {
-    icon: React.ComponentType<{ className?: string }>;
-}) {
-    return (
-        <Link className="group -m-1 p-1" {...props}>
+        <Link className="group -m-1 p-1" target="_blank" {...props}>
             <Icon className="h-6 w-6 fill-zinc-500 transition group-hover:fill-zinc-600 dark:fill-zinc-400 dark:group-hover:fill-zinc-300" />
         </Link>
     );
@@ -289,7 +272,8 @@ function Photos() {
 }
 
 export default async function Home() {
-    let posts = await getRecentPosts();
+    const recentPosts = await getRecentPosts();
+    const recentGuestPosts = await getRecentGuestPosts();
 
     return (
         <>
@@ -304,6 +288,7 @@ export default async function Home() {
                         <Link
                             href="https://www.chathq.io"
                             className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                            target="_blank"
                         >
                             ChatHQ
                         </Link>
@@ -313,6 +298,7 @@ export default async function Home() {
                         <Link
                             href="https://www.1nationup.com"
                             className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                            target="_blank"
                         >
                             1NationUp
                         </Link>
@@ -354,18 +340,16 @@ export default async function Home() {
             <Container className="mt-24 md:mt-28">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">
-                        {!posts?.length ? (
-                            <p className="text-center">
-                                No posts yet. Check back soon!
-                            </p>
-                        ) : (
-                            <p className="text-left text-xl font-bold">
-                                My latest blog posts
-                            </p>
+                        <PostSummaryList
+                            title="My latest blog posts"
+                            posts={recentPosts}
+                        />
+                        {recentGuestPosts?.length && (
+                            <PostSummaryList
+                                title="Recent guest posts"
+                                posts={recentGuestPosts}
+                            />
                         )}
-                        {posts.map((post) => (
-                            <PostSummary key={post.slug} post={post} />
-                        ))}
                     </div>
                     <div className="space-y-10 lg:pl-16 xl:pl-24">
                         {/* TODO: uncomment this one we've connected the newsletter form to GHL */}

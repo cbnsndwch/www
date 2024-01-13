@@ -1,7 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import Link from 'next/link';
 
-import { ContainerInner, ContainerOuter } from '@/components/Container';
+import ContainerInner from './Container/Inner';
+import ContainerOuter from './Container/Outer';
 
 type NavLinkProps = PropsWithChildren<{
     href: string;

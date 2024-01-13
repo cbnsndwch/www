@@ -1,9 +1,10 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
 
-export function Prose({
+export default function Prose({
     className,
     ...props
-}: React.ComponentPropsWithoutRef<'div'>) {
+}: ComponentPropsWithoutRef<'div'>) {
     return (
         <div
             className={clsx(className, 'prose dark:prose-invert')}

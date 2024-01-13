@@ -2,7 +2,7 @@ import { type Metadata } from 'next';
 
 import Card from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import { type PostWithSlug, getAllPosts } from '@/lib/posts';
+import { type PostWithSlug, getAllPosts } from '@/lib/posts/utils';
 import { formatDate } from '@/lib/formatDate';
 
 type PostSummaryProps = {

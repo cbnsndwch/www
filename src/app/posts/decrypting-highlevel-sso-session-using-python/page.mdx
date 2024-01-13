@@ -1,0 +1,118 @@
+import PostLayout from '@/components/PostLayout';
+import Image from 'next/image';
+
+import coverImage from './cover.webp';
+
+export const post= {
+    author: 'Sean Kerr',
+    date: '2023-11-17',
+    title: 'Decrypting HighLevel SSO sessions using Python',
+    description: 'Discover how to decrypt HighLevel SSO sessions using Python.',
+    cover: {
+        image: coverImage,
+        title: 'The beauty of web APIs is that you can use your preferred language to interact with them'
+    },
+    tags: [
+        'software', 'ghl', 'Marketplace Apps', 'sso', 'pyhton'
+    ],
+    guest: {
+        firstAppearedOn: 'seankerr.dev',
+        url: 'https://seankerr.dev/posts/decrypting-highlevel-sso-session-using-python'
+    }
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description,
+};
+
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+}
+
+HighLevel recently rolled out support for single-sign-on access, which allows Agencies and Accounts to connect seamlessly to an installed marketplace application. Because it’s such a new feature, there is no documentation available at this time. But thankfully for me I stumbled across [this video](https://www.youtube.com/watch?v=3rveQDuVlR0) by Sergio Leon which explains the entire SSO process from the application developer perspective. But most importantly, it shows how to retrieve the encrypted SSO session from GHL. It also explains how to decrypt it using Javascript ([CryptoJS library](https://github.com/brix/crypto-js)).
+
+This is where my luck ran out, because I’m not using Javascript on my backend, I’m using Python.
+
+The first thing I did was gather the encryption details from the video and I realized
+the session was encrypted using AES. That’s all I had to go with. I installed
+[Pycryptodome](https://www.pycryptodome.org/src/introduction) and away I went. I could
+safely assume that the session data was base64 encoded, so I decoded it and saw the
+data in its raw format. This gave away the clue I needed. The raw data was prefixed with
+`Salted__`. When working with OpenSSL, this is standard practice. In fact, when you google
+"Encryption Salted__" you will see endless results talking about decrypting OpenSSL
+data. It’s also standard practice to use PBKDF2 as the key derivation function.
+PBKDF2 uses an iteration of the password and random salt to sha256 hash the password,
+from which the key and initial value are derived. Sadly, that is why I wasted a day
+trying to finish the task.
+
+I made the worst assumption from the get go. I saw the `Salted__` prefix and assumed
+OpenSSL format. I had to take a step back and find documentation (which doesn’t exist)
+or find somebody who has first hand experience with this. That person is Sergio Leon,
+from the video above. He pointed me to a stack overflow post regarding how CryptoJS
+encrypts AES data, and so I took a look through the CryptoJS source code and noticed
+something I wasn’t expecting…
+
+```javascript
+var key = EvpKDF.create({ ... }).compute(password, salt);
+```
+
+Ahhh! There it was. That doesn’t look like PBKDF2. It’s EVPKDF! That was the turning point where I realized I was using the wrong key derivation from the beginning. I switched to EVP and instantly my problem was solved.
+
+The crux of the problem is two parts:
+
+- CryptoJS is using the same prefix as OpenSSL when encrypting AES data.
+- It’s using MD5 instead of SHA256 as a hashing mechanism, and it only does a single iteration instead of thousands (more secure).
+
+These two factors will invariably lead others to make the same assumption I did, which is why I’m writing this post.
+
+And without further ado, here is a working example of decrypting a HighLevel SSO session in Python.
+
+```python
+# system imports
+from base64 import b64decode
+from typing import Tuple
+
+# pycryptodome imports
+from Crypto.Cipher import AES
+from Crypto.Hash import MD5
+from Crypto.Util.Padding import unpad
+
+# encryption details
+BLOCK_SIZE = AES.block_size
+KEY_SIZE = 32
+IV_SIZE = 16
+SALT_SIZE = 8
+
+# working data
+PASSWORD = "TOPSY KRETT PASSWORD"
+ENCRYPTED_DATA = "ENCRYPTED SSO SESSION"
+
+def derive_key_and_iv() -> Tuple[bytes, bytes]:
+    result = bytes()
+
+    while len(result) < KEY_SIZE + IV_SIZE:
+        hasher = MD5.new()
+        hasher.update(result[-IV_SIZE:] + PASSWORD.encode("utf-8") + salt)
+        result += hasher.digest()
+
+    return result[:KEY_SIZE], result[KEY_SIZE : KEY_SIZE + IV_SIZE]
+
+# get the raw encrypted data from the base64 encoded string
+raw_encrypted_data = b64decode(ENCRYPTED_DATA)
+
+# the first block is "Salted__THESALT", so we extract the salt
+salt = raw_encrypted_data[SALT_SIZE:BLOCK_SIZE]
+
+# beginning at the second block is the cipher text
+cipher_text = raw_encrypted_data[BLOCK_SIZE:]
+
+# let's do some work
+key, iv = derive_key_and_iv()
+cipher = AES.new(key, AES.MODE_CBC, iv)
+decrypted = cipher.decrypt(cipher_text)
+unpadded = unpad(decrypted, BLOCK_SIZE)
+
+print(unpadded.decode("utf-8"))
+```

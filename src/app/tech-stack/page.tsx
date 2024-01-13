@@ -1,5 +1,5 @@
 import { SimpleLayout } from '@/components/SimpleLayout';
-import { Prose } from '@/components/Prose';
+import Prose from '@/components/Prose';
 
 import ToolsSection from './ToolsSection';
 import Tool from './Tool';
