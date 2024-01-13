@@ -1,12 +1,22 @@
 import PostLayout from '@/components/PostLayout';
 import Image from 'next/image';
 
-export const post = {
+import coverImage from './cover.jpg';
+
+export const post= {
     author: 'Sergio Leon',
     date: '2024-01-11',
     title: 'The OAuth Flows of HighLevel',
     description:
         "Learn how to implement HighLevel's OAuth 2.0 flows for your app or integration.",
+    cover:{
+        image: coverImage,
+        title: 'RFC 6749: The OAuth 2.0 Authorization framework',
+        creditUrl : 'https://datatracker.ietf.org/doc/html/rfc6749',
+    },
+    tags: [
+        'software', 'ghl', 'Marketplace Apps', 'oauth', 'api', 'web standards'
+    ]
 };
 
 export const metadata = {

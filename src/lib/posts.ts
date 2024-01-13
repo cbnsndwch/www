@@ -1,12 +1,21 @@
 import { ComponentType } from 'react';
+import { StaticImageData } from 'next/image';
 import glob from 'fast-glob';
 
-interface Post {
+export interface PostCover {
+    image?: StaticImageData;
+    title?: string;
+    creditUrl?: string;
+}
+
+export interface Post {
     title: string;
     description: string;
     author: string;
     date: string;
     draft?: boolean;
+    cover?: PostCover;
+    tags?: string[];
 }
 
 export interface PostWithSlug extends Post {

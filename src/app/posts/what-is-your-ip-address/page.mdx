@@ -1,11 +1,21 @@
 import PostLayout from '@/components/PostLayout';
 import Image from 'next/image';
 
+import coverImage from './cover.jpg';
+
 export const post = {
     author: 'Sergio Leon',
     date: '2024-01-12T20:54:00-04:00',
     title: 'What is your IP address?',
-    description: "Well, if you must know, it's all of them!",
+    description: `Well, if you must know, it's all of them!`,
+    cover: {
+        image: coverImage,
+        title: 'Image credit: Christoph Scholz',
+        creditUrl : 'https://www.flickr.com/photos/140988606@N08/28953519841',
+    },
+    tags: [
+        'software', 'ghl', 'Marketplace Apps', 'webhooks'
+    ]
 };
 
 export const metadata = {
@@ -13,18 +23,10 @@ export const metadata = {
     description: post.description,
 };
 
-import coverPic from './ipv4-ipv6.jpg';
 
 export default function (props) {
     return <PostLayout post={post} {...props} />;
 }
-
-<Image src={coverPic} alt="the OG sandwich of south florida" />
-<small><em>
-    <a href="https://www.flickr.com/photos/140988606@N08/28953519841" nofollower noreferrer>
-        Image credit: Christoph Scholz
-    </a>
-</em></small>
 
 This one's not very common, but every now and then someone will post in the Dev Council saying their customer or prospect is asking what their IP address is. Most of the time it's lead gen agencies that have a need to post data to their customers' servers, that need to get their IP addresses allow-listed.
 

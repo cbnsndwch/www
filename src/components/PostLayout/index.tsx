@@ -9,18 +9,8 @@ import { Prose } from '@/components/Prose';
 import { type PostWithSlug } from '@/lib/posts';
 import { formatDate } from '@/lib/formatDate';
 
-function ArrowLeftIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-    return (
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-            <path
-                d="M7.25 11.25 3.75 8m0 0 3.5-3.25M3.75 8h8.5"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
+import ArrowLeftIcon from './ArrowLeftIcon';
+import CoverImage from './CoverImage';
 
 type PostLayoutProps = {
     post: PostWithSlug;
@@ -61,6 +51,8 @@ export default function PostLayout({ post, children }: PostLayoutProps) {
                             </time>
                         </header>
                         <Prose className="mt-8" data-mdx-content>
+                            <CoverImage cover={post.cover} />
+
                             {children}
                         </Prose>
                     </article>

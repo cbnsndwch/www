@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 
-import { Card } from '@/components/Card';
+import Card from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { type PostWithSlug, getAllPosts } from '@/lib/posts';
 import { formatDate } from '@/lib/formatDate';

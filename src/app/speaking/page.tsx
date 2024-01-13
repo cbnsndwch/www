@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import type { Metadata } from 'next';
 
-import { Card } from '@/components/Card';
+import Card from '@/components/Card';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
 

@@ -1,6 +1,6 @@
 import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 
-import { Card } from '@/components/Card';
+import Card from '@/components/Card';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { Prose } from '@/components/Prose';

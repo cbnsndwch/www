@@ -1,11 +1,20 @@
 import PostLayout from '@/components/PostLayout';
 import Image from 'next/image';
 
+import coverImage from './the-og-sandwich-of-south-florida.jpg';
+
 export const post = {
     author: 'Sergio Leon',
     date: '2024-01-12T15:00:00-04:00',
     title: 'But what does "cbnsndwch" mean?',
     description: "It's not super obvious, I know, but it's fascinating!",
+    cover: {
+        image: coverImage,
+        title: 'Photo by yours truly'
+    },
+    tags: [
+        'cuban', 'culture', 'identity'
+    ]
 };
 
 export const metadata = {
@@ -13,13 +22,11 @@ export const metadata = {
     description: post.description,
 };
 
-import cbnsndwchPic from './the-og-sandwich-of-south-florida.jpg';
+
 
 export default function (props) {
     return <PostLayout post={post} {...props} />;
 }
-
-<Image src={cbnsndwchPic} alt="the OG sandwich of south florida" />
 
 First things first: I know it looks like a random string of letters, but it's not. It's a word, or rather a phrase, and it packs a lot of meaning that's so incredibly important to me I made it my online handle pretty much everywhere.
 
