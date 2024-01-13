@@ -5,11 +5,11 @@ import { SimpleLayout } from '@/components/SimpleLayout';
 import { type PostWithSlug, getAllPosts } from '@/lib/posts';
 import { formatDate } from '@/lib/formatDate';
 
-type PostProps = {
+type PostSummaryProps = {
     post: PostWithSlug;
 };
 
-function Post({ post }: PostProps) {
+function PostSummary({ post }: PostSummaryProps) {
     return (
         <article className="md:grid md:grid-cols-4 md:items-baseline">
             <Card className="md:col-span-3">
@@ -61,7 +61,7 @@ export default async function PostsIndex() {
                     )}
 
                     {posts.map((post) => (
-                        <Post key={post.slug} post={post} />
+                        <PostSummary key={post.slug} post={post} />
                     ))}
                 </div>
             </div>
