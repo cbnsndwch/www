@@ -27,7 +27,7 @@ type AppearanceProps = {
 function Appearance({ title, description, event, cta, href }: AppearanceProps) {
     return (
         <Card as="article">
-            <Card.Title as="h3" href={href}>
+            <Card.Title newTab as="h3" href={href}>
                 {title}
             </Card.Title>
             <Card.Eyebrow decorate>{event}</Card.Eyebrow>
