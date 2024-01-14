@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "codezombiech.gitignore",
+        "dbaeumer.vscode-eslint",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "jock.svg",
+        "shd101wyy.markdown-preview-enhanced",
+        "bradlc.vscode-tailwindcss"
+    ]
+}
