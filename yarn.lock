@@ -28,9 +28,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cbnsndwch/spotlight@workspace:.":
+"@cbnsndwch/www@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@cbnsndwch/spotlight@workspace:."
+  resolution: "@cbnsndwch/www@workspace:."
   dependencies:
     "@headlessui/react": "npm:^1.7.13"
     "@mapbox/rehype-prism": "npm:^0.9.0"
@@ -39,7 +39,7 @@ __metadata:
     "@next/mdx": "npm:13.4.16"
     "@tailwindcss/typography": "npm:^0.5.10"
     "@types/node": "npm:20.4.7"
-    "@types/react": "npm:18.2.18"
+    "@types/react": "npm:18.2.47"
     "@types/react-dom": "npm:18.2.18"
     "@types/webpack-env": "npm:^1.18.1"
     "@vercel/og": "npm:^0.6.2"
@@ -576,7 +576,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:>=16":
+"@types/react@npm:*, @types/react@npm:18.2.47, @types/react@npm:>=16":
   version: 18.2.47
   resolution: "@types/react@npm:18.2.47"
   dependencies:
@@ -584,17 +584,6 @@ __metadata:
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: e98ea1827fe60636d0f7ce206397159a29fc30613fae43e349e32c10ad3c0b7e0ed2ded2f3239e07bd5a3cba8736b6114ba196acccc39905ca4a06f56a8d2841
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:18.2.18":
-  version: 18.2.18
-  resolution: "@types/react@npm:18.2.18"
-  dependencies:
-    "@types/prop-types": "npm:*"
-    "@types/scheduler": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: 2f544da491f7fcfa91ef172945b9b0f3ed9aff48bdf644f557cdfbef363b5891e1b1b06f3510c8f361c72523b835ed72ef0320a0d03cddbdcc37ff198c212900
   languageName: node
   linkType: hard
 
