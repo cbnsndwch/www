@@ -1,9 +1,11 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 
 import Card from '@/components/Card';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import US from '@/components/Flags/US';
+import ES from '@/components/Flags/ES';
 
 function SpeakingSection({
     children,
@@ -16,19 +18,49 @@ function SpeakingSection({
     );
 }
 
+const FLAGS = {
+    en: US,
+    es: ES,
+};
+
+type SuppportedLanguage = keyof typeof FLAGS;
+
+export type TitleWithLanguageFlagProps = PropsWithChildren<{
+    lang?: SuppportedLanguage;
+}>;
+
+function TitleWithFlag({ lang = 'en', children }: TitleWithLanguageFlagProps) {
+    const FlagComponent = FLAGS[lang];
+
+    return (
+        <span className="rounded-fullpx-2 inline-flex items-center justify-center gap-2 leading-none">
+            <FlagComponent height={12} />
+            {children}
+        </span>
+    );
+}
+
 type AppearanceProps = {
-    title: string;
+    title: string | JSX.Element;
     description: string;
     event: string;
     cta: string;
     href: string;
+    lang?: SuppportedLanguage;
 };
 
-function Appearance({ title, description, event, cta, href }: AppearanceProps) {
+function Appearance({
+    title,
+    description,
+    event,
+    cta,
+    href,
+    lang = 'en',
+}: AppearanceProps) {
     return (
         <Card as="article">
             <Card.Title newTab as="h3" href={href}>
-                {title}
+                <TitleWithFlag lang={lang}>{title}</TitleWithFlag>
             </Card.Title>
             <Card.Eyebrow decorate>{event}</Card.Eyebrow>
             <Card.Description>{description}</Card.Description>
@@ -68,6 +100,24 @@ export default function Speaking() {
                         description="Go from zero to hero building apps for the HighLevel Marketplace."
                         event="Last updated: December 2023"
                         cta="View playlist"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="Lei Nai Shou">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=OsXmDRZyz-o&"
+                        title="1Nation Up Brand Boosters - Lei Nai Shou 190"
+                        description="Entrevistamos al equipo de 1Nation Up, una agencia de marketing en Miami. #Cuba #1NationUp #Miami"
+                        event="Lei Nai Shou EP190, May 2023"
+                        cta="Ver episodio"
+                        lang="es"
+                    />
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
+                        title="Sergio León - Lei Nai Shou 193"
+                        description="Conversamos con el ingeniero de telecomunicaciones Sergio León sobre Chat GPT y la nueva tecnología de inteligencia artificial! #ChatGpt #InteligenciaArtificial #Ai"
+                        event="Lei Nai Shou EP193, May 2023"
+                        cta="Ver episodio"
+                        lang="es"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="Propel Data">
