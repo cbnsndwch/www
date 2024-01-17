@@ -36,7 +36,7 @@ __metadata:
     "@mapbox/rehype-prism": "npm:^0.9.0"
     "@mdx-js/loader": "npm:^2.3.0"
     "@mdx-js/react": "npm:^2.3.0"
-    "@next/mdx": "npm:13.4.16"
+    "@next/mdx": "npm:13.5.6"
     "@tailwindcss/typography": "npm:^0.5.10"
     "@types/node": "npm:20.11.2"
     "@types/react": "npm:18.2.47"
@@ -460,9 +460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@next/mdx@npm:13.4.16":
-  version: 13.4.16
-  resolution: "@next/mdx@npm:13.4.16"
+"@next/mdx@npm:13.5.6":
+  version: 13.5.6
+  resolution: "@next/mdx@npm:13.5.6"
   dependencies:
     source-map: "npm:^0.7.0"
   peerDependencies:
@@ -473,7 +473,7 @@ __metadata:
       optional: true
     "@mdx-js/react":
       optional: true
-  checksum: 7850e874692ed3ddd2d2aa8048e126e6b3b8c57f68eb3386c7fd06c7c135640cfc2608d0a12b2539277a664a3aa91bb9109f98ad308185b0ecf71f8e8b195580
+  checksum: f545888320c90676b4160371edf88eb3a9382a9f2dadc32828e71a1f34a0f13a8c211948ccb35d45df1af816b0543e40d0320bb276c8428ea7c0ef4113b799da
   languageName: node
   linkType: hard
 
