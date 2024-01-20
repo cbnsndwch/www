@@ -3,9 +3,9 @@ import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Providers } from '@/app/providers';
+import { NEXT_RUNTIME } from '@/lib/runtime';
 import { Layout } from '@/components/Layout';
 import EngagementWidget from '@/components/EngagementWidget';
-import { NEXT_RUNTIME } from '@/lib/runtime';
 
 import '@/styles/tailwind.css';
 
