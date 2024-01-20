@@ -12,6 +12,7 @@ import '@/styles/tailwind.css';
 export const runtime = NEXT_RUNTIME;
 
 export const metadata: Metadata = {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
     title: {
         template: '%s - Sergio Leon',
         default:
