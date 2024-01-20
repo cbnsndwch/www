@@ -8,7 +8,7 @@ import EngagementWidget from '@/components/EngagementWidget';
 
 import '@/styles/tailwind.css';
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
