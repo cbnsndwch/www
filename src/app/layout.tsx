@@ -3,13 +3,12 @@ import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { Providers } from '@/app/providers';
-import { NEXT_RUNTIME } from '@/lib/runtime';
 import { Layout } from '@/components/Layout';
 import EngagementWidget from '@/components/EngagementWidget';
 
 import '@/styles/tailwind.css';
 
-export const runtime = NEXT_RUNTIME;
+export const runtime = 'edge';
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
