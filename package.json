@@ -4,12 +4,14 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
+        "pages": "npx @cloudflare/next-on-pages",
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
         "format": "prettier --write ./src"
     },
     "dependencies": {
+        "@cloudflare/next-on-pages": "^1.8.5",
         "@headlessui/react": "^1.7.13",
         "@mapbox/rehype-prism": "^0.9.0",
         "@mdx-js/loader": "^2.3.0",

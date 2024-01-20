@@ -8,6 +8,9 @@ import EngagementWidget from '@/components/EngagementWidget';
 
 import '@/styles/tailwind.css';
 
+export const runtime =
+    process.env.NEXT_PUBLIC_USE_EDGE === '1' ? 'edge' : undefined;
+
 export const metadata: Metadata = {
     title: {
         template: '%s - Sergio Leon',
