@@ -1,7 +1,11 @@
-import PostLayout from '@/components/PostLayout';
 import Image from 'next/image';
 
+import PostLayout from '@/components/PostLayout';
+import { NEXT_RUNTIME } from '@/lib/runtime';
+
 import coverImage from './cover.jpg';
+
+export const runtime = NEXT_RUNTIME;
 
 export const post = {
     author: 'Sergio Leon',

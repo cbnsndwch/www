@@ -5,11 +5,11 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Providers } from '@/app/providers';
 import { Layout } from '@/components/Layout';
 import EngagementWidget from '@/components/EngagementWidget';
+import { NEXT_RUNTIME } from '@/lib/runtime';
 
 import '@/styles/tailwind.css';
 
-export const runtime =
-    process.env.NEXT_PUBLIC_USE_EDGE === '1' ? 'edge' : undefined;
+export const runtime = NEXT_RUNTIME;
 
 export const metadata: Metadata = {
     title: {
