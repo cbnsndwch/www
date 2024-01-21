@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: process.env.BUILDKIT_STEP_NAME ? 'standalone' : undefined,
     pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'mdx'],
 };
 
