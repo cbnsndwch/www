@@ -39,6 +39,10 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 ENV YARN_VERSION=4.0.2
+
+# use the docker-specific next.config.js with output: standalone
+RUN mv ./next.docker.mjs ./next.config.mjs
+
 RUN yarn build
 
 # Production image, copy all the files and run next
