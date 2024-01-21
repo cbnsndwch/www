@@ -46,6 +46,9 @@ WORKDIR /app
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
+
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
