@@ -11,8 +11,8 @@ RUN apt update && apt upgrade -y
 # install and use yarn 4.x
 RUN corepack enable && corepack prepare yarn@${YARN_VERSION}
 
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+# RUN addgroup --system --gid 1001 nodejs
+# RUN adduser --system --uid 1001 nextjs
 
 FROM base AS builder
 
@@ -33,6 +33,7 @@ ARG NEXT_PUBLIC_SITE_URL
 ARG VITE_ENGAGEMENT_WIDGET_ID
 
 RUN yarn build
+RUN cd .next/standalone && yarn add sharp
 
 # Production image, copy all the files and run next
 FROM base AS runner
@@ -44,23 +45,23 @@ WORKDIR /app
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
-RUN chown nextjs:nodejs .next
+RUN chown node:node .next
 
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn ./.yarn
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 
-# install only production dependencies
-RUN yarn workspaces focus --production
+# # install only production dependencies
+# RUN yarn add sharp
 
-# change ownership of the app directory to non-root user
-RUN chown -R nextjs:nodejs /app
+# # change ownership of the app directory to non-root user
+# RUN chown -R node:node /app
 
-USER nextjs
+USER node
 
 EXPOSE 3000
 
