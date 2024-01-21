@@ -1,40 +1,50 @@
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
+
+# Disable Next.js telemetry
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV YARN_VERSION=4.0.2
+
+RUN apk add --no-cache libc6-compat
+# update dependencies, add libc6-compat and dumb-init to the base image
+RUN apk update && apk upgrade 
+RUN apk add --no-cache libc6-compat && apk add dumb-init
+
+# install and use yarn 4.x
+RUN corepack enable && corepack prepare yarn@${YARN_VERSION}
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
 # Install dependencies only when needed
 FROM base AS deps
 
-# Disable Next.js telemetry
-ENV NEXT_TELEMETRY_DISABLED 1
-
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Install dependencies based on the preferred package manager
-COPY package.json yarn.lock .yarn/ .yarnrc.yml ./
-RUN yarn --frozen-lockfile
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
+
+RUN yarn install --immutable
 
 # Rebuild the source code only when needed
 FROM base AS builder
+
 WORKDIR /app
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Disable Next.js telemetry
-ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+ENV YARN_VERSION=4.0.2
 RUN yarn build
 
 # Production image, copy all the files and run next
 FROM base AS runner
+
 WORKDIR /app
-
-ENV NODE_ENV production
-
-# Disable Next.js telemetry
-ENV NEXT_TELEMETRY_DISABLED 1
-
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
