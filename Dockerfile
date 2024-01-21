@@ -1,4 +1,4 @@
-FROM node:20-alpine AS base
+FROM node:20-bookworm-slim AS base
 
 # Disable Next.js telemetry
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -6,10 +6,7 @@ ENV NODE_ENV=production
 ENV YARN_VERSION=4.0.2
 ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 
-RUN apk add --no-cache libc6-compat
-# update dependencies, add libc6-compat and dumb-init to the base image
-RUN apk update && apk upgrade 
-RUN apk add --no-cache libc6-compat && apk add dumb-init
+RUN apt update && apt upgrade -y
 
 # install and use yarn 4.x
 RUN corepack enable && corepack prepare yarn@${YARN_VERSION}
@@ -17,8 +14,7 @@ RUN corepack enable && corepack prepare yarn@${YARN_VERSION}
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Install dependencies only when needed
-FROM base AS deps
+FROM base AS builder
 
 WORKDIR /app
 
@@ -28,18 +24,7 @@ COPY .yarn ./.yarn
 
 RUN yarn install --immutable
 
-# Rebuild the source code only when needed
-FROM base AS builder
-
-WORKDIR /app
-
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Disable Next.js telemetry
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_ENV=production
-ENV YARN_VERSION=4.0.2
 
 # use the docker-specific next.config.js with output: standalone
 RUN mv ./next.docker.mjs ./next.config.mjs
@@ -71,6 +56,9 @@ ENV PORT 3000
 
 # set hostname to localhost
 ENV HOSTNAME "0.0.0.0"
+
+# install only production dependencies
+RUN yarn workspaces focus --production
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
