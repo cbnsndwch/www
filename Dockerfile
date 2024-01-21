@@ -4,6 +4,7 @@ FROM node:20-alpine AS base
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 ENV YARN_VERSION=4.0.2
+ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 
 RUN apk add --no-cache libc6-compat
 # update dependencies, add libc6-compat and dumb-init to the base image
