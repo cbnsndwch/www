@@ -35,7 +35,8 @@ ARG VITE_ENGAGEMENT_WIDGET_ID
 RUN yarn build
 
 # install sharp in the standalone output
-WORKDIR /app/.next/standalone
+WORKDIR /tmp
+RUN cp -r /app/.next/standalone/* .
 RUN yarn add sharp
 
 # Production image, copy all the files and run next
