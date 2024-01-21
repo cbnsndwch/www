@@ -29,6 +29,9 @@ COPY . .
 # use the docker-specific next.config.js with output: standalone
 RUN mv ./next.docker.mjs ./next.config.mjs
 
+ARG NEXT_PUBLIC_SITE_URL
+ARG VITE_ENGAGEMENT_WIDGET_ID
+
 RUN yarn build
 
 # Production image, copy all the files and run next

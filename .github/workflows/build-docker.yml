@@ -51,6 +51,10 @@ jobs:
           context: .
           push: true
           platforms: linux/arm64
+          buiild-args: |
+            NEXT_PUBLIC_SITE_URL=https://www.cbnsndwch.net
+            VITE_ENGAGEMENT_WIDGET_ID=Y9_VZOB8OVhrETHt
+
           # platforms: linux/amd64,linux/arm64
           labels: ${{ steps.metadata.outputs.labels }}
           tags: |
