@@ -33,7 +33,10 @@ ARG NEXT_PUBLIC_SITE_URL
 ARG VITE_ENGAGEMENT_WIDGET_ID
 
 RUN yarn build
-RUN cd .next/standalone && yarn add sharp
+
+# install sharp in the standalone output
+WORKDIR /app/.next/standalone
+RUN yarn add sharp
 
 # Production image, copy all the files and run next
 FROM base AS runner
