@@ -55,7 +55,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 # install only production dependencies
-RUN yarn install --production
+RUN yarn workspaces focus --production
 
 # change ownership of the app directory to non-root user
 RUN chown -R nextjs:nodejs /app
