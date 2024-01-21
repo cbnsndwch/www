@@ -50,7 +50,8 @@ FROM base AS runner
 
 WORKDIR /app
 
-COPY --from=builder /app/public ./public
+# uncomment this line when we have a public folder
+# COPY --from=builder /app/public ./public
 
 # Set the correct permission for prerender cache
 RUN mkdir .next
