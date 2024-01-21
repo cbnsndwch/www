@@ -51,7 +51,7 @@ jobs:
           context: .
           push: true
           platforms: linux/arm64
-          buiild-args: |
+          build-args: |
             NEXT_PUBLIC_SITE_URL=https://www.cbnsndwch.net
             VITE_ENGAGEMENT_WIDGET_ID=Y9_VZOB8OVhrETHt
 
