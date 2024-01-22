@@ -12,5 +12,5 @@ export default createSvgIcon(
         </g>
     </>,
     'FlagUS',
-    '0 0 513 342'
+    '0 0 513 342',
 );
