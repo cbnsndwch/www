@@ -53,7 +53,7 @@ __metadata:
     feed: "npm:^4.2.2"
     next: "npm:13.5.6"
     next-themes: "npm:^0.2.1"
-    postcss: "npm:8.4.23"
+    postcss: "npm:8.4.33"
     prettier: "npm:^3.2.4"
     prettier-plugin-tailwindcss: "npm:^0.5.2"
     react: "npm:18.2.0"
@@ -5230,17 +5230,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.23":
-  version: 8.4.23
-  resolution: "postcss@npm:8.4.23"
-  dependencies:
-    nanoid: "npm:^3.3.6"
-    picocolors: "npm:^1.0.0"
-    source-map-js: "npm:^1.0.2"
-  checksum: 35c2e26496be286a63706a0b8240fc4d2075a746466df530989208f60ea33cbc80c89420221cffb7d4fdd605afc385993f5f60302447e3047a7c0a8756b6471d
-  languageName: node
-  linkType: hard
-
 "postcss@npm:8.4.31":
   version: 8.4.31
   resolution: "postcss@npm:8.4.31"
@@ -5252,7 +5241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.23":
+"postcss@npm:8.4.33, postcss@npm:^8.4.23":
   version: 8.4.33
   resolution: "postcss@npm:8.4.33"
   dependencies:
