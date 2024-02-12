@@ -3,7 +3,7 @@
 import { type CSSProperties, type ElementRef, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { Container } from '@/components/Container';
+import Container from '@/components/Container';
 
 import MobileNavigation from './MobileNavigation';
 import DesktopNavigation from './DesktopNavigation';

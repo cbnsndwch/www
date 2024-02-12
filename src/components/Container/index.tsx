@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import ContainerOuter from './Outer';
 import ContainerInner from './Inner';
 
-export const Container = forwardRef<
+const Container = forwardRef<
     React.ElementRef<typeof ContainerOuter>,
     React.ComponentPropsWithoutRef<typeof ContainerOuter>
 >(function Container({ children, ...props }, ref) {
@@ -13,3 +13,5 @@ export const Container = forwardRef<
         </ContainerOuter>
     );
 });
+
+export default Container;

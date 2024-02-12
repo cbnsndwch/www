@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-import { Container } from '@/components/Container';
+import Container from '@/components/Container';
 
 type SimpleLayoutProps = PropsWithChildren<{
     title: string;
