@@ -43,7 +43,7 @@ __metadata:
     "@types/react-dom": "npm:18.2.18"
     "@types/webpack-env": "npm:^1.18.1"
     "@vercel/og": "npm:^0.6.2"
-    "@vercel/speed-insights": "npm:1.0.4"
+    "@vercel/speed-insights": "npm:1.0.10"
     autoprefixer: "npm:^10.4.17"
     cheerio: "npm:^1.0.0-rc.12"
     clsx: "npm:^1.2.1"
@@ -936,10 +936,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/speed-insights@npm:1.0.4":
-  version: 1.0.4
-  resolution: "@vercel/speed-insights@npm:1.0.4"
-  checksum: 10c0/ba313a98b9dfc5eb639c5353a25fae49e75a63b5e4c6a0b90df555d2a79394f2a87e2f72b8c9ba27f5c42d0d87ed90210ca2943fa2712313b8df0c165f0038f4
+"@vercel/speed-insights@npm:1.0.10":
+  version: 1.0.10
+  resolution: "@vercel/speed-insights@npm:1.0.10"
+  peerDependencies:
+    "@sveltejs/kit": ^1 || ^2
+    next: ">= 13"
+    react: ^18 || ^19
+    svelte: ^4
+    vue: ^3
+    vue-router: ^4
+  peerDependenciesMeta:
+    "@sveltejs/kit":
+      optional: true
+    next:
+      optional: true
+    react:
+      optional: true
+    svelte:
+      optional: true
+    vue:
+      optional: true
+    vue-router:
+      optional: true
+  checksum: 10c0/b1c2f91b153d0203e3571e75a775fe457c1d61eb1954601ae63fff0903694b48a0684ea1761c3618ccda4bef3bf1ec1a7ffdf34c18ffd35079f202cf6372e139
   languageName: node
   linkType: hard
 
