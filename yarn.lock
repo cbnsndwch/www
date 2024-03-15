@@ -39,7 +39,7 @@ __metadata:
     "@next/mdx": "npm:13.5.6"
     "@tailwindcss/typography": "npm:^0.5.10"
     "@types/node": "npm:20.11.5"
-    "@types/react": "npm:18.2.48"
+    "@types/react": "npm:18.2.66"
     "@types/react-dom": "npm:18.2.18"
     "@types/webpack-env": "npm:^1.18.1"
     "@vercel/og": "npm:^0.6.2"
@@ -822,14 +822,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.2.48":
-  version: 18.2.48
-  resolution: "@types/react@npm:18.2.48"
+"@types/react@npm:18.2.66":
+  version: 18.2.66
+  resolution: "@types/react@npm:18.2.66"
   dependencies:
     "@types/prop-types": "npm:*"
     "@types/scheduler": "npm:*"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/7e89f18ea2928b1638f564b156d692894dcb9352a7e0a807873c97e858abe1f23dbd165a25dd088a991344e973fdeef88ba5724bfb64504b74072cbc9c220c3a
+  checksum: 10c0/56e4b841f2daf03a0b3268d4f2bcf5841167fe56742b9f1c076fad66587fb59191bdaba4d5727dbfbcff750d5e8797fdd4e57d8d9704b0bfc6ad31ee1e268a70
   languageName: node
   linkType: hard
 
