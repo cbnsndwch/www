@@ -38,7 +38,7 @@ __metadata:
     "@mdx-js/react": "npm:^2.3.0"
     "@next/mdx": "npm:13.5.6"
     "@tailwindcss/typography": "npm:^0.5.10"
-    "@types/node": "npm:20.11.5"
+    "@types/node": "npm:20.12.2"
     "@types/react": "npm:18.2.48"
     "@types/react-dom": "npm:18.2.18"
     "@types/webpack-env": "npm:^1.18.1"
@@ -786,12 +786,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:20.11.5":
+"@types/node@npm:*":
   version: 20.11.5
   resolution: "@types/node@npm:20.11.5"
   dependencies:
     undici-types: "npm:~5.26.4"
   checksum: 10c0/6d18cec852f5cfbed3ec42b5c01c026e7a3f9da540d6e3d6738d4cee9979fb308cf27b6df7ba40a6553e7bc82e678f0ef53ba6e6ad52e5b86bd97b7783c2a42c
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:20.12.2":
+  version: 20.12.2
+  resolution: "@types/node@npm:20.12.2"
+  dependencies:
+    undici-types: "npm:~5.26.4"
+  checksum: 10c0/bb47d115a8f95aadebdd6403fee16d149d6b5568ad53bacc42df34c2d572561e36ba47b05f7f68bada43752d7369b470a90df65b646af7502dfb799a21b4fca7
   languageName: node
   linkType: hard
 
