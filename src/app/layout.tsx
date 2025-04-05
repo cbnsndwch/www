@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Providers } from '@/app/providers';
 import { Layout } from '@/components/Layout';
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                     </div>
                 </Providers>
                 <SpeedInsights />
+                <Analytics />
                 <EngagementWidget
                     widgetId={process.env.VITE_ENGAGEMENT_WIDGET_ID || ''}
                 />
