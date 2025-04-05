@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren } from 'react';
+import type { ComponentPropsWithoutRef, PropsWithChildren, ReactElement } from 'react';
 import type { Metadata } from 'next';
 
 import Card from '@/components/Card';
@@ -23,10 +23,10 @@ const FLAGS = {
     es: ES,
 };
 
-type SuppportedLanguage = keyof typeof FLAGS;
+type SupportedLanguage = keyof typeof FLAGS;
 
 export type TitleWithLanguageFlagProps = PropsWithChildren<{
-    lang?: SuppportedLanguage;
+    lang?: SupportedLanguage;
 }>;
 
 function TitleWithFlag({ lang = 'en', children }: TitleWithLanguageFlagProps) {
@@ -41,12 +41,12 @@ function TitleWithFlag({ lang = 'en', children }: TitleWithLanguageFlagProps) {
 }
 
 type AppearanceProps = {
-    title: string | JSX.Element;
+    title: string | ReactElement;
     description: string;
     event: string;
     cta: string;
     href: string;
-    lang?: SuppportedLanguage;
+    lang?: SupportedLanguage;
 };
 
 function Appearance({
@@ -106,7 +106,7 @@ export default function Speaking() {
                     <Appearance
                         href="https://www.youtube.com/watch?v=OsXmDRZyz-o&"
                         title="1Nation Up Brand Boosters - Lei Nai Shou 190"
-                        description="Entrevistamos al equipo de 1Nation Up, una agencia de marketing en Miami. #Cuba #1NationUp #Miami"
+                        description="Entrevistamos al equipo de 1NationUp, una agencia de marketing en Miami. #Cuba #1NationUp #Miami"
                         event="Lei Nai Shou EP190, May 2023"
                         cta="Ver episodio"
                         lang="es"

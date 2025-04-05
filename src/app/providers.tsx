@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { ThemeProvider, useTheme } from 'next-themes';
 
 function usePrevious<T>(value: T) {
-    let ref = useRef<T>();
+    let ref = useRef<T>(null);
 
     useEffect(() => {
         ref.current = value;
@@ -38,7 +38,7 @@ function ThemeWatcher() {
     return null;
 }
 
-export const AppContext = createContext<{ previousPathname?: string }>({});
+export const AppContext = createContext<{ previousPathname?: string | null }>({});
 
 export function Providers({ children }: { children: React.ReactNode }) {
     let pathname = usePathname();
