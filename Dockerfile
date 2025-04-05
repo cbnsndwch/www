@@ -25,7 +25,7 @@ COPY . .
 RUN mv ./next.docker.mjs ./next.config.mjs
 
 ARG NEXT_PUBLIC_SITE_URL
-ARG VITE_ENGAGEMENT_WIDGET_ID
+ARG NEXT_PUBLIC_ENGAGEMENT_WIDGET_ID
 
 RUN yarn build
 

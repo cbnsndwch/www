@@ -41,7 +41,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 <SpeedInsights />
                 <Analytics />
                 <EngagementWidget
-                    widgetId={process.env.VITE_ENGAGEMENT_WIDGET_ID || ''}
+                    widgetId={process.env.NEXT_PUBLIC_ENGAGEMENT_WIDGET_ID || ''}
                 />
             </body>
         </html>

@@ -55,7 +55,7 @@ jobs:
           platforms: linux/arm64
           build-args: |
             NEXT_PUBLIC_SITE_URL=https://www.cbnsndwch.net
-            VITE_ENGAGEMENT_WIDGET_ID=Y9_VZOB8OVhrETHt
+            NEXT_PUBLIC_ENGAGEMENT_WIDGET_ID=Y9_VZOB8OVhrETHt
 
           labels: ${{ steps.metadata.outputs.labels }}
           tags: |

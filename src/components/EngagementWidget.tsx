@@ -27,14 +27,13 @@ export default function EngagementWidget({
 
     const widgetData = useMemo(
         () => ({
-            async: '1',
-            crossorigin: '1',
-            type: 'module',
-            id: 'engagementWidget',
-            src: 'https://cdn.chatwidgets.net/widget/livechat/bundle.js',
-            'data-env': 'portal-api',
-            'data-instance': widgetId,
+            'crossorigin': 1,
+            'type': 'module',
+            'id': 'engagementWidget',
+            'src': 'https://cdn.chatwidgets.net/widget/livechat/bundle.js',
+            'data-env': '//graph.mycrmsupport.net',
             'data-container': '#engagement-widget-container',
+            'data-instance': widgetId,
         }),
         [widgetId],
     );
@@ -42,7 +41,7 @@ export default function EngagementWidget({
     useEffect(() => {
         const script = document.createElement('script');
         Object.entries(widgetData).forEach(([k, v]) =>
-            script.setAttribute(k, v),
+            script.setAttribute(k, `${v}`),
         );
         document.body.appendChild(script);
     }, [widgetData]);
