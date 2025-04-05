@@ -3,11 +3,12 @@ import type { Metadata } from 'next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/react';
 
+import '@/styles/tailwind.css';
+
+
 import { Providers } from '@/app/providers';
 import { Layout } from '@/components/Layout';
 import EngagementWidget from '@/components/EngagementWidget';
-
-import '@/styles/tailwind.css';
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
