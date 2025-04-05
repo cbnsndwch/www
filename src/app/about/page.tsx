@@ -47,7 +47,8 @@ function SocialLink({
 //     );
 // }
 
-const description = 'Not your ordinary dev.';
+const description =
+    'Knowledge collector, tallbike rider, software crafter, event host, OSS contributor.';
 
 export const metadata: Metadata = {
     title: 'About',
@@ -73,35 +74,49 @@ export default function About() {
                         {description}
                     </h1>
                     <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-                        <p>
-                            Today, I’m the CTO and Co-Founder of{' '}
+                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                            I&apos;m Serge and I&apos;m the VP of Engineering at{' '}
                             <Link
-                                href="https://www.chathq.io"
+                                href="https://getextendly.com"
                                 className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                                target="_blank"
                             >
-                                ChatHQ
+                                Extendly
                             </Link>
-                            , where
-                            <em>
-                                {' '}
-                                we help marketing agencies and SaaS startups
-                                increase Monthly Recurring Revenue and customer
-                                retention
-                            </em>
-                            , and{' '}
+                            , where we help marketing agency owners make their
+                            HighLevel journey easier, and the CTO and Co-Founder
+                            of{' '}
                             <Link
                                 href="https://www.1nationup.com"
                                 className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                                target="_blank"
                             >
                                 1NationUp
                             </Link>
-                            ,{' '}
-                            <em>
-                                the One-Stop-Shop branding and marketing
-                                partners for thousands of small businesses
-                                across South Florida
-                            </em>
-                            .
+                            , the one-stop-shop branding and marketing partners
+                            for thousands of small businesses across South
+                            Florida.
+                        </p>
+                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                            I'm also the co-host of{' '}
+                            <Link
+                                href="https://lu.ma/hello_miami"
+                                className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                                target="_blank"
+                            >
+                                Hack Nights by hello_miami
+                            </Link>
+                            , a weekly mini-hackathon bringing engineers,
+                            developers and designers to connect with other
+                            technical folks in Miami and build cool projects
+                            together.
+                        </p>
+                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                            I&apos;m an avid cyclist, sci-fi fan, and music
+                            lover. I&apos;m currently on a mission to help
+                            software developers and agency owners deliver
+                            software applications to the HighLevel Apps
+                            Marketplace. Come on in!
                         </p>
                     </div>
                 </div>

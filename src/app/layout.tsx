@@ -10,16 +10,16 @@ import '@/styles/tailwind.css';
 
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
-    twitter:{
+    twitter: {
         card: 'summary_large_image',
     },
     title: {
         template: '%s - Sergio Leon',
         default:
-            'Sergio Leon - knowledge collector, tallbike rider, software crafter.',
+            'Sergio Leon - knowledge collector, tallbike rider, software crafter, event host, OSS contributor.',
     },
     description:
-        'I’m the CTO and Co-Founder of ChatHQ, where we help marketing agencies and SaaS startups increase Monthly Recurring Revenue and customer retention, and 1NationUp, the One-Stop-Shop branding and marketing partners for thousands of small businesses across South Florida.',
+        'I’m VP of Engineering at Extendly, where we help marketing agency owners make their HighLevel journey easier, and the CTO and Co-Founder 1NationUp, the One-Stop-Shop branding and marketing partners for thousands of small businesses across South Florida',
     alternates: {
         types: {
             'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
