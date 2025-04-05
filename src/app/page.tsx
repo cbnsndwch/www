@@ -15,11 +15,14 @@ import PostSummaryList from '@/components/Home/PostSummaryList';
 
 import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
 
+import logoExtendly from '@/images/logos/extendly.svg';
+import logoHelloMiami from '@/images/logos/hello-miami.svg';
 import logoChatHQ from '@/images/logos/chathq.svg';
 import logo1NationUp from '@/images/logos/1nationup.svg';
 import logoNowl from '@/images/logos/nowl.png';
 import logoCujae from '@/images/logos/cujae.svg';
 import logoKhph from '@/images/logos/khph.png';
+
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
@@ -175,14 +178,31 @@ function Role({ role }: { role: Role }) {
 function Resume() {
     let resume: Array<Role> = [
         {
-            company: 'ChatHQ',
-            title: 'CTO && Co-Founder',
-            logo: logoChatHQ,
-            start: '2021',
+            company: 'Hack Night @ hello_miami',
+            title: 'Co-Host',
+            logo: logoHelloMiami,
+            start: '2025',
             end: {
                 label: 'Present',
                 dateTime: new Date().getFullYear().toString(),
             },
+        },
+        {
+            company: 'Extendly LLC',
+            title: 'VP Engineering',
+            logo: logoExtendly,
+            start: '2024',
+            end: {
+                label: 'Present',
+                dateTime: new Date().getFullYear().toString(),
+            },
+        },
+        {
+            company: 'ChatHQ',
+            title: 'CTO && Co-Founder',
+            logo: logoChatHQ,
+            start: '2021',
+            end: '2024',
         },
         {
             company: '1NationUp',
