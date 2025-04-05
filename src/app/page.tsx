@@ -326,7 +326,7 @@ export default async function Home() {
                         thousands of small businesses across South Florida.
                     </p>
                     <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-                        I'm also the co-host of{' '}
+                        I&apos;m also the co-host of{' '}
                         <Link
                             href="https://lu.ma/hello_miami"
                             className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
