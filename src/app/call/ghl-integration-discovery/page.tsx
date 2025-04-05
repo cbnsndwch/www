@@ -24,6 +24,33 @@ export default function BookGhlIntegartionDiscoveryCall() {
                 id="IISw0HjboChm3kmItS5S_1707771903047"
                 link={CALENDAR_LINK}
             />
+
+            <iframe
+                id="inline-fuxVsAYeDri7WxSorR76"
+                src="https://link.1nationup.com/widget/form/fuxVsAYeDri7WxSorR76"
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    borderRadius: '3px',
+                }}
+                data-layout="{'id':'INLINE'}"
+                data-trigger-type="alwaysShow"
+                data-trigger-value=""
+                data-activation-type="alwaysActivated"
+                data-activation-value=""
+                data-deactivation-type="neverDeactivate"
+                data-deactivation-value=""
+                data-form-name="GHL Integrations Appointment Request"
+                data-height="654"
+                data-layout-iframe-id="inline-fuxVsAYeDri7WxSorR76"
+                data-form-id="fuxVsAYeDri7WxSorR76"
+                title="GHL Integrations Appointment Request"
+            ></iframe>
+            <script
+                async
+                src="https://link.1nationup.com/js/form_embed.js"
+            ></script>
         </Container>
     );
 }
