@@ -52,5 +52,5 @@
         "webpack": "^5.98.0"
     },
     "browserslist": "defaults, not ie <= 11",
-    "packageManager": "yarn@4.8.1"
+    "packageManager": "yarn@4.9.1"
 }
