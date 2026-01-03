@@ -1,0 +1,1 @@
+update the examples in the `.github/prompts/*` files to reflect the current project (i.e.: instead of references to the project we copied them from).
