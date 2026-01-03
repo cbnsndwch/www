@@ -109,7 +109,7 @@ export default function TechStack() {
                             without you having to write a single line of code.
                             It&apos;s a great fit for apps that are hosted on a
                             CDN like CloudFlare Pages or Vercel, since it
-                            doesn&apos;t have connection astablishment overhead
+                            doesn&apos;t have connection establishment overhead
                             is stateless unlike regular database connections.
                         </Prose>
                     </Tool>
@@ -178,7 +178,7 @@ export default function TechStack() {
                         <Prose>
                             This one is kinda pricey but it&apos;s definitely
                             worth it. It talks to pretty much any database you
-                            can think of: Posgtres, MySQL, MSSQL Server, Oracle,
+                            can think of: Postgres, MySQL, MSSQL Server, Oracle,
                             SQLite, MongoDB, Redis. It has specialized
                             connection profiles for all the top managed cloud DB
                             providers, too.
@@ -222,7 +222,7 @@ export default function TechStack() {
                     </Tool>
                 </ToolsSection> */}
 
-                <ToolsSection title="Workstation">
+                {/* <ToolsSection title="Workstation">
                     <Tool
                         title="ASUS ROG Zephyrus Laptop, 40GB RAM"
                         href="https://rog.asus.com/laptops/rog-zephyrus/rog-zephyrus-m15-series/spec/"
@@ -260,7 +260,7 @@ export default function TechStack() {
                             rush.
                         </Prose>
                     </Tool>
-                </ToolsSection>
+                </ToolsSection> */}
             </div>
         </SimpleLayout>
     );
