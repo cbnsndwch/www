@@ -42,7 +42,7 @@
     "@types/webpack-env": "^1.18.8",
     "@vercel/og": "^0.6.8",
     "eslint": "9.24.0",
-    "eslint-config-next": "15.2.4",
+    "eslint-config-next": "15.2.8",
     "npm-check-updates": "^17.1.16",
     "postcss": "^8.5.3",
     "prettier": "^3.5.3",
