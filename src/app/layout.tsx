@@ -21,7 +21,7 @@ export const metadata: Metadata = {
             'Sergio Leon - knowledge collector, tallbike rider, software crafter, event host, OSS contributor.',
     },
     description:
-        'I’m VP of Engineering at Extendly, where we help marketing agency owners make their HighLevel journey easier, and the CTO and Co-Founder 1NationUp, the One-Stop-Shop branding and marketing partners for thousands of small businesses across South Florida',
+        'I’m CTO at Extendly, where we help marketing agency owners make their HighLevel journey easier, and the CTO and Co-Founder 1NationUp, the One-Stop-Shop branding and marketing partners for thousands of small businesses across South Florida',
     alternates: {
         types: {
             'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
