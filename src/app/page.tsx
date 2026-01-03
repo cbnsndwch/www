@@ -189,7 +189,7 @@ function Resume() {
         },
         {
             company: 'Extendly LLC',
-            title: 'VP Engineering',
+            title: 'CTO',
             logo: logoExtendly,
             start: '2024',
             end: {
@@ -198,21 +198,21 @@ function Resume() {
             },
         },
         {
-            company: 'ChatHQ',
-            title: 'CTO && Co-Founder',
-            logo: logoChatHQ,
-            start: '2021',
-            end: '2024',
-        },
-        {
             company: '1NationUp',
-            title: 'CTO && Co-Founder',
+            title: 'CTO | Co-Founder',
             logo: logo1NationUp,
             start: '2019',
             end: {
                 label: 'Present',
                 dateTime: new Date().getFullYear().toString(),
             },
+        },
+        {
+            company: 'ChatHQ (acqd.)',
+            title: 'CTO | Co-Founder',
+            logo: logoChatHQ,
+            start: '2021',
+            end: '2024',
         },
         {
             company: 'Night Owl SP',
@@ -223,14 +223,14 @@ function Resume() {
         },
         {
             company: "Ke Hay Pa' Hoy?",
-            title: 'CTO && Co-Founder',
+            title: 'CTO | Co-Founder',
             logo: logoKhph,
             start: '2015',
             end: '2016',
         },
         {
             company: 'Technical University of Havana',
-            title: 'Instructor && Software Engineer',
+            title: 'Instructor | Software Engineer',
             logo: logoCujae,
             start: '2012',
             end: '2016',
