@@ -33,7 +33,7 @@ function TitleWithFlag({ lang = 'en', children }: TitleWithLanguageFlagProps) {
     const FlagComponent = FLAGS[lang];
 
     return (
-        <span className="rounded-fullpx-2 inline-flex items-center justify-center gap-2 leading-none">
+        <span className="rounded-full px-2 inline-flex items-center justify-center gap-2 leading-none">
             <FlagComponent height={12} />
             {children}
         </span>
@@ -114,7 +114,7 @@ export default function Speaking() {
                     <Appearance
                         href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
                         title="Sergio León - Lei Nai Shou 193"
-                        description="Conversamos con el ingeniero de telecomunicaciones Sergio León sobre Chat GPT y la nueva tecnología de inteligencia artificial! #ChatGpt #InteligenciaArtificial #Ai"
+                        description="Conversamos con el ingeniero de telecomunicaciones Sergio León sobre ChatGPT y la nueva tecnología de inteligencia artificial! #ChatGpt #InteligenciaArtificial #Ai"
                         event="Lei Nai Shou EP193, May 2023"
                         cta="Ver episodio"
                         lang="es"
@@ -124,7 +124,7 @@ export default function Speaking() {
                     <Appearance
                         href="https://www.linkedin.com/events/chathq-llms-analyticsandthepowe7117905754963013632"
                         title="ChatHQ: LLMs, Analytics and the power of white label Conversion Rate Optimization Software"
-                        description="On Using Artifical Intelligence (AI), Large Language Models (LLMS), and Analytics to power white label Conversion Rate Optmization for businesses."
+                        description="On Using Artifical Intelligence (AI), Large Language Models (LLMs), and Analytics to power white label Conversion Rate Optimization for businesses."
                         event="Propel Data Stream on LinkedIn Live, March 2023"
                         cta="Watch replay"
                     />
@@ -142,7 +142,7 @@ export default function Speaking() {
                     <Appearance
                         href="https://www.youtube.com/watch?v=kXeX-9GaNVQ"
                         title="Increase Engagement with Customizable Widgets"
-                        description="On building branded, contex-rich experiences for brands by driving website traffic engagement."
+                        description="On building branded, context-rich experiences for brands by driving website traffic engagement."
                         event="HighLevel Spotlight Sessions, March 2023"
                         cta="Watch episode"
                     />
