@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - sharp
+
+onlyBuiltDependencies:
+  - '@vercel/speed-insights'
+  - unrs-resolver
