@@ -32,6 +32,7 @@ pnpm format   # Prettier
 **Server Components by Default**: Use React Server Components unless client interactivity is required. Mark client components with `'use client'` directive.
 
 **Compound Components**: Components like `Card` use compound pattern (see [src/components/Card/index.tsx](src/components/Card/index.tsx)):
+
 ```tsx
 <Card>
   <Card.Title href="/posts/example">Post Title</Card.Title>
@@ -85,6 +86,7 @@ Post types are defined in [src/lib/posts/contracts.ts](src/lib/posts/contracts.t
 ## Role-Specific Instructions
 
 Detailed instructions for specific roles are in [.github/instructions/](.github/instructions/):
+
 - `developer.instructions.md` — Code implementation guidelines
 - `documentation-specialist.instructions.md` — Content creation patterns
 - `product-manager.instructions.md` — Strategic planning
