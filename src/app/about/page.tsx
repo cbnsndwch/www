@@ -126,28 +126,28 @@ export default function About() {
                             href="https://twitter.com/cbnsndwch"
                             icon={TwitterIcon}
                         >
-                            Follow on Twitter
+                            X
                         </SocialLink>
                         <SocialLink
                             href="https://www.facebook.com/cbnsndwch"
                             icon={FacebookIcon}
                             className="mt-4"
                         >
-                            Follow on Facebook
+                            Facebook
                         </SocialLink>
                         <SocialLink
                             href="https://github.com/cbnsndwch"
                             icon={GitHubIcon}
                             className="mt-4"
                         >
-                            Follow on GitHub
+                            GitHub
                         </SocialLink>
                         <SocialLink
                             href="https://www.linkedin.com/in/cbnsndwch/"
                             icon={LinkedInIcon}
                             className="mt-4"
                         >
-                            Follow on LinkedIn
+                            LinkedIn
                         </SocialLink>
                         {/* <SocialLink
                             href="mailto:intro@cbnsndwch.io"
