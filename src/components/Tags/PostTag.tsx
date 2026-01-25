@@ -14,7 +14,7 @@ export default function PostTag({ title, color = 'cyan' }: PostTagProps) {
     return (
         <span
             className={clsx(
-                'inline-flex items-center rounded-md px-2 text-xs',
+                'inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider',
                 COLORS[color] ?? COLORS.cyan
             )}
         >
