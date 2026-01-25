@@ -21,7 +21,7 @@ export const metadata = {
 };
 
 export default function (props) {
-    return <PostLayout post={post} {...props} />;
+    return <PostLayout post={post} {...props} />;w
 }
 
 This one's not very common, but every now and then someone will post in the Dev Council saying their customer or prospect is asking what their IP address is. Most of the time it's lead gen agencies that have a need to post data to their customers' servers, that need to get their IP addresses allow-listed.
@@ -52,7 +52,7 @@ See [IP addresses on GCP's Docs](https://cloud.google.com/vpc/docs/ip-addresses)
 
 If your customer won't open up their firewall to the entirety of AWS and GCP (I wouldn't blame them, to be honest), you next best option would be to run a webhooks server that can receive the requests from HighLevel and then forward them to your customer's server. This way, you can give them a single IP address to allow-list, and you can also add some security measures to your webhooks server, like authentication and rate limiting.
 
-Honestly, this is the better option, albeit being a bit more involved. It's not that hard to set up, and it's a good way to add some security to your webhooks server. If the idea of running your own servevr does not scare you you might want to look into running your own instance of [N8N](https://n8n.io/), which is an open-source alternative to Zapier. It's a great tool, and it's free to use. You can run it on your own server, and it has a built-in webhook server that you can use to receive webhooks from HighLevel and then forward them to your customer's server.
+Honestly, this is the better option, albeit being a bit more involved. It's not that hard to set up, and it's a good way to add some security to your webhooks server. If the idea of running your own server does not scare you you might want to look into running your own instance of [N8N](https://n8n.io/), which is an open-source alternative to Zapier. It's a great tool, and it's free to use. You can run it on your own server, and it has a built-in webhook server that you can use to receive webhooks from HighLevel and then forward them to your customer's server.
 
 ## Feedback welcome!
 

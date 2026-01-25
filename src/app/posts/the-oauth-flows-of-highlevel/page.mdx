@@ -37,7 +37,7 @@ export default function (props) {
     return <PostLayout post={post} {...props} />;
 }
 
-HighLevel's API v2 uses the OAuth 2.0 Authorization Code flow for authentication. This means that in order for your app or integration to make API calls, you'll need to implement an OAuth client that can receive Authorzation Codes, exchange them for a pair of `Access Token` + `Refresh Token`, and save them both to persistent storage for continued use.
+HighLevel's API v2 uses the OAuth 2.0 Authorization Code flow for authentication. This means that in order for your app or integration to make API calls, you'll need to implement an OAuth client that can receive Authorization Codes, exchange them for a pair of `Access Token` + `Refresh Token`, and save them both to persistent storage for continued use.
 
 See the [Authorization page in HighLevel's API docs](https://highlevel.stoplight.io/docs/integrations/a04191c0fabf9-authorization) for a getting-started guide and a list of all the scopes available.
 
