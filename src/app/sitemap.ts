@@ -73,7 +73,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.75
         });
 
-        let updatesUrl = String(new URL(`/projects/${project.slug}/updates`, siteUrl));
+        let updatesUrl = String(
+            new URL(`/projects/${project.slug}/updates`, siteUrl)
+        );
         map.push({
             url: updatesUrl,
             lastModified: new Date(),
@@ -86,7 +88,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     for (let update of updates) {
         let url = String(
-            new URL(`/projects/${update.projectSlug}/updates/${update.slug}`, siteUrl)
+            new URL(
+                `/projects/${update.projectSlug}/updates/${update.slug}`,
+                siteUrl
+            )
         );
 
         map.push({

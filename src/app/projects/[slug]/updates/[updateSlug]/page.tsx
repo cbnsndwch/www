@@ -1,10 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-import {
-    getAllProjectUpdates,
-    getProjectUpdates
-} from '@/lib/projects/utils';
+import { getAllProjectUpdates, getProjectUpdates } from '@/lib/projects/utils';
 import Container from '@/components/Container';
 import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';

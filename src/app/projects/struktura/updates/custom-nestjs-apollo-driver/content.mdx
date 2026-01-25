@@ -1,12 +1,14 @@
 export const update = {
     title: 'Technical Deep Dive: Custom NestJS Apollo Driver',
     date: '2025-12-25',
-    description: 'Refactoring the backend to use a custom NestJS Apollo Driver for finer control.'
+    description:
+        'Refactoring the backend to use a custom NestJS Apollo Driver for finer control.'
 };
 
 Performance and flexibility are critical for our GraphQL API. To meet our specific requirements, we've refactored our backend to use a custom **NestJS Apollo Driver**.
 
 Standard adapters are great, but sometimes you need more control. By implementing a custom driver in `libs/nest-apollo`, we've gained:
+
 - Finer control over the Apollo Server instance.
 - Better integration with our specific NestJS dependency injection needs.
 - Streamlined configuration for our modular architecture.
