@@ -1,23 +1,30 @@
-import PostLayout from '@/components/PostLayout';
 import Image from 'next/image';
+
+import PostLayout from '@/components/PostLayout';
+import authorAvatar from '@/images/authors/hamlet.png';
 
 import coverImage from './http-401-403.jpeg';
 
 export const post = {
     author: 'Hamlet Arencibia',
+    authorAvatar,
     date: '2024-01-19T15:00:00-04:00',
     title: 'HTTP: 401 and 403',
     description: 'To unauthorize or to forbid, that is the question!',
     cover: {
         image: coverImage,
-        title: 'Meme by a me, myself and I',
+        title: 'Meme by a me, myself and I'
     },
     tags: ['http', 'error', 'authorization'],
+    guest: {
+        firstAppearedOn: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/hamletarencibia/'
+    }
 };
 
 export const metadata = {
     title: post.title,
-    description: post.description,
+    description: post.description
 };
 
 export default function (props) {

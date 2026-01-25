@@ -1,23 +1,30 @@
-import PostLayout from '@/components/PostLayout';
 import Image from 'next/image';
+
+import PostLayout from '@/components/PostLayout';
+import authorAvatar from '@/images/authors/hamlet.png';
 
 import coverImage from './third-party-api.jpeg';
 
 export const post = {
     author: 'Hamlet Arencibia',
+    authorAvatar,
     date: '2024-01-18T21:00:00-04:00',
     title: 'Third Party APIs',
     description: 'To outsource or to build, that is the question!',
     cover: {
         image: coverImage,
-        title: 'Powered by Bing Chat',
+        title: 'Powered by Bing Chat'
     },
     tags: ['programming', 'api', 'coding', 'integration'],
+    guest: {
+        firstAppearedOn: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/hamletarencibia/'
+    }
 };
 
 export const metadata = {
     title: post.title,
-    description: post.description,
+    description: post.description
 };
 
 export default function (props) {

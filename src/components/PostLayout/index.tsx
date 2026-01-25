@@ -2,12 +2,18 @@
 
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 import { AppContext } from '@/app/providers';
 import Container from '@/components/Container';
 import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';
-import { type PostWithSlug, isGuestPost } from '@/lib/posts/contracts';
+import {
+    type PostWithSlug,
+    isGuestPost,
+    isOwnPost
+} from '@/lib/posts/contracts';
+import avatarImage from '@/images/avatar.jpg';
 
 import ArrowLeftIcon from './ArrowLeftIcon';
 import CoverImage from './CoverImage';
@@ -61,9 +67,28 @@ export default function PostLayout({ post, children }: PostLayoutProps) {
                                 />
                             )}
 
-                            <p className="mt-3 pl-px text-sm font-light">
-                                by {post.author}
-                            </p>
+                            <div className="mt-6 flex items-center justify-between border-y border-zinc-100 py-6 dark:border-zinc-700/40">
+                                <div className="flex items-center gap-3">
+                                    <Image
+                                        src={post.authorAvatar || avatarImage}
+                                        alt={post.author}
+                                        className="h-10 w-10 border border-zinc-200 rounded-full bg-zinc-100 object-cover dark:border-zinc-700 dark:bg-zinc-800"
+                                    />
+                                    <div className="flex flex-col">
+                                        <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                                            {post.author}
+                                        </span>
+                                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                                            Author
+                                        </span>
+                                    </div>
+                                </div>
+                                {!isOwnPost(post) && (
+                                    <span className="inline-flex items-center rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-800 ring-1 ring-inset ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-500 dark:ring-amber-500/20">
+                                        Guest Post
+                                    </span>
+                                )}
+                            </div>
 
                             {isGuestPost(post) && (
                                 <GuestPostAcknowledgement post={post} />

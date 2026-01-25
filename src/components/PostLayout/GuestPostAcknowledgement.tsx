@@ -7,7 +7,7 @@ export type GuestPostAcknowledgementProps = {
 };
 
 export default function GuestPostAcknowledgement({
-    post,
+    post
 }: GuestPostAcknowledgementProps) {
     return (
         <p className="mt-4 text-sm italic">

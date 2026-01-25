@@ -1,26 +1,28 @@
 import PostLayout from '@/components/PostLayout';
+import authorAvatar from '@/images/authors/seankerr.png';
 
 import coverImage from './cover.webp';
 
 export const post = {
     author: 'Sean Kerr',
+    authorAvatar,
     date: '2023-11-17',
     title: 'Decrypting HighLevel SSO sessions using Python',
     description: 'Discover how to decrypt HighLevel SSO sessions using Python.',
     cover: {
         image: coverImage,
-        title: 'The beauty of web APIs is that you can use your preferred language to interact with them',
+        title: 'The beauty of web APIs is that you can use your preferred language to interact with them'
     },
     tags: ['software', 'ghl', 'Marketplace Apps', 'sso', 'python'],
     guest: {
         firstAppearedOn: 'seankerr.dev',
-        url: 'https://seankerr.dev/posts/decrypting-highlevel-sso-session-using-python',
-    },
+        url: 'https://seankerr.dev/posts/decrypting-highlevel-sso-session-using-python'
+    }
 };
 
 export const metadata = {
     title: post.title,
-    description: post.description,
+    description: post.description
 };
 
 export default function (props) {
@@ -58,8 +60,8 @@ Ahhh! There it was. That doesn’t look like PBKDF2. It’s EVPKDF! That was the
 
 The crux of the problem is two parts:
 
--   CryptoJS is using the same prefix as OpenSSL when encrypting AES data.
--   It’s using MD5 instead of SHA256 as a hashing mechanism, and it only does a single iteration instead of thousands (more secure).
+- CryptoJS is using the same prefix as OpenSSL when encrypting AES data.
+- It’s using MD5 instead of SHA256 as a hashing mechanism, and it only does a single iteration instead of thousands (more secure).
 
 These two factors will invariably lead others to make the same assumption I did, which is why I’m writing this post.
 
