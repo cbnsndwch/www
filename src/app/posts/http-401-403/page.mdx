@@ -1,0 +1,52 @@
+import PostLayout from '@/components/PostLayout';
+import Image from 'next/image';
+
+import coverImage from './http-401-403.jpeg';
+
+export const post = {
+    author: 'Hamlet Arencibia',
+    date: '2024-01-19T15:00:00-04:00',
+    title: 'HTTP: 401 and 403',
+    description: 'To unauthorize or to forbid, that is the question!',
+    cover: {
+        image: coverImage,
+        title: 'Meme by a me, myself and I',
+    },
+    tags: ['http', 'error', 'authorization'],
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description,
+};
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+
+}
+
+HTTP has a lot of codes to identify the status on the responses. We have 200 when everything is OK. The 404 code when something is nowhere to be found. Error 500 when
+that something went **Kaboom**!
+
+But there is a pair that takes its pride in confusing developers on when to use them. I'm talking about 401 and 403. Unauthorized and Forbidden, respectivelly. Now wait
+a second, doesn't those words mean the same? Well, yes... and no.
+
+## To unauthorize or to forbid
+
+To understand the difference between the significance of those status let us picture a real life scenario.
+
+Imagine you are trying to enter home, but you don't have the right key. That's a 401(Unauthorized). Now imagine you find the right key, managed to enter home and are
+trying to enter your teenage sister's room. That's a 403(Forbidden).
+
+So the intention with status code 401(Unauthorized) is to represent a case where you can't have access to a resource because your authentication credentials are
+invalid. Expired credentials should also trigger this kind of error. With oauth and the credential's scopes, things can get a little tricky, but that will depend on
+how and where those scopes are checked. To summarize, any authorization error at authentication level, should return a 401(Unauthorized).
+
+In the case of 403(Forbidden) the idea is to represent an authorization error after the authentication. Your credentials are valid. You can access resources. But
+you don't have permission to access that specific resource.
+
+## So they both mean the same
+
+Technically, yes. They both mean the same. You simply don't have access. But they tell you when that error was triggered. An invalid credentials error is not the
+same as a permission constraint. Both issues are addressed in entirely different ways. Hence the need for two status codes that mean the same, yes, but are not the
+same, also yes.
