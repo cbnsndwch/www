@@ -18,7 +18,7 @@ async function importUpdate(
     )) as UpdateModule;
 
     return {
-        slug: updateFilename.replace(/(\/page)?\.mdx$/, ''),
+        slug: updateFilename.replace(/(\/content)?\.mdx$/, ''),
         projectSlug,
         ...update
     };
@@ -39,7 +39,7 @@ export async function getProjectUpdates(
         `src/app/projects/${projectSlug}/updates`
     );
 
-    let updateFilenames = await glob('**/page.mdx', {
+    let updateFilenames = await glob('**/content.mdx', {
         cwd: updatesDirectory
     });
 
