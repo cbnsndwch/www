@@ -1,0 +1,17 @@
+export const update = {
+    title: 'Engineering Excellence: Migrating E2E Tests to Playwright',
+    date: '2026-01-02',
+    description: 'Shifting to true browser-based testing with Vitest and Playwright.'
+};
+
+Reliability is non-negotiable. We've completed a major migration of our End-to-End (E2E) testing infrastructure to use **Vitest Browser Mode** with **Playwright**.
+
+**Why the change?**
+Previously, some component tests relied on mocking internal router hooks, which led to fragile tests that didn't reflect real user behavior. By shifting to a true browser-based approach, we solved 37 failing tests and gained significant confidence in our release pipeline.
+
+**The New Setup:**
+- **Real Browser Testing:** Tests run in Chromium via Playwright, simulating actual user interactions.
+- **No More Mocking Routers:** We test the app exactly as it runs in production.
+- **Enhanced DX:** Developers can now use the Vitest UI to watch tests run in real-time.
+
+This migration ensures that when all checks pass, the application really works for our users.
