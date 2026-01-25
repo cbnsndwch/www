@@ -1,0 +1,65 @@
+import Image from 'next/image';
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logoHighlighter from '@/images/logos/projects/remix-v3-html-highlighter.png';
+import coverImage from './cover.png';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon, VSCodeIcon } from '@/components/SocialIcons';
+import Tweet from '@/components/Tweet';
+
+export const project = {
+    name: 'Remix v3 HTML Highlighter',
+    description:
+        'A VS Code extension that provides native syntax highlighting for HTML in Remix tagged templates without extra comments.',
+    logo: logoHighlighter,
+    link: {
+        href: 'https://github.com/cbnsndwch/remix-v3-html-highlighter',
+        label: 'cbnsndwch/remix-v3-html-highlighter',
+        icon: GitHubIcon
+    },
+    secondaryLink: {
+        href: 'https://marketplace.visualstudio.com/items?itemName=cbnsndwch.remix-v3-html-highlighter',
+        label: 'VS Code Marketplace',
+        icon: VSCodeIcon
+    },
+    tech: [
+        'VS Code Extension',
+        'TypeScript',
+        'Remix',
+        'TextMate Grammars',
+        'ESM',
+        'PNPM',
+        'GitHub Actions'
+    ],
+    order: 4,
+    date: '2026-01-25'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('remix-v3-html-highlighter');
+
+    return (
+        <ProjectLayout
+            project={{ slug: 'remix-v3-html-highlighter', ...project }}
+            updates={updates}
+            {...props}
+        />
+    );
+}
+
+<Tweet id="1998610829118148884" />
+
+**Remix v3 HTML Highlighter** is the definitive VS Code extension for developers building modern web interfaces with Remix and tagged templates. Originally a fork of `comment-tagged-templates`, this project has evolved to offer a "zero-config" experience, removing the need for manual comment markers while focusing exclusively on high-performance HTML syntax highlighting.
+
+<Image
+    src={coverImage}
+    alt="Remix v3 HTML Highlighter in action"
+    className="my-10 rounded-2xl shadow-xl border border-zinc-200 dark:border-zinc-700"
+/>
+
+By stripping away support for miscellaneous languages and focusing strictly on the Remix ecosystem, we provide a stable, lean, and conflict-free editor experience. Whether you're using legacy comment-style tags or the new bare `html` tagged templates, this extension ensures your code is beautiful and readable from day one.
+
