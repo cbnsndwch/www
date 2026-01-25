@@ -1,0 +1,18 @@
+export const update = {
+    title: 'Modular CI/CD & Versioning Tools',
+    description: 'Introducing automation tools for versioning, tagging, and changelog management.',
+    date: '2025-04-06',
+    author: 'Sergio Leon'
+};
+
+Our CI/CD pipeline is now more modular and maintainable. We've split monolithic workflows into focused, reusable components. To complement this, we've introduced new automation tools:
+
+- **`version-bump.ts`**: A script to automate Semantic Versioning updates.
+- **`create-version-tag.ts`**: A utility for creating and pushing Git tags during releases.
+- **`update-changelog.ts`**: Automated management of our project history.
+
+## Automation Benefits
+
+- **Consistent Versioning**: Automated bumps based on commit messages.
+- **Release Clarity**: Tags and changelogs are always in sync with the codebase.
+- **Maintainer Efficiency**: Less manual work for each release.
