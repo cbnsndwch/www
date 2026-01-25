@@ -45,7 +45,7 @@ export function Header() {
             let scrollY = clamp(
                 window.scrollY,
                 0,
-                document.body.scrollHeight - window.innerHeight,
+                document.body.scrollHeight - window.innerHeight
             );
 
             if (isInitial.current) {
@@ -97,7 +97,7 @@ export function Header() {
 
             setProperty(
                 '--avatar-image-transform',
-                `translate3d(${x}rem, 0, 0) scale(${scale})`,
+                `translate3d(${x}rem, 0, 0) scale(${scale})`
             );
 
             let borderScale = 1 / (toScale / scale);
@@ -107,7 +107,7 @@ export function Header() {
             setProperty('--avatar-border-transform', borderTransform);
             setProperty(
                 '--avatar-border-opacity',
-                scale === toScale ? '1' : '0',
+                scale === toScale ? '1' : '0'
             );
         }
 
@@ -133,27 +133,27 @@ export function Header() {
                 className="pointer-events-none relative z-50 flex flex-none flex-col"
                 style={{
                     height: 'var(--header-height)',
-                    marginBottom: 'var(--header-mb)',
+                    marginBottom: 'var(--header-mb)'
                 }}
             >
                 {isHomePage && (
                     <>
                         <div
                             ref={avatarRef}
-                            className="order-last mt-[calc(theme(spacing.16)-theme(spacing.3))]"
+                            className="order-last mt-[calc(--spacing(16)-(--spacing(3)))]"
                         />
                         <Container
                             className="top-0 order-last -mb-3 pt-3"
                             style={{
                                 position:
-                                    'var(--header-position)' as CSSProperties['position'],
+                                    'var(--header-position)' as CSSProperties['position']
                             }}
                         >
                             <div
-                                className="top-[var(--avatar-top,theme(spacing.3))] w-full"
+                                className="top-(--avatar-top,--spacing(3)) w-full"
                                 style={{
                                     position:
-                                        'var(--header-inner-position)' as CSSProperties['position'],
+                                        'var(--header-inner-position)' as CSSProperties['position']
                                 }}
                             >
                                 <div className="relative">
@@ -163,7 +163,7 @@ export function Header() {
                                             opacity:
                                                 'var(--avatar-border-opacity, 0)',
                                             transform:
-                                                'var(--avatar-border-transform)',
+                                                'var(--avatar-border-transform)'
                                         }}
                                     />
                                     <Avatar
@@ -171,7 +171,7 @@ export function Header() {
                                         className="block h-16 w-16 origin-left"
                                         style={{
                                             transform:
-                                                'var(--avatar-image-transform)',
+                                                'var(--avatar-image-transform)'
                                         }}
                                     />
                                 </div>
@@ -184,14 +184,14 @@ export function Header() {
                     className="top-0 z-10 h-16 pt-6"
                     style={{
                         position:
-                            'var(--header-position)' as CSSProperties['position'],
+                            'var(--header-position)' as CSSProperties['position']
                     }}
                 >
                     <Container
-                        className="top-[var(--header-top,theme(spacing.6))] w-full"
+                        className="top-(--header-top,--spacing(6)) w-full"
                         style={{
                             position:
-                                'var(--header-inner-position)' as CSSProperties['position'],
+                                'var(--header-inner-position)' as CSSProperties['position']
                         }}
                     >
                         <div className="relative flex gap-4">

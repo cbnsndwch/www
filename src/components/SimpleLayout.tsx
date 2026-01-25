@@ -19,7 +19,7 @@ export function SimpleLayout({ title, intro, children }: SimpleLayoutProps) {
                 {paragraphs.map((p, i) => (
                     <p
                         key={i}
-                        className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
+                        className="mt-6 text-base text-zinc-700 dark:text-zinc-400"
                     >
                         {p}
                     </p>

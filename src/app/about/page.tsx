@@ -73,8 +73,8 @@ export default function About() {
                     <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                         {description}
                     </h1>
-                    <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    <div className="mt-6 space-y-7 text-base text-zinc-700 dark:text-zinc-400">
+                        <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                             I&apos;m Serge and I&apos;m the VP of Engineering at{' '}
                             <Link
                                 href="https://getextendly.com"
@@ -97,7 +97,7 @@ export default function About() {
                             for thousands of small businesses across South
                             Florida.
                         </p>
-                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                        <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                             I&apos;m also the co-host of{' '}
                             <Link
                                 href="https://lu.ma/hello_miami"
@@ -111,7 +111,7 @@ export default function About() {
                             technical folks in Miami and build cool projects
                             together.
                         </p>
-                        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                        <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                             I&apos;m an avid cyclist, sci-fi fan, and music
                             lover. I&apos;m currently on a mission to help
                             software developers and agency owners deliver

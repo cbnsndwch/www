@@ -5,6 +5,7 @@
         "Ahhh",
         "Artifical",
         "ASUS",
+        "automations",
         "chathq",
         "Conversamos",
         "Cujae",
@@ -37,5 +38,36 @@
         "THESALT",
         "unpad",
         "unpadded"
-    ]
+    ],
+    "debug.inlineValues": "on",
+    "editor.rulers": [
+        80
+    ],
+    "eslint.lintTask.options": "-c .eslintrc.vscode.js",
+    "eslint.workingDirectories": [
+        "apps/main"
+    ],
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        ".env": ".env.*",
+        ".eslintrc.cjs": ".eslintrc.*.cjs,.eslintignore",
+        ".eslintrc.js": ".eslintrc.*.js,.eslintignore",
+        ".eslintrc.json": ".eslintrc.*.json,.eslintignore",
+        ".gitignore": ".gitkeep,.gitattributes",
+        ".prettierrc": ".prettierignore",
+        ".prettierrc.json": ".prettierrc.*.json,.prettierignore",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.http",
+        "*.json": "${capture}.js,${capture}.ts",
+        "*.ts": "${capture}.js,${capture}.spec.ts,${capture}.spec-d.ts,${capture}.spec.tsx,${capture}.spec-d.tsx,${capture}.options.ts,${capture}.test.ts,${capture}.test-d.ts,${capture}.test.tsx,${capture}.test-d.tsx,${capture}.stories.ts,${capture}.stories.tsx,${capture}.mdx",
+        "*.tsx": "${capture}.jsx,${capture}.spec.tsx,${capture}.spec-d.tsx,${capture}.test.tsx,${capture}.test-d.tsx,${capture}.stories.tsx,${capture}.stories.ts,${capture}.mdx",
+        "package.json": "package-lock.json,yarn.lock,pnpm-lock.yaml",
+        "tsconfig.json": "tsconfig.*.json,tsconfig.tsbuildinfo",
+        "typedoc.config.js": "typedoc.*.jsonc, typedoc.*.json",
+        "vitest.config.ts": "vitest.*.config.ts"
+    },
+    "files.associations": {
+        ".env": "dotenv",
+        "*.css": "tailwindcss"
+    },
+    "files.eol": "\n"
 }
