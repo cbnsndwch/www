@@ -2,7 +2,6 @@ import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-import { SimpleLayout } from '@/components/SimpleLayout';
 import Card from '@/components/Card';
 import { formatDate } from '@/lib/formatDate';
 import { getAllProjects, getProjectUpdates } from '@/lib/projects/utils';

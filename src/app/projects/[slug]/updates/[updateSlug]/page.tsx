@@ -1,7 +1,10 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-import { getAllProjectUpdates } from '@/lib/projects/utils';
+import {
+    getAllProjectUpdates,
+    getProjectUpdates
+} from '@/lib/projects/utils';
 import Container from '@/components/Container';
 import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';
@@ -23,10 +26,8 @@ export default async function ProjectUpdatePage({
     params
 }: ProjectUpdatePageProps) {
     const { slug, updateSlug } = await params;
-    const allUpdates = await getAllProjectUpdates();
-    const update = allUpdates.find(
-        u => u.projectSlug === slug && u.slug === updateSlug
-    );
+    const projectUpdates = await getProjectUpdates(slug);
+    const update = projectUpdates.find(u => u.slug === updateSlug);
 
     if (!update) {
         notFound();
