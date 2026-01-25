@@ -11,13 +11,17 @@ type ProjectModule = {
 };
 
 async function importProject(projectFilename: string): Promise<ProjectWithSlug> {
-    const { project } = (await import(
+    const module = (await import(
         `../../app/projects/${projectFilename}`
     )) as ProjectModule;
 
+    if (!module.project) {
+        throw new Error(`Project exports missing in ${projectFilename}`);
+    }
+
     return {
         slug: projectFilename.replace(/(\/page)?\.mdx$/, ''),
-        ...project
+        ...module.project
     };
 }
 
