@@ -27,6 +27,7 @@ export interface Project {
     secondaryLink?: ProjectLink;
     tech?: string[];
     draft?: boolean;
+    order?: number;
     date: string; // Launch or latest update
 }
 

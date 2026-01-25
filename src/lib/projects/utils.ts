@@ -10,7 +10,9 @@ type ProjectModule = {
     project: Project;
 };
 
-async function importProject(projectFilename: string): Promise<ProjectWithSlug> {
+async function importProject(
+    projectFilename: string
+): Promise<ProjectWithSlug> {
     const module = (await import(
         `../../app/projects/${projectFilename}`
     )) as ProjectModule;
@@ -44,10 +46,13 @@ export async function getAllProjects(includeDrafts = false) {
         projects = projects.filter(project => !project.draft);
     }
 
-    // Sort by name or date if available
-    const sortedProjects = projects.sort(
-        (a, z) => +new Date(z.date) - +new Date(a.date)
-    );
+    // Sort by explicit order first, then by date
+    const sortedProjects = projects.sort((a, z) => {
+        if (a.order !== undefined || z.order !== undefined) {
+            return (a.order ?? Infinity) - (z.order ?? Infinity);
+        }
+        return +new Date(z.date) - +new Date(a.date);
+    });
 
     return sortedProjects;
 }
