@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
 export default function ChevronRightIcon(
-    props: ComponentPropsWithoutRef<'svg'>,
+    props: ComponentPropsWithoutRef<'svg'>
 ) {
     return (
         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>

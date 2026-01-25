@@ -3,7 +3,7 @@ import type { ComponentPropsWithoutRef } from 'react';
 import { NavItem } from './NavItem';
 
 export default function DesktopNavigation(
-    props: ComponentPropsWithoutRef<'nav'>,
+    props: ComponentPropsWithoutRef<'nav'>
 ) {
     return (
         <nav {...props}>

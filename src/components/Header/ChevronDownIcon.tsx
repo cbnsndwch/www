@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 export default function ChevronDownIcon(
-    props: ComponentPropsWithoutRef<'svg'>,
+    props: ComponentPropsWithoutRef<'svg'>
 ) {
     return (
         <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>

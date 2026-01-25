@@ -15,6 +15,7 @@ export interface Post {
     title: string;
     description: string;
     author: string;
+    authorAvatar?: StaticImageData;
     date: string;
 
     // Optional properties
@@ -36,17 +37,9 @@ export interface PostWithSlug extends Post {
 }
 
 export function isOwnPost(post: Post) {
-    return !post.guest;
+    return post.author === 'Sergio Leon' || post.author === 'cbnsndwch';
 }
 
 export function isGuestPost(post: Post): post is GuestPost {
-    if (!post.guest) {
-        return false;
-    }
-
-    if (!post.guest.firstAppearedOn || !post.guest.url) {
-        return false;
-    }
-
-    return true;
+    return !isOwnPost(post) && !!post.guest;
 }

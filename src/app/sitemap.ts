@@ -13,32 +13,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url: siteUrl,
             lastModified: new Date(),
             changeFrequency: 'always',
-            priority: 1,
+            priority: 1
         },
         {
             url: `${siteUrl}/about`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
-            priority: 0.9,
+            priority: 0.9
         },
         {
             url: `${siteUrl}/speaking`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
-            priority: 0.8,
+            priority: 0.8
         },
         {
             url: `${siteUrl}/tech-stack`,
             lastModified: new Date(),
             changeFrequency: 'weekly',
-            priority: 0.8,
+            priority: 0.8
         },
         {
             url: `${siteUrl}/posts`,
             lastModified: new Date(),
             changeFrequency: 'daily',
-            priority: 0.8,
-        },
+            priority: 0.8
+        }
     ];
 
     const posts = await getAllPosts();
@@ -50,7 +50,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             url,
             lastModified: new Date(post.date),
             changeFrequency: 'monthly',
-            priority: 0.65,
+            priority: 0.65
         });
     }
 

@@ -16,5 +16,5 @@ export default createSvgIcon(
         />
     </>,
     'FlagES',
-    '0 0 22.5 15',
+    '0 0 22.5 15'
 );

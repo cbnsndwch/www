@@ -8,7 +8,7 @@ import {
     GitHubIcon,
     FacebookIcon,
     LinkedInIcon,
-    TwitterIcon,
+    TwitterIcon
 } from '@/components/SocialIcons';
 import portraitImage from '@/images/portrait.jpg';
 
@@ -16,7 +16,7 @@ function SocialLink({
     className,
     href,
     children,
-    icon: Icon,
+    icon: Icon
 }: {
     className?: string;
     href: string;
@@ -52,7 +52,7 @@ const description =
 
 export const metadata: Metadata = {
     title: 'About',
-    description,
+    description
 };
 
 export default function About() {

@@ -10,7 +10,7 @@ export type GhlCalendarProps = {
 export default function GhlCalendar({
     id,
     link,
-    className = '',
+    className = ''
 }: GhlCalendarProps) {
     return (
         <div className="w-full grow h-full">
@@ -23,7 +23,7 @@ export default function GhlCalendar({
                     minHeight: 800,
                     border: 'none',
                     overflow: 'hidden',
-                    background: 'transparent',
+                    background: 'transparent'
                 }}
                 scrolling="no"
             ></iframe>

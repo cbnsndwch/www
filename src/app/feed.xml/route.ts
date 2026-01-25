@@ -11,7 +11,7 @@ export async function GET(req: Request) {
 
     let author = {
         name: 'Sergio Leon',
-        email: 'intro@cbnsndwch.io',
+        email: 'intro@cbnsndwch.io'
     };
 
     let feed = new Feed({
@@ -25,15 +25,15 @@ export async function GET(req: Request) {
         favicon: `${siteUrl}/favicon.ico`,
         copyright: `All rights reserved ${new Date().getFullYear()}`,
         feedLinks: {
-            rss2: `${siteUrl}/feed.xml`,
-        },
+            rss2: `${siteUrl}/feed.xml`
+        }
     });
 
     let articleIds = require
         .context('../posts', true, /\/page\.mdx$/)
         .keys()
-        .filter((key) => key.startsWith('./'))
-        .map((key) => key.slice(2).replace(/\/page\.mdx$/, ''));
+        .filter(key => key.startsWith('./'))
+        .map(key => key.slice(2).replace(/\/page\.mdx$/, ''));
 
     for (let id of articleIds) {
         let url = String(new URL(`/posts/${id}`, req.url));
@@ -57,7 +57,7 @@ export async function GET(req: Request) {
             content,
             author: [author],
             contributor: [author],
-            date: new Date(date),
+            date: new Date(date)
         });
     }
 
@@ -65,7 +65,7 @@ export async function GET(req: Request) {
         status: 200,
         headers: {
             'content-type': 'application/xml',
-            'cache-control': 's-maxage=31556952',
-        },
+            'cache-control': 's-maxage=31556952'
+        }
     });
 }

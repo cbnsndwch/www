@@ -1,4 +1,8 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren, ReactElement } from 'react';
+import type {
+    ComponentPropsWithoutRef,
+    PropsWithChildren,
+    ReactElement
+} from 'react';
 import type { Metadata } from 'next';
 
 import Card from '@/components/Card';
@@ -20,7 +24,7 @@ function SpeakingSection({
 
 const FLAGS = {
     en: US,
-    es: ES,
+    es: ES
 };
 
 type SupportedLanguage = keyof typeof FLAGS;
@@ -55,7 +59,7 @@ function Appearance({
     event,
     cta,
     href,
-    lang = 'en',
+    lang = 'en'
 }: AppearanceProps) {
     return (
         <Card as="article">
@@ -71,7 +75,7 @@ function Appearance({
 
 export const metadata: Metadata = {
     title: 'Speaking',
-    description: 'I’ve been interviewed on a few really cool podcasts.',
+    description: 'I’ve been interviewed on a few really cool podcasts.'
     // 'I’ve spoken at events all around the world and been interviewed for many podcasts.',
 };
 
@@ -82,7 +86,7 @@ export default function Speaking() {
             intro={[
                 "Welcome to my digital hub, where I specialize in educating developers and marketing agencies on the intricacies of building apps for the HighLevel Marketplace. Through my YouTube channel, I delve into the specifics of app development, offering tutorials, tips, and industry insights. My content is designed to empower both aspiring and experienced developers with the knowledge and tools needed to thrive in this dynamic marketplace. It's a resource-rich platform where learning and practical application go hand-in-hand.",
                 "In addition to my YouTube channel, I have had the opportunity to share my experiences and perspectives on various podcasts. These podcast interviews provide a more conversational exploration of topics related to app development, digital marketing, and technology trends. They serve as a complementary resource, where listeners can gain additional insights and learn from my journey in the tech industry. I love podcast interviews because they give me the opportunity to reach audiences far beyond what's possible with in person events.",
-                "Whether you are a developer looking to enhance your skills, a marketing agency aiming to expand your services, or just someone interested in the world of app development, there is content here for you. And if you're organizing a conference or event and need a speaker who can bring valuable insights to your audience, feel free to reach out. Let's collaborate to share knowledge and drive innovation in the digital space.",
+                "Whether you are a developer looking to enhance your skills, a marketing agency aiming to expand your services, or just someone interested in the world of app development, there is content here for you. And if you're organizing a conference or event and need a speaker who can bring valuable insights to your audience, feel free to reach out. Let's collaborate to share knowledge and drive innovation in the digital space."
             ]}
         >
             <div className="space-y-20">

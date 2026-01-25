@@ -1,0 +1,84 @@
+import Image from 'next/image';
+
+import PostLayout from '@/components/PostLayout';
+import authorAvatar from '@/images/authors/hamlet.png';
+
+import coverImage from './third-party-api.jpeg';
+
+export const post = {
+    author: 'Hamlet Arencibia',
+    authorAvatar,
+    date: '2024-01-18T21:00:00-04:00',
+    title: 'Third Party APIs',
+    description: 'To outsource or to build, that is the question!',
+    cover: {
+        image: coverImage,
+        title: 'Powered by Bing Chat'
+    },
+    tags: ['programming', 'api', 'coding', 'integration'],
+    guest: {
+        firstAppearedOn: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/hamletarencibia/'
+    }
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description
+};
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+}
+
+One of the ground stones for human evolution has been the sharing of knowledge. Passing that knowledge down the generations has kept us at the head of the race.
+People having access to it means that theoretically everybody can know everything, but it is physically impossible. So we had to speciallize.
+
+According to ones capabilities and the society's needs, each one of us has become or is at least trying to become a specialist on a certain field.
+There is no need for you to know how to fix a printer if you are such a salesman that can make a profit selling ice cream on Alaska, that's when your nerdy neighbour comes in handy.
+So we have people that can do certain speciallized jobs for us, wow. And is even cheaper than if we try to learn how to do it ourselves, either in terms of money or time.
+Now we have managed to take this "way of life" into the virtual world.
+
+## Third Party APIs
+
+It has happened to all of us, that we need something done and there is already an app for that. And it has a free version, awesome!
+But what happens when we need something done on our app, well there is already an api for that. Most of the time.
+
+"We don't need to reinvent the wheel", my team leader always tells us. Programmers are always writing code in a way that can be reused in multiple ways. The truth is,
+if you need a list of all the countries in the world, with its capitals and phone codes, you don't need to store all that data on your database. You can fetch it from
+a thrid party api every time you need it. It will save you the trouble of making all those tables or collections, and the nightmare that would be to keep it updated whenever a new
+Republic of the Democratic People of Somewherekistan rises.
+
+There are millions of services on the internet. You can integrate your apps with them through their apis. That's the way to stablish comunication between apps, allowing us to build
+faster and speciallize in the service we are providing.
+
+Are Third Party APIs awesome? Of course, as long as they are well made.
+
+## To outsource or to build
+
+So here comes the question. Wheter to integrate with an api or build that feature yourself. Well, to decide that we have to take a few things into consideration.
+
+The first thing we need to take into account is if this api does everything we need. If it does that and more, then we hit the jackpot. But in the case that it does only
+some of what we need, then we might have to make a workaround on our side (that most of the time won't be optimal) or we'll have to lose the missing feature. That
+kind of decision must not be taken lightly. It could become a huge problem as we scalate.
+
+Another thing is the cost. Intagrating with an api will always cost you. Even the free ones. Either time or money. There's no such thing as "completely free". So suppose
+that we need to integrate with an api that happens to be a bit expensive. Can we afford it? We could build the feature, but developers aren't exactly cheap. And building
+a feature takes time. The cost/time rate must be one that allows us to make a profit. Otherwise we'll have to go to Alaska to sell icecream.
+
+Now with the integration. There are standards for building every kind of app or service. When building an API we **should** follow the corresponding standards according
+to language, architecture, etc. I emphasized **should** because we can choose not to follow any standards. That's a really mean thing to do to the end users and yourself.
+I've been in the bussiness for almost 10 years. I've seen things. A certain API might have the solution for your actual troubles. But if there is no consistency in
+the way you request data, or the response format is different for every request, then it will take a lot of time to integrate with it. Now suppose it follows every standard and is super easy to integrate with, but its performance
+is really slow. It creates new problems which solution is out of your reach.
+
+Support is really important when using something made by a third party. Maintenance, bug fixing, adding new features, are thing that must be done by that third party.
+If you choose to use an api that is no longer maintained. You do it at your own peril.
+
+## Good planning
+
+When starting a project, the planning process never stops. It's not something that you do at the start and then everything unravels smoothly. Surprises come along the
+way. So we always need to adapt to the new challenges.
+
+My advice, take your time on the thinking part. Always try to do it right on the first try. It'll take less than
+having to do it again. But if you miss on the first try, at least you'll learn what the wrong way was.

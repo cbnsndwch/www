@@ -7,7 +7,7 @@ import MobileNavItem from './MobileNavItem';
 import ChevronDownIcon from './ChevronDownIcon';
 
 export default function MobileNavigation(
-    props: ComponentPropsWithoutRef<typeof Popover>,
+    props: ComponentPropsWithoutRef<typeof Popover>
 ) {
     return (
         <Popover {...props}>

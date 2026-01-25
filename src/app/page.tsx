@@ -9,7 +9,7 @@ import {
     GitHubIcon,
     FacebookIcon,
     LinkedInIcon,
-    TwitterIcon,
+    TwitterIcon
 } from '@/components/SocialIcons';
 import PostSummaryList from '@/components/Home/PostSummaryList';
 
@@ -184,8 +184,8 @@ function Resume() {
             start: '2025',
             end: {
                 label: 'Present',
-                dateTime: new Date().getFullYear().toString(),
-            },
+                dateTime: new Date().getFullYear().toString()
+            }
         },
         {
             company: 'Extendly LLC',
@@ -194,8 +194,8 @@ function Resume() {
             start: '2024',
             end: {
                 label: 'Present',
-                dateTime: new Date().getFullYear().toString(),
-            },
+                dateTime: new Date().getFullYear().toString()
+            }
         },
         {
             company: '1NationUp',
@@ -204,37 +204,37 @@ function Resume() {
             start: '2019',
             end: {
                 label: 'Present',
-                dateTime: new Date().getFullYear().toString(),
-            },
+                dateTime: new Date().getFullYear().toString()
+            }
         },
         {
             company: 'ChatHQ (acqd.)',
             title: 'CTO | Co-Founder',
             logo: logoChatHQ,
             start: '2021',
-            end: '2024',
+            end: '2024'
         },
         {
             company: 'Night Owl SP',
             title: 'Solutions Architect',
             logo: logoNowl,
             start: '2017',
-            end: '2019',
+            end: '2019'
         },
         {
             company: "Ke Hay Pa' Hoy?",
             title: 'CTO | Co-Founder',
             logo: logoKhph,
             start: '2015',
-            end: '2016',
+            end: '2016'
         },
         {
             company: 'Technical University of Havana',
             title: 'Instructor | Software Engineer',
             logo: logoCujae,
             start: '2012',
-            end: '2016',
-        },
+            end: '2016'
+        }
     ];
 
     return (
@@ -262,7 +262,7 @@ function Photos() {
         '-rotate-2',
         'rotate-2',
         'rotate-2',
-        '-rotate-2',
+        '-rotate-2'
     ];
 
     return (
@@ -274,7 +274,7 @@ function Photos() {
                             key={image.src}
                             className={clsx(
                                 'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
-                                rotations[imageIndex % rotations.length],
+                                rotations[imageIndex % rotations.length]
                             )}
                         >
                             <Image
@@ -284,7 +284,7 @@ function Photos() {
                                 className="absolute inset-0 h-full w-full object-cover"
                             />
                         </div>
-                    ),
+                    )
                 )}
             </div>
         </div>
@@ -369,7 +369,9 @@ export default async function Home() {
                     </div>
                 </div>
             </Container>
+
             <Photos />
+
             <Container className="mt-24 md:mt-28">
                 <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
                     <div className="flex flex-col gap-16">

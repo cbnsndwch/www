@@ -1,4 +1,4 @@
-@import "tailwindcss";
-@import "./prism.css";
+@import 'tailwindcss';
+@import './prism.css';
 
 @config "../../tailwind.config.ts";
