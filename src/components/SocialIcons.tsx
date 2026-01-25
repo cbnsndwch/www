@@ -41,3 +41,11 @@ export function NpmIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
         </svg>
     );
 }
+
+export function VSCodeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+    return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+            <path d="M23.663 3.037L17.202 0l-5.632 5.084L6.236 1.485 0 4.14v15.72l6.236 2.655 5.334-3.599 5.632 5.084L23.663 20.963V3.037zM16.362 17.58l-3.328-2.583 3.328-2.583v5.166zM6.963 6.42l3.328 2.583-3.328 2.583V6.42z" />
+        </svg>
+    );
+}
