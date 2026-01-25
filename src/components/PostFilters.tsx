@@ -2,7 +2,17 @@
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
-import clsx from 'clsx';
+import { X } from 'lucide-react';
+
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue
+} from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 
 interface PostFiltersProps {
     authors: string[];
@@ -11,14 +21,19 @@ interface PostFiltersProps {
     months: { label: string; value: string }[];
 }
 
-export function PostFilters({ authors, tags, years, months }: PostFiltersProps) {
+export function PostFilters({
+    authors,
+    tags,
+    years,
+    months
+}: PostFiltersProps) {
     const router = useRouter();
     const searchParams = useSearchParams();
 
     const createQueryString = useCallback(
         (name: string, value: string) => {
             const params = new URLSearchParams(searchParams.toString());
-            if (value) {
+            if (value && value !== 'all') {
                 params.set(name, value);
             } else {
                 params.delete(name);
@@ -33,12 +48,16 @@ export function PostFilters({ authors, tags, years, months }: PostFiltersProps) 
         router.push(`/posts?${query}`, { scroll: false });
     };
 
-    const currentAuthor = searchParams.get('author') || '';
-    const currentTag = searchParams.get('tag') || '';
-    const currentYear = searchParams.get('year') || '';
-    const currentMonth = searchParams.get('month') || '';
+    const currentAuthor = searchParams.get('author') || 'all';
+    const currentTag = searchParams.get('tag') || 'all';
+    const currentYear = searchParams.get('year') || 'all';
+    const currentMonth = searchParams.get('month') || 'all';
 
-    const hasFilters = currentAuthor || currentTag || currentYear || currentMonth;
+    const hasFilters =
+        (currentAuthor && currentAuthor !== 'all') ||
+        (currentTag && currentTag !== 'all') ||
+        (currentYear && currentYear !== 'all') ||
+        (currentMonth && currentMonth !== 'all');
 
     const clearFilters = () => {
         router.push('/posts', { scroll: false });
@@ -47,88 +66,103 @@ export function PostFilters({ authors, tags, years, months }: PostFiltersProps) 
     return (
         <div className="mb-12 flex flex-wrap gap-4 items-end">
             <div className="flex flex-col gap-1.5">
-                <label htmlFor="author" className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <Label className="text-zinc-500 dark:text-zinc-400">
                     Author
-                </label>
-                <select
-                    id="author"
+                </Label>
+                <Select
                     value={currentAuthor}
-                    onChange={(e) => handleFilterChange('author', e.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-zinc-900 ring-1 ring-inset ring-zinc-300 focus:ring-2 focus:ring-amber-600 sm:text-sm sm:leading-6 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:focus:ring-amber-500"
+                    onValueChange={value => handleFilterChange('author', value)}
                 >
-                    <option value="">All Authors</option>
-                    {authors.map((author) => (
-                        <option key={author} value={author}>
-                            {author}
-                        </option>
-                    ))}
-                </select>
+                    <SelectTrigger className="w-45 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
+                        <SelectValue placeholder="All Authors" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">All Authors</SelectItem>
+                        {authors.map(author => (
+                            <SelectItem key={author} value={author}>
+                                {author}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
             </div>
 
             <div className="flex flex-col gap-1.5">
-                <label htmlFor="tag" className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <Label className="text-zinc-500 dark:text-zinc-400">
                     Tag
-                </label>
-                <select
-                    id="tag"
+                </Label>
+                <Select
                     value={currentTag}
-                    onChange={(e) => handleFilterChange('tag', e.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-zinc-900 ring-1 ring-inset ring-zinc-300 focus:ring-2 focus:ring-amber-600 sm:text-sm sm:leading-6 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:focus:ring-amber-500"
+                    onValueChange={value => handleFilterChange('tag', value)}
                 >
-                    <option value="">All Tags</option>
-                    {tags.map((tag) => (
-                        <option key={tag} value={tag}>
-                            {tag}
-                        </option>
-                    ))}
-                </select>
+                    <SelectTrigger className="w-45 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
+                        <SelectValue placeholder="All Tags" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">All Tags</SelectItem>
+                        {tags.map(tag => (
+                            <SelectItem key={tag} value={tag}>
+                                {tag}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
             </div>
 
             <div className="flex flex-col gap-1.5">
-                <label htmlFor="year" className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <Label className="text-zinc-500 dark:text-zinc-400">
                     Year
-                </label>
-                <select
-                    id="year"
+                </Label>
+                <Select
                     value={currentYear}
-                    onChange={(e) => handleFilterChange('year', e.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-zinc-900 ring-1 ring-inset ring-zinc-300 focus:ring-2 focus:ring-amber-600 sm:text-sm sm:leading-6 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:focus:ring-amber-500"
+                    onValueChange={value => handleFilterChange('year', value)}
                 >
-                    <option value="">All Years</option>
-                    {years.map((year) => (
-                        <option key={year} value={year}>
-                            {year}
-                        </option>
-                    ))}
-                </select>
+                    <SelectTrigger className="w-35 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
+                        <SelectValue placeholder="All Years" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">All Years</SelectItem>
+                        {years.map(year => (
+                            <SelectItem key={year} value={year}>
+                                {year}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
             </div>
 
             <div className="flex flex-col gap-1.5">
-                <label htmlFor="month" className="text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <Label className="text-zinc-500 dark:text-zinc-400">
                     Month
-                </label>
-                <select
-                    id="month"
+                </Label>
+                <Select
                     value={currentMonth}
-                    onChange={(e) => handleFilterChange('month', e.target.value)}
-                    className="block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-zinc-900 ring-1 ring-inset ring-zinc-300 focus:ring-2 focus:ring-amber-600 sm:text-sm sm:leading-6 dark:bg-zinc-800 dark:text-zinc-100 dark:ring-zinc-700 dark:focus:ring-amber-500"
+                    onValueChange={value => handleFilterChange('month', value)}
                 >
-                    <option value="">All Months</option>
-                    {months.map((month) => (
-                        <option key={month.value} value={month.value}>
-                            {month.label}
-                        </option>
-                    ))}
-                </select>
+                    <SelectTrigger className="w-35 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
+                        <SelectValue placeholder="All Months" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectItem value="all">All Months</SelectItem>
+                        {months.map(month => (
+                            <SelectItem key={month.value} value={month.value}>
+                                {month.label}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
             </div>
 
             {hasFilters && (
-                <button
+                <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={clearFilters}
-                    className="mb-1 text-sm font-medium text-amber-600 hover:text-amber-500 dark:text-amber-400 dark:hover:text-amber-300"
+                    className="mb-0.5 text-amber-600 hover:text-amber-500 hover:bg-amber-50 dark:text-amber-400 dark:hover:text-amber-300 dark:hover:bg-amber-900/20 gap-1.5"
                 >
+                    <X className="h-4 w-4" />
                     Clear filters
-                </button>
+                </Button>
             )}
         </div>
     );
