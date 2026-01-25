@@ -4,15 +4,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 import { X } from 'lucide-react';
 
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue
-} from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
+import { MultiSelect } from '@/components/ui/multi-select';
 
 interface PostFiltersProps {
     authors: string[];
@@ -31,10 +25,10 @@ export function PostFilters({
     const searchParams = useSearchParams();
 
     const createQueryString = useCallback(
-        (name: string, value: string) => {
+        (name: string, value: string[]) => {
             const params = new URLSearchParams(searchParams.toString());
-            if (value && value !== 'all') {
-                params.set(name, value);
+            if (value.length > 0) {
+                params.set(name, value.join(','));
             } else {
                 params.delete(name);
             }
@@ -43,21 +37,26 @@ export function PostFilters({
         [searchParams]
     );
 
-    const handleFilterChange = (name: string, value: string) => {
+    const handleFilterChange = (name: string, value: string[]) => {
         const query = createQueryString(name, value);
         router.push(`/posts?${query}`, { scroll: false });
     };
 
-    const currentAuthor = searchParams.get('author') || 'all';
-    const currentTag = searchParams.get('tag') || 'all';
-    const currentYear = searchParams.get('year') || 'all';
-    const currentMonth = searchParams.get('month') || 'all';
+    const getParamArray = (name: string) => {
+        const val = searchParams.get(name);
+        return val ? val.split(',') : [];
+    };
+
+    const currentAuthors = getParamArray('author');
+    const currentTags = getParamArray('tag');
+    const currentYears = getParamArray('year');
+    const currentMonths = getParamArray('month');
 
     const hasFilters =
-        (currentAuthor && currentAuthor !== 'all') ||
-        (currentTag && currentTag !== 'all') ||
-        (currentYear && currentYear !== 'all') ||
-        (currentMonth && currentMonth !== 'all');
+        currentAuthors.length > 0 ||
+        currentTags.length > 0 ||
+        currentYears.length > 0 ||
+        currentMonths.length > 0;
 
     const clearFilters = () => {
         router.push('/posts', { scroll: false });
@@ -69,88 +68,52 @@ export function PostFilters({
                 <Label className="text-zinc-500 dark:text-zinc-400">
                     Author
                 </Label>
-                <Select
-                    value={currentAuthor}
-                    onValueChange={value => handleFilterChange('author', value)}
-                >
-                    <SelectTrigger className="w-45 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
-                        <SelectValue placeholder="All Authors" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">All Authors</SelectItem>
-                        {authors.map(author => (
-                            <SelectItem key={author} value={author}>
-                                {author}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                <MultiSelect
+                    placeholder="All Authors"
+                    options={authors.map(a => ({ label: a, value: a }))}
+                    selected={currentAuthors}
+                    onChange={val => handleFilterChange('author', val)}
+                    className="w-45 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700"
+                />
             </div>
 
             <div className="flex flex-col gap-1.5">
                 <Label className="text-zinc-500 dark:text-zinc-400">
                     Tag
                 </Label>
-                <Select
-                    value={currentTag}
-                    onValueChange={value => handleFilterChange('tag', value)}
-                >
-                    <SelectTrigger className="w-45 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
-                        <SelectValue placeholder="All Tags" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">All Tags</SelectItem>
-                        {tags.map(tag => (
-                            <SelectItem key={tag} value={tag}>
-                                {tag}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                <MultiSelect
+                    placeholder="All Tags"
+                    options={tags.map(t => ({ label: t, value: t }))}
+                    selected={currentTags}
+                    onChange={val => handleFilterChange('tag', val)}
+                    className="w-45 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700"
+                />
             </div>
 
             <div className="flex flex-col gap-1.5">
                 <Label className="text-zinc-500 dark:text-zinc-400">
                     Year
                 </Label>
-                <Select
-                    value={currentYear}
-                    onValueChange={value => handleFilterChange('year', value)}
-                >
-                    <SelectTrigger className="w-35 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
-                        <SelectValue placeholder="All Years" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">All Years</SelectItem>
-                        {years.map(year => (
-                            <SelectItem key={year} value={year}>
-                                {year}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                <MultiSelect
+                    placeholder="All Years"
+                    options={years.map(y => ({ label: y, value: y }))}
+                    selected={currentYears}
+                    onChange={val => handleFilterChange('year', val)}
+                    className="w-35 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700"
+                />
             </div>
 
             <div className="flex flex-col gap-1.5">
                 <Label className="text-zinc-500 dark:text-zinc-400">
                     Month
                 </Label>
-                <Select
-                    value={currentMonth}
-                    onValueChange={value => handleFilterChange('month', value)}
-                >
-                    <SelectTrigger className="w-35 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700">
-                        <SelectValue placeholder="All Months" />
-                    </SelectTrigger>
-                    <SelectContent>
-                        <SelectItem value="all">All Months</SelectItem>
-                        {months.map(month => (
-                            <SelectItem key={month.value} value={month.value}>
-                                {month.label}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
+                <MultiSelect
+                    placeholder="All Months"
+                    options={months}
+                    selected={currentMonths}
+                    onChange={val => handleFilterChange('month', val)}
+                    className="w-35 bg-white dark:bg-zinc-800 border-zinc-200 dark:border-zinc-700"
+                />
             </div>
 
             {hasFilters && (

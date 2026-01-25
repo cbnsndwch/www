@@ -30,30 +30,133 @@ export default async function PostsIndex(props: {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
     const searchParams = await props.searchParams;
-    const author =
-        typeof searchParams.author === 'string' ? searchParams.author : '';
-    const tag = typeof searchParams.tag === 'string' ? searchParams.tag : '';
-    const year = typeof searchParams.year === 'string' ? searchParams.year : '';
-    const month =
-        typeof searchParams.month === 'string' ? searchParams.month : '';
+
+    const getParamArray = (name: string) => {
+        const val = searchParams[name];
+        if (typeof val === 'string') return val.split(',');
+        if (Array.isArray(val)) return val;
+        return [];
+    };
+
+    const authorsFilter = getParamArray('author');
+    const tagsFilter = getParamArray('tag');
+    const yearsFilter = getParamArray('year');
+    const monthsFilter = getParamArray('month');
 
     const allPosts = await getAllPosts();
 
-    const authors = Array.from(new Set(allPosts.map(p => p.author))).sort();
-    const tags = Array.from(
-        new Set(allPosts.flatMap(p => p.tags || []))
+    const authors = Array.from(
+        new Set(
+            allPosts
+                .filter(post => {
+                    if (
+                        tagsFilter.length > 0 &&
+                        !tagsFilter.some(t => post.tags?.includes(t))
+                    )
+                        return false;
+                    if (
+                        yearsFilter.length > 0 &&
+                        !yearsFilter.some(y => post.date.startsWith(y))
+                    )
+                        return false;
+                    if (monthsFilter.length > 0) {
+                        const postMonth = post.date.split('-')[1];
+                        if (!monthsFilter.includes(postMonth)) return false;
+                    }
+                    return true;
+                })
+                .map(p => p.author)
+        )
     ).sort();
+
+    const tags = Array.from(
+        new Set(
+            allPosts
+                .filter(post => {
+                    if (
+                        authorsFilter.length > 0 &&
+                        !authorsFilter.includes(post.author)
+                    )
+                        return false;
+                    if (
+                        yearsFilter.length > 0 &&
+                        !yearsFilter.some(y => post.date.startsWith(y))
+                    )
+                        return false;
+                    if (monthsFilter.length > 0) {
+                        const postMonth = post.date.split('-')[1];
+                        if (!monthsFilter.includes(postMonth)) return false;
+                    }
+                    return true;
+                })
+                .flatMap(p => p.tags || [])
+        )
+    ).sort();
+
     const years = Array.from(
-        new Set(allPosts.map(p => p.date.split('-')[0]))
+        new Set(
+            allPosts
+                .filter(post => {
+                    if (
+                        authorsFilter.length > 0 &&
+                        !authorsFilter.includes(post.author)
+                    )
+                        return false;
+                    if (
+                        tagsFilter.length > 0 &&
+                        !tagsFilter.some(t => post.tags?.includes(t))
+                    )
+                        return false;
+                    if (monthsFilter.length > 0) {
+                        const postMonth = post.date.split('-')[1];
+                        if (!monthsFilter.includes(postMonth)) return false;
+                    }
+                    return true;
+                })
+                .map(p => p.date.split('-')[0])
+        )
     ).sort((a, b) => b.localeCompare(a));
 
+    const months = MONTHS.filter(m =>
+        allPosts.some(post => {
+            if (
+                authorsFilter.length > 0 &&
+                !authorsFilter.includes(post.author)
+            )
+                return false;
+            if (
+                tagsFilter.length > 0 &&
+                !tagsFilter.some(t => post.tags?.includes(t))
+            )
+                return false;
+            if (
+                yearsFilter.length > 0 &&
+                !yearsFilter.some(y => post.date.startsWith(y))
+            )
+                return false;
+            return post.date.split('-')[1] === m.value;
+        })
+    );
+
     const posts = allPosts.filter(post => {
-        if (author && post.author !== author) return false;
-        if (tag && !post.tags?.includes(tag)) return false;
-        if (year && !post.date.startsWith(year)) return false;
-        if (month) {
+        if (
+            authorsFilter.length > 0 &&
+            !authorsFilter.includes(post.author)
+        )
+            return false;
+        if (
+            tagsFilter.length > 0 &&
+            !tagsFilter.some(t => post.tags?.includes(t))
+        )
+            return false;
+        if (
+            yearsFilter.length > 0 &&
+            !yearsFilter.some(y => post.date.startsWith(y))
+        )
+            return false;
+        if (monthsFilter.length > 0) {
             const postMonth = post.date.split('-')[1];
-            if (postMonth !== month) return false;
+            if (!monthsFilter.includes(postMonth)) return false;
         }
         return true;
     });
@@ -67,7 +170,7 @@ export default async function PostsIndex(props: {
                 authors={authors}
                 tags={tags}
                 years={years}
-                months={MONTHS}
+                months={months}
             />
 
             <div className="relative max-w-3xl">
