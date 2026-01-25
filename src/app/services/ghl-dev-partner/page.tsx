@@ -61,7 +61,7 @@ export default function GhlIntegrationInquiry() {
                 <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
                     {title}
                 </h1>
-                <p className="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+                <p className="mt-6 text-lg text-zinc-700 dark:text-zinc-400">
                     I help agencies and businesses unlock the full potential of
                     GoHighLevel through custom integrations, Marketplace apps,
                     and tailored automation solutions.
@@ -108,12 +108,12 @@ export default function GhlIntegrationInquiry() {
                     ].map((item) => (
                         <div
                             key={item.title}
-                            className="rounded-2xl border border-zinc-200 p-6 dark:border-zinc-700/50"
+                            className="rounded-2xl border border-zinc-300 p-6 dark:border-zinc-700/50"
                         >
                             <h3 className="font-semibold text-zinc-900 dark:text-zinc-100">
                                 {item.title}
                             </h3>
-                            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-400">
                                 {item.description}
                             </p>
                         </div>
@@ -126,7 +126,7 @@ export default function GhlIntegrationInquiry() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
                     Is This Right For You?
                 </h2>
-                <p className="mt-4 text-zinc-600 dark:text-zinc-400">
+                <p className="mt-4 text-zinc-700 dark:text-zinc-400">
                     I&apos;m selective about the projects I take on to ensure I
                     can deliver exceptional results for every client.
                 </p>
@@ -138,7 +138,7 @@ export default function GhlIntegrationInquiry() {
                             <CheckIcon className="h-5 w-5" />
                             Great Fit
                         </h3>
-                        <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-400">
+                        <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-400">
                             <li className="flex gap-3">
                                 <CheckIcon className="h-5 w-5 shrink-0 text-amber-500" />
                                 <span>
@@ -172,11 +172,11 @@ export default function GhlIntegrationInquiry() {
 
                     {/* Not a Fit */}
                     <div>
-                        <h3 className="flex items-center gap-2 font-semibold text-zinc-500 dark:text-zinc-400">
+                        <h3 className="flex items-center gap-2 font-semibold text-zinc-600 dark:text-zinc-400">
                             <XIcon className="h-5 w-5" />
                             Probably Not a Fit
                         </h3>
-                        <ul className="mt-4 space-y-3 text-sm text-zinc-500 dark:text-zinc-500">
+                        <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-500">
                             <li className="flex gap-3">
                                 <XIcon className="h-5 w-5 shrink-0" />
                                 <span>
@@ -240,13 +240,13 @@ export default function GhlIntegrationInquiry() {
                         },
                     ].map((item) => (
                         <div key={item.step} className="relative">
-                            <span className="text-5xl font-bold text-zinc-100 dark:text-zinc-800">
+                            <span className="text-5xl font-bold text-zinc-200 dark:text-zinc-800">
                                 {item.step}
                             </span>
                             <h3 className="mt-2 font-semibold text-zinc-900 dark:text-zinc-100">
                                 {item.title}
                             </h3>
-                            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                            <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-400">
                                 {item.description}
                             </p>
                         </div>
@@ -255,12 +255,12 @@ export default function GhlIntegrationInquiry() {
             </section>
 
             {/* Premium Positioning */}
-            <section className="mt-16 rounded-2xl bg-zinc-50 p-8 dark:bg-zinc-800/50">
+            <section className="mt-16 rounded-2xl bg-zinc-100 p-8 dark:bg-zinc-800/50">
                 <p className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
                     &ldquo;This isn&apos;t the cheapest option—it&apos;s the
                     right one.&rdquo;
                 </p>
-                <p className="mt-4 text-zinc-600 dark:text-zinc-400">
+                <p className="mt-4 text-zinc-700 dark:text-zinc-400">
                     I focus on quality over quantity, taking on a limited number
                     of projects to ensure exceptional results. My rates reflect
                     the expertise and dedication I bring to each engagement.
@@ -272,7 +272,7 @@ export default function GhlIntegrationInquiry() {
                 <h2 className="text-2xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100">
                     Start Your Inquiry
                 </h2>
-                <p className="mt-4 text-zinc-600 dark:text-zinc-400">
+                <p className="mt-4 text-zinc-700 dark:text-zinc-400">
                     Tell me about your project and I&apos;ll get back to you
                     within 1-2 business days.
                 </p>
@@ -286,8 +286,8 @@ export default function GhlIntegrationInquiry() {
                             title="Project Inquiry Form"
                         />
                     ) : (
-                        <div className="rounded-lg border border-dashed border-zinc-300 p-8 text-center dark:border-zinc-700">
-                            <p className="text-zinc-500 dark:text-zinc-400">
+                        <div className="rounded-lg border border-dashed border-zinc-400 p-8 text-center dark:border-zinc-700">
+                            <p className="text-zinc-600 dark:text-zinc-400">
                                 Form coming soon. In the meantime, reach out via{' '}
                                 <a
                                     href="https://www.linkedin.com/in/cbnsndwch/"

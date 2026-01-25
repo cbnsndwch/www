@@ -110,7 +110,7 @@ function Newsletter() {
                 <MailIcon className="h-6 w-6 flex-none" />
                 <span className="ml-3">Stay up to date</span>
             </h2>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-400">
                 Get notified when I publish something new. Unsubscribe at any
                 time.
             </p>
@@ -158,12 +158,12 @@ function Role({ role }: { role: Role }) {
                     {role.company}
                 </dd>
                 <dt className="sr-only">Role</dt>
-                <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                <dd className="text-xs text-zinc-600 dark:text-zinc-400">
                     {role.title}
                 </dd>
                 <dt className="sr-only">Date</dt>
                 <dd
-                    className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                    className="ml-auto text-xs text-zinc-500 dark:text-zinc-500"
                     aria-label={`${startLabel} until ${endLabel}`}
                 >
                     <time dateTime={startDate}>{startLabel}</time>{' '}
@@ -303,7 +303,7 @@ export default async function Home() {
                         Knowledge collector, tallbike rider, software crafter,
                         event host, OSS contributor.
                     </h1>
-                    <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                         Hi there! I&apos;m Serge and I&apos;m the VP of
                         Engineering at{' '}
                         <Link
@@ -325,7 +325,7 @@ export default async function Home() {
                         , the one-stop-shop branding and marketing partners for
                         thousands of small businesses across South Florida.
                     </p>
-                    <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                         I&apos;m also the co-host of{' '}
                         <Link
                             href="https://lu.ma/hello_miami"
@@ -338,7 +338,7 @@ export default async function Home() {
                         and designers to connect with other technical folks in
                         Miami and build cool projects together.
                     </p>
-                    <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+                    <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                         I&apos;m an avid cyclist, sci-fi fan, and music lover.
                         I&apos;m currently on a mission to help software
                         developers and agency owners deliver software
