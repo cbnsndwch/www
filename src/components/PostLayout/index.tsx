@@ -1,10 +1,6 @@
-'use client';
-
-import { useContext } from 'react';
-import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 
-import { AppContext } from '@/app/providers';
 import Container from '@/components/Container';
 import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';
@@ -15,34 +11,22 @@ import {
 } from '@/lib/posts/contracts';
 import avatarImage from '@/images/avatar.jpg';
 
-import ArrowLeftIcon from './ArrowLeftIcon';
 import CoverImage from './CoverImage';
 import PostTagList from '../Tags/PostTagList';
 import GuestPostAcknowledgement from './GuestPostAcknowledgement';
+import { BackButton } from './BackButton';
 
 type PostLayoutProps = {
     post: PostWithSlug;
     children: React.ReactNode;
 };
 
-export default function PostLayout({ post, children }: PostLayoutProps) {
-    let router = useRouter();
-    let { previousPathname } = useContext(AppContext);
-
+export default async function PostLayout({ post, children }: PostLayoutProps) {
     return (
         <Container className="mt-8 lg:mt-16">
             <div className="xl:relative">
                 <div className="mx-auto max-w-2xl">
-                    {previousPathname && (
-                        <button
-                            type="button"
-                            onClick={() => router.back()}
-                            aria-label="Go back to post"
-                            className="group cursor-pointer mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 transition dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0 dark:ring-white/10 dark:hover:border-zinc-700 dark:hover:ring-white/20 lg:absolute lg:-left-5 lg:-mt-2 lg:mb-0 xl:-top-1.5 xl:left-0 xl:mt-0"
-                        >
-                            <ArrowLeftIcon className="h-4 w-4 stroke-zinc-500 transition group-hover:stroke-zinc-700 dark:stroke-zinc-500 dark:group-hover:stroke-zinc-400" />
-                        </button>
-                    )}
+                    <BackButton />
                     <article>
                         <header className="flex flex-col">
                             <time
@@ -78,9 +62,11 @@ export default function PostLayout({ post, children }: PostLayoutProps) {
                                         <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
                                             {post.author}
                                         </span>
-                                        <span className="text-xs text-zinc-500 dark:text-zinc-300">
-                                            Author
-                                        </span>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-xs text-zinc-500 dark:text-zinc-300">
+                                                Author
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 {!isOwnPost(post) && (
