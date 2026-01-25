@@ -1,5 +1,5 @@
-import type { ComponentPropsWithoutRef } from 'react';
 import clsx from 'clsx';
+import type { ComponentPropsWithoutRef } from 'react';
 
 export default function AvatarContainer({
     className,

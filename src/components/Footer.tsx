@@ -19,7 +19,7 @@ function NavLink({ href, children }: NavLinkProps) {
     );
 }
 
-export function Footer() {
+export default function Footer() {
     return (
         <footer className="mt-32 flex-none">
             <ContainerOuter>

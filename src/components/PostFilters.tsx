@@ -78,9 +78,7 @@ export function PostFilters({
             </div>
 
             <div className="flex flex-col gap-1.5">
-                <Label className="text-zinc-500 dark:text-zinc-400">
-                    Tag
-                </Label>
+                <Label className="text-zinc-500 dark:text-zinc-400">Tag</Label>
                 <MultiSelect
                     placeholder="All Tags"
                     options={tags.map(t => ({ label: t, value: t }))}
@@ -91,9 +89,7 @@ export function PostFilters({
             </div>
 
             <div className="flex flex-col gap-1.5">
-                <Label className="text-zinc-500 dark:text-zinc-400">
-                    Year
-                </Label>
+                <Label className="text-zinc-500 dark:text-zinc-400">Year</Label>
                 <MultiSelect
                     placeholder="All Years"
                     options={years.map(y => ({ label: y, value: y }))}

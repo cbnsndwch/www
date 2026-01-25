@@ -139,10 +139,7 @@ export default async function PostsIndex(props: {
     );
 
     const posts = allPosts.filter(post => {
-        if (
-            authorsFilter.length > 0 &&
-            !authorsFilter.includes(post.author)
-        )
+        if (authorsFilter.length > 0 && !authorsFilter.includes(post.author))
             return false;
         if (
             tagsFilter.length > 0 &&

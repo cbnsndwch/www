@@ -1,20 +1,20 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Container from '@/components/Container';
 import Prose from '@/components/Prose';
+import avatarImage from '@/images/avatar.jpg';
 import { formatDate } from '@/lib/formatDate';
 import {
     type PostWithSlug,
     isGuestPost,
     isOwnPost
 } from '@/lib/posts/contracts';
-import avatarImage from '@/images/avatar.jpg';
 
-import CoverImage from './CoverImage';
 import PostTagList from '../Tags/PostTagList';
+
+import BackButton from './BackButton';
+import CoverImage from './CoverImage';
 import GuestPostAcknowledgement from './GuestPostAcknowledgement';
-import { BackButton } from './BackButton';
 
 type PostLayoutProps = {
     post: PostWithSlug;

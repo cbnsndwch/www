@@ -12,11 +12,7 @@ const COLORS = {
     amber: 'bg-amber-400/20 text-amber-700 hover:bg-amber-400/30 dark:bg-amber-400/10 dark:text-amber-400 dark:hover:bg-amber-400/15'
 };
 
-export default function PostTag({
-    title,
-    color = 'cyan',
-    href
-}: PostTagProps) {
+export default function PostTag({ title, color = 'cyan', href }: PostTagProps) {
     const className = clsx(
         'inline-flex items-center rounded-md px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wider transition',
         COLORS[color] ?? COLORS.cyan

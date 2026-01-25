@@ -2,10 +2,12 @@
 
 import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+
 import { AppContext } from '@/app/providers';
+
 import ArrowLeftIcon from './ArrowLeftIcon';
 
-export function BackButton() {
+export default function BackButton() {
     let router = useRouter();
     let { previousPathname } = useContext(AppContext);
 

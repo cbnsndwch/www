@@ -17,7 +17,7 @@ function clamp(number: number, a: number, b: number) {
     return Math.min(Math.max(number, min), max);
 }
 
-export function Header() {
+export default function Header() {
     let isHomePage = usePathname() === '/';
 
     let headerRef = useRef<ElementRef<'div'>>(null);
