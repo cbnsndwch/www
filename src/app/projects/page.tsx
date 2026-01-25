@@ -1,5 +1,6 @@
 import { type Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Card from '@/components/Card';
 import { SimpleLayout } from '@/components/SimpleLayout';
@@ -34,7 +35,11 @@ export default async function Projects() {
                 className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
             >
                 {projects.map(project => (
-                    <Card as="li" key={project.slug}>
+                    <Card
+                        as="li"
+                        key={project.slug}
+                        className="rounded-2xl bg-zinc-50/40 p-10 ring-1 ring-zinc-900/5 transition-colors hover:bg-zinc-50/80 dark:bg-zinc-800/10 dark:ring-white/10 dark:hover:bg-zinc-800/30"
+                    >
                         <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
                             <Image
                                 src={project.logo}
@@ -44,9 +49,12 @@ export default async function Projects() {
                             />
                         </div>
                         <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-                            <Card.Link href={`/projects/${project.slug}`}>
-                                {project.name}
-                            </Card.Link>
+                            <Link href={`/projects/${project.slug}`}>
+                                <span className="absolute -inset-px z-20 rounded-2xl" />
+                                <span className="relative z-10">
+                                    {project.name}
+                                </span>
+                            </Link>
                         </h2>
                         <Card.Description>
                             {project.description}
