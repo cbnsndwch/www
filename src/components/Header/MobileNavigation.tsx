@@ -59,14 +59,11 @@ export default function MobileNavigation(
                                 <MobileNavItem href="/posts">
                                     Posts
                                 </MobileNavItem>
-                                {/* <MobileNavItem href="/projects">
-                                    Projects
-                                </MobileNavItem> */}
+                                <MobileNavItem href="/projects">
+                                    Open Source
+                                </MobileNavItem>
                                 <MobileNavItem href="/speaking">
                                     Speaking
-                                </MobileNavItem>
-                                <MobileNavItem href="/tech-stack">
-                                    Tech
                                 </MobileNavItem>
                             </ul>
                         </nav>
