@@ -9,7 +9,7 @@ const title = 'Work With Me on Your GHL Integration';
 export const metadata: Metadata = {
     title,
     description:
-        'Expert GoHighLevel integration services for agencies and businesses. Custom API integrations, Marketplace apps, and white-label solutions.',
+        'Expert GoHighLevel integration services for agencies and businesses. Custom API integrations, Marketplace apps, and white-label solutions.'
 };
 
 // TODO: Replace with actual form URL once form is created in GHL
@@ -51,7 +51,7 @@ function XIcon({ className }: { className?: string }) {
     );
 }
 
-export default function GhlIntegrationInquiry() {
+export default function GhlDevPartnerServicePage() {
     return (
         <Container className="mt-16 sm:mt-32">
             <HideEngagementWidget />
@@ -78,34 +78,34 @@ export default function GhlIntegrationInquiry() {
                         {
                             title: 'Custom API Integrations',
                             description:
-                                'Connect GHL to any external system—CRMs, payment processors, custom APIs, and more.',
+                                'Connect GHL to any external system—CRMs, payment processors, custom APIs, and more.'
                         },
                         {
                             title: 'Marketplace App Development',
                             description:
-                                'Build and launch apps on the GHL Marketplace to scale your reach or solve internal needs.',
+                                'Build and launch apps on the GHL Marketplace to scale your reach or solve internal needs.'
                         },
                         {
                             title: 'Workflow Automation',
                             description:
-                                'Design powerful automations that go beyond native capabilities.',
+                                'Design powerful automations that go beyond native capabilities.'
                         },
                         {
                             title: 'White-Label Solutions',
                             description:
-                                'Custom-branded integrations and tools for your agency clients.',
+                                'Custom-branded integrations and tools for your agency clients.'
                         },
                         {
                             title: 'Migration & Upgrades',
                             description:
-                                'Seamlessly move from other platforms or upgrade existing integrations.',
+                                'Seamlessly move from other platforms or upgrade existing integrations.'
                         },
                         {
                             title: 'Strategic Consultation',
                             description:
-                                'Expert guidance on GHL architecture and integration strategy.',
-                        },
-                    ].map((item) => (
+                                'Expert guidance on GHL architecture and integration strategy.'
+                        }
+                    ].map(item => (
                         <div
                             key={item.title}
                             className="rounded-2xl border border-zinc-300 p-6 dark:border-zinc-700/50"
@@ -192,9 +192,7 @@ export default function GhlIntegrationInquiry() {
                             </li>
                             <li className="flex gap-3">
                                 <XIcon className="h-5 w-5 shrink-0" />
-                                <span>
-                                    Very small budgets (under $2,500)
-                                </span>
+                                <span>Very small budgets (under $2,500)</span>
                             </li>
                             <li className="flex gap-3">
                                 <XIcon className="h-5 w-5 shrink-0" />
@@ -218,27 +216,27 @@ export default function GhlIntegrationInquiry() {
                             step: '01',
                             title: 'Submit Your Inquiry',
                             description:
-                                'Fill out the form below with details about your project and goals.',
+                                'Fill out the form below with details about your project and goals.'
                         },
                         {
                             step: '02',
                             title: 'Personal Review',
                             description:
-                                'I personally review every submission within 1-2 business days.',
+                                'I personally review every submission within 1-2 business days.'
                         },
                         {
                             step: '03',
                             title: 'Discovery Call',
                             description:
-                                "If we're aligned, you'll receive a private calendar link to book a call.",
+                                "If we're aligned, you'll receive a private calendar link to book a call."
                         },
                         {
                             step: '04',
                             title: 'Proposal & Engagement',
                             description:
-                                'We discuss scope, timeline, and terms to kick off your project.',
-                        },
-                    ].map((item) => (
+                                'We discuss scope, timeline, and terms to kick off your project.'
+                        }
+                    ].map(item => (
                         <div key={item.step} className="relative">
                             <span className="text-5xl font-bold text-zinc-200 dark:text-zinc-800">
                                 {item.step}
@@ -281,9 +279,12 @@ export default function GhlIntegrationInquiry() {
                     {GHL_FORM_URL ? (
                         <iframe
                             src={GHL_FORM_URL}
-                            className="w-full rounded-lg border-0"
                             style={{ minHeight: '800px' }}
+                            className="w-full rounded-lg border-0"
                             title="Project Inquiry Form"
+                            sandbox="allow-scripts allow-forms allow-same-origin"
+                            allow=""
+                            loading="lazy"
                         />
                     ) : (
                         <div className="rounded-lg border border-dashed border-zinc-400 p-8 text-center dark:border-zinc-700">
