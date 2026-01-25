@@ -1,0 +1,70 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logoPlanetaria from '@/images/logos/planetaria.svg';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon, NpmIcon } from '@/components/SocialIcons';
+
+export const project = {
+    name: 'GHL App Template',
+    description:
+        'A professional, scalable, and well-architected base template for full-stack HighLevel Marketplace apps.',
+    logo: logoPlanetaria,
+    link: {
+        href: 'https://github.com/cbnsndwch/ghl-app-template',
+        label: 'cbnsndwch/ghl-app-template',
+        icon: GitHubIcon
+    },
+    secondaryLink: {
+        href: 'https://www.npmjs.com/package/@cbnsndwch/ghl-sdk',
+        label: '@cbnsndwch/ghl-sdk',
+        icon: NpmIcon
+    },
+    tech: [
+        'TypeScript',
+        'NodeJS',
+        'NestJS',
+        'GoHighLevel SDK',
+        'OAuth2',
+        'SSO',
+        'PNPM',
+        'Turborepo'
+    ],
+    date: '2026-01-25'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('ghl-app-template');
+
+    return (
+        <ProjectLayout
+            project={{ slug: 'ghl-app-template', ...project }}
+            updates={updates}
+            {...props}
+        />
+    );
+}
+
+The **GHL App Template** is the definitive starting point for developers building on the HighLevel platform. It provides a robust NestJS foundation, pre-configured OAuth2 and SSO flows, and a modular architecture that scales from simple tools to complex marketplace applications.
+
+## Why this template?
+
+- **Professional Architecture**: Built with NestJS and TypeScript for a clean, maintainable codebase.
+- **Ready-to-use Auth**: Pre-integrated OAuth2 and SSO flows specific to HighLevel.
+- **Monorepo Ready**: Orchestrated with Turborepo and PNPM for efficient development.
+- **Type-Safe SDK**: Includes a dedicated SDK to interact with HighLevel's API v2.
+
+## Getting Started
+
+To create a new repository from this template, visit the GitHub repository and use the "Use this template" button.
+
+```bash
+git clone https://github.com/cbnsndwch/ghl-app-template
+cd ghl-app-template
+pnpm install
+```
+
+For more details on configuration and deployment, check the [Repository README](https://github.com/cbnsndwch/ghl-app-template).

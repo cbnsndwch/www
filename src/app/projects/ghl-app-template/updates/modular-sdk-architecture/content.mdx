@@ -1,0 +1,21 @@
+export const update = {
+    title: 'The New Modular SDK Architecture',
+    description: 'A complete overhaul of the HighLevel SDK into a modular, platform-agnostic structure.',
+    date: '2025-10-30',
+    author: 'Sergio Leon'
+};
+
+We are thrilled to announce a complete overhaul of the HighLevel SDK! We've moved from a monolithic structure to a fully modular architecture. This gives you the flexibility to install only what you need, significantly reducing your application's bundle size.
+
+## Key Highlights
+
+- **Drastic Bundle Reduction**: The API-only client is now 68% smaller (~800KB).
+- **Zero Forced Dependencies**: No more installing MongoDB or Express unless you actually use them.
+- **Platform Agnostic**: Runs perfectly in Node.js, browsers, Deno, and Edge runtimes like Cloudflare Workers.
+
+## New Packages
+
+- `@cbnsndwch/ghl-sdk-core`: The heart of the API.
+- `@cbnsndwch/ghl-sdk-storage`: Clean interfaces for your session data.
+- `sdk-storage-memory` & `sdk-storage-mongodb`: Ready-to-go adapters.
+- `@cbnsndwch/ghl-sdk-webhooks`: Framework-agnostic webhook management.
