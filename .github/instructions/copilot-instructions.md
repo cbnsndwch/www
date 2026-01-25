@@ -5,7 +5,7 @@
 **cbnsndwch-www** is the personal website and blog for cbnsndwch, built with Next.js and Tailwind CSS. It uses the Spotlight template from Tailwind UI.
 
 - **Repository**: https://github.com/cbnsndwch/www
-- **Current Version**: 0.8.0
+- **Current Version**: 0.8.1
 - **License**: MIT (Code), CC (Content)
 - **Package Manager**: pnpm@10.27.0+
 - **Node.js**: >=v22.14.0 required
