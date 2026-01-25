@@ -65,9 +65,9 @@ export default function MobileNavigation(
                                 <MobileNavItem href="/miami">
                                     Miami Hub
                                 </MobileNavItem>
-                                <MobileNavItem href="/speaking">
+                                {/* <MobileNavItem href="/speaking">
                                     Speaking
-                                </MobileNavItem>
+                                </MobileNavItem> */}
                             </ul>
                         </nav>
                     </Popover.Panel>

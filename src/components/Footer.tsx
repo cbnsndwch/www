@@ -31,7 +31,7 @@ export default function Footer() {
                                 <NavLink href="/posts">Posts</NavLink>
                                 <NavLink href="/projects">Open Source</NavLink>
                                 <NavLink href="/miami">Miami Hub</NavLink>
-                                <NavLink href="/speaking">Speaking</NavLink>
+                                {/* <NavLink href="/speaking">Speaking</NavLink> */}
                             </div>
                             <p className="text-sm text-zinc-500 dark:text-zinc-500">
                                 &copy; {new Date().getFullYear()} cbnsndwch LLC.

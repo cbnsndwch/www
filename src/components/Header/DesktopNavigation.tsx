@@ -12,7 +12,7 @@ export default function DesktopNavigation(
                 <NavItem href="/posts">Posts</NavItem>
                 <NavItem href="/projects">Open Source</NavItem>
                 <NavItem href="/miami">Miami Hub</NavItem>
-                <NavItem href="/speaking">Speaking</NavItem>
+                {/* <NavItem href="/speaking">Speaking</NavItem> */}
             </ul>
         </nav>
     );
