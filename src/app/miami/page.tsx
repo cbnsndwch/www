@@ -38,7 +38,28 @@ import image18 from '@/images/community/Gx4FS_UX0AAj7ZH.webp';
 export const metadata: Metadata = {
     title: 'Miami Hub',
     description:
-        'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.'
+        'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.',
+    openGraph: {
+        title: 'Miami Hub',
+        description:
+            'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.',
+        type: 'website',
+        images: [
+            {
+                url: '/miami/opengraph-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Miami Hub - A mission for the city'
+            }
+        ]
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Miami Hub',
+        description:
+            'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.',
+        images: ['/miami/opengraph-image.png']
+    }
 };
 
 const UTM_PARAMS =
@@ -256,7 +277,7 @@ export default function MiamiPage() {
                         </CommunityHighlight>
                         <CommunityHighlight
                             name="Moonlighter FabLab"
-                            role="South Venue Partner"
+                            role="Venue Partner"
                             image={logoMoonlighter}
                             href={`https://moonlighterfablab.org/${UTM_PARAMS}`}
                         >
