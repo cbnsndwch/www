@@ -1,7 +1,6 @@
-import * as React from 'react';
 import { Check, ChevronsUpDown, X } from 'lucide-react';
+import * as React from 'react';
 
-import { cn } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
 import {
     Command,
@@ -17,6 +16,7 @@ import {
     PopoverTrigger
 } from '@/components/ui/popover';
 import { Separator } from '@/components/ui/separator';
+import { cn } from '@/lib/utils';
 
 export interface MultiSelectProps {
     options: { label: string; value: string }[];
@@ -34,6 +34,7 @@ export function MultiSelect({
     className
 }: MultiSelectProps) {
     const [open, setOpen] = React.useState(false);
+    const id = React.useId();
 
     const handleUnselect = (value: string) => {
         onChange(selected.filter(s => s !== value));
@@ -44,6 +45,7 @@ export function MultiSelect({
             <PopoverTrigger asChild>
                 <button
                     role="combobox"
+                    aria-controls={id}
                     aria-expanded={open}
                     className={cn(
                         'flex min-h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer',
@@ -81,6 +83,7 @@ export function MultiSelect({
                 </button>
             </PopoverTrigger>
             <PopoverContent
+                id={id}
                 className="w-(--radix-popover-trigger-width) p-0"
                 align="start"
             >
