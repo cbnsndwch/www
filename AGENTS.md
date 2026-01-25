@@ -77,8 +77,9 @@ Post types are defined in [src/lib/posts/contracts.ts](src/lib/posts/contracts.t
 - **Prose Content**: MDX content is wrapped in `Prose` component with Tailwind Typography.
 - **Images**: Always use `next/image` for optimization.
 
-## Key Integrations
+## Integration Details
 
+- **Iconography**: The user has a **FontAwesome Pro** subscription. Use FA Pro icons for social and UI elements when possible to maintain high-quality vector standards.
 - **Vercel Analytics & Speed Insights**: Integrated in root layout
 - **RSS Feed**: Generated at `/feed.xml` via [src/app/feed.xml/route.ts](src/app/feed.xml/route.ts)
 - **Path Aliases**: Use `@/` for `src/` imports (e.g., `@/components/Card`)

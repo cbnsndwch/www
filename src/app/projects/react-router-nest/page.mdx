@@ -1,0 +1,85 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logoPlanetaria from '@/images/logos/planetaria.svg';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon, NpmIcon } from '@/components/SocialIcons';
+
+export const project = {
+    name: 'React Router Nest',
+    description:
+        'A Turbo + PNPM monorepo demonstrating how to run React Router 7 on a NestJS custom server.',
+    logo: logoPlanetaria,
+    link: {
+        href: 'https://github.com/cbnsndwch/react-router-nest',
+        label: 'cbnsndwch/react-router-nest',
+        icon: GitHubIcon
+    },
+    // NOTE: this repo does not have an npm package
+    // 
+    // secondaryLink: {
+    //     href: '',
+    //     label: '',
+    //     icon: NpmIcon
+    // },
+    tech: [
+        'TypeScript',
+        'NodeJS',
+        'NestJS',
+        'React Router 7',
+        'Turbo',
+        'PNPM',
+        'ESM',
+        'Docker'
+    ],
+    order: 3,
+    date: '2025-07-11'
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('react-router-nest');
+
+    return (
+        <ProjectLayout
+            project={{ slug: 'react-router-nest', ...project }}
+            updates={updates}
+            {...props}
+        />
+    );
+}
+
+## Overview
+
+The React Router 7 x NestJS template provides a solid foundation for building modern web applications with a robust backend. By integrating React Router's powerful routing and SSR capabilities with NestJS's scalable architecture, this template simplifies the development process for complex full-stack projects.
+
+## Key Features
+
+- **React Router 7**: Leverages the latest features of React Router for routing and server-side rendering.
+- **NestJS**: Built on top of a progressive Node.js framework for efficient and scalable server-side applications.
+- **Turbo + PNPM**: Optimized for monorepo development with fast builds and efficient package management.
+- **ESM Support**: Native ECMAScript Modules support for modern JavaScript development.
+- **Docker Support**: Containerization ready with multi-architecture image support.
+
+## Project Structure
+
+The repository is organized as a monorepo:
+
+- `apps/server`: The NestJS server that handles API requests and serves the React Router application.
+- `libs/`: Shared libraries and components used across different applications (ready for expansion).
+
+## Getting Started
+
+To get started with this project, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/cbnsndwch/react-router-nest.git
+cd react-router-nest
+pnpm install
+```
+
+Start the development server:
+
+```bash
+cd apps/server
+pnpm dev
+```
+
+Visit `http://localhost:4003` to see the application in action!

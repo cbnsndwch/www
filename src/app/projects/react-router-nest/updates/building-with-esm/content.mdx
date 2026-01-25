@@ -1,0 +1,20 @@
+export const update = {
+    title: 'Building with ESM',
+    description: 'Enabling native ECMAScript Modules for better compatibility and performance.',
+    date: '2026-01-09',
+    author: 'Sergio Leon'
+};
+
+The project has been transitioned to use native ECMAScript Modules (ESM). This change involves updating the `package.json` with `"type": "module"`, adding `.js` extensions to imports for ESM compatibility, and configuring SWC for NodeNext support.
+
+## Why ESM?
+
+- **Modern Standards**: ESM is the official standard for JavaScript modules.
+- **Improved Tree Shaking**: Better optimization during the build process.
+- **Future-Proofing**: Ensuring compatibility with the evolving Node.js ecosystem.
+
+## Key Changes
+
+- Enabled ESM in the server application.
+- Updated internal imports to include file extensions.
+- Configured `.swcrc` to support NodeNext module resolution.

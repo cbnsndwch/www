@@ -1,0 +1,51 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logoPlanetaria from '@/images/logos/planetaria.svg';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon } from '@/components/SocialIcons';
+
+export const project = {
+    name: 'Struktura',
+    description:
+        'A no-code data management platform designed to combine the visual usability of spreadsheet tools with the structural flexibility of document databases.',
+    logo: logoPlanetaria,
+    link: {
+        href: 'https://github.com/cbnsndwch/struktura',
+        label: 'cbnsndwch/struktura',
+        icon: GitHubIcon
+    },
+    tech: [
+        'TypeScript',
+        'Turborepo',
+        'pnpm Workspaces',
+        'NestJS',
+        'Apollo GraphQL',
+        'shadcn/ui',
+        'Playwright',
+        'Vitest'
+    ],
+    order: 4,
+    date: '2026-01-03'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('struktura');
+
+    return (
+        <ProjectLayout
+            project={{ slug: 'struktura', ...project }}
+            updates={updates}
+            {...props}
+        />
+    );
+}
+
+**Struktura** is a no-code data management platform designed to combine the visual usability of spreadsheet tools with the structural flexibility of document databases. It addresses the need for dynamic content management by allowing users to define custom schemas and relationships through an intuitive UI. This approach enables teams to manage complex data structures without requiring dedicated engineering resources or custom internal tools.
+
+Technically, the project is architected as a **Modular Monolith** within a **pnpm/Turborepo** workspace. This structure was chosen to ensure strict boundaries between feature domains (such as Auth, Schema, and Collections) while simplifying deployment and strictly enforcing type safety between the **NestJS** backend and the **React Router 7** frontend. A key component of the backend is a custom **NestJS Apollo Driver**, implemented to handle the specific challenges of dynamic GraphQL schema generation and runtime flexibility.
+
+The frontend is built with a focus on functional reliability and developer experience. It features a performant **Data Grid** with specialized cell editors for handling various data types efficiently. The design system is implemented using **shadcn/ui** and utilizes an **OKLCH-based** color space to manage theming and accessibility consistently. To maintain stability during active development, the project relies on **Playwright** and **Vitest Browser Mode** for a modern, unified end-to-end testing workflow.

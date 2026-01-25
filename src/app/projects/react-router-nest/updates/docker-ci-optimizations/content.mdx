@@ -1,0 +1,16 @@
+export const update = {
+    title: 'Docker Optimizations & CI Efficiency',
+    description: 'Overhauling Docker strategy and optimizing GitHub Actions for better performance.',
+    date: '2025-04-06',
+    author: 'Sergio Leon'
+};
+
+We've overhauled our Docker strategy to implement a more efficient two-stage build approach. This significantly reduces image sizes and leverages layer caching more effectively. 
+
+Additionally, we've enabled `cancel-in-progress` for our GitHub workflows, ensuring that stale CI runs don't consume unnecessary resources when new commits are pushed.
+
+## Key Improvements
+
+- **Two-Stage Docker Builds**: Optimized images for production deployment.
+- **Improved Caching**: Faster build times by leveraging Docker layer caching and PNPM store cache.
+- **CI Resource Management**: Automated cancellation of redundant workflow runs.

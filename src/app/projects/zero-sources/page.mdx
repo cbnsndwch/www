@@ -1,0 +1,102 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import { GitHubIcon, NpmIcon } from '@/components/SocialIcons';
+import logoPlanetaria from '@/images/logos/planetaria.svg';
+import ProjectLayout from '@/components/ProjectLayout';
+
+export const project = {
+    name: 'Zero Sources',
+    description:
+        'A collection of utilities and custom change source implementations for @rocicorp/zero.',
+    logo: logoPlanetaria,
+    link: {
+        href: 'https://github.com/cbnsndwch/zero-sources',
+        label: 'cbnsndwch/zero-sources',
+        icon: GitHubIcon
+    },
+    secondaryLink: {
+        href: 'https://www.npmjs.com/package/@cbnsndwch/zero-source-mongodb',
+        label: '@cbnsndwch/zero-source-mongodb',
+        icon: NpmIcon
+    },
+    tech: [
+        'TypeScript',
+        'NodeJS',
+        'NestJS',
+        'MongoDB',
+        'Turborepo',
+        'Zero Sync',
+        'Sync Engines',
+        'Local First'
+    ],
+    order: 5,
+    date: '2024-01-25'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('zero-sources');
+
+    return (
+        <ProjectLayout
+            project={{ slug: 'zero-sources', ...project }}
+            updates={updates}
+            {...props}
+        />
+    );
+
+}
+
+## Overview
+
+**Zero Sources** is a monorepo that hosts various utilities and custom change source implementations designed to integrate with [`@rocicorp/zero`](https://github.com/rocicorp/mono). The primary goal is to provide building blocks and ready-to-use change sources for developers looking to extend or customize Zero's caching and synchronization features.
+
+### 🚀 Featured: MongoDB Array Unwinding
+
+The MongoDB change source now supports **array unwinding** in table mappings, enabling you to normalize MongoDB documents with embedded arrays into separate Zero table rows using aggregation pipeline stages.
+
+- **~200x Performance Improvement**: Identity-based array diffing generates minimal change events.
+- **Discriminated Union Architecture**: Type-safe pipeline with compile-time checking.
+- **Fluent Builder API**: Readable, chainable pipeline construction.
+
+```typescript
+import { pipelineBuilder } from '@cbnsndwch/zero-contracts';
+
+const mapping = pipelineBuilder<Member>('accounts')
+    .match({ bundle: 'ENTERPRISE' })
+    .unwind('$members')
+    .addFields({
+        accountId: '$_id',
+        userId: '$members.id',
+        role: '$members.role'
+    })
+    .build();
+```
+
+### 🏗️ Repository Structure
+
+We use pnpm Workspaces and Turborepo to manage multiple packages effectively:
+
+- **`apps/zrocket`**: Unified ZRocket demo showcasing discriminated union tables with MongoDB.
+- **`apps/source-mongodb-server`**: General-purpose MongoDB change source server.
+- **`libs/zero-contracts`**: TypeScript contracts and utilities for Zero.
+- **`libs/zero-source-mongodb`**: MongoDB change source with discriminated unions.
+
+### 🏗️ Look Inside the ZRocket Demo
+
+The ZRocket demo showcases how multiple Zero tables can be derived from a single MongoDB collection using filter-based discrimination:
+
+- **`chatsTable`**: `rooms` collection with filter `{ t: 'd' }` (direct messages).
+- **`channelsTable`**: `rooms` collection with filter `{ t: 'c' }` (public channels).
+- **`systemMessages`**: `messages` collection with filter `{ t: { $exists: true } }`.
+
+### 🛣️ Roadmap & Future Plans
+
+- **Stripe Integration**: API-based initial sync with webhook support.
+- **GoHighLevel Integration**: Webhook-based change source.
+- **Deno + Bun Support**: Expanding beyond the current Node.js v22+ baseline.
+
+For full details, check out the [Repository README](https://github.com/cbnsndwch/zero-sources).
