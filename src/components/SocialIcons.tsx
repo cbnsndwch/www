@@ -1,6 +1,11 @@
 export function TwitterIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
             <path d="M20.055 7.983c.011.174.011.347.011.523 0 5.338-3.92 11.494-11.09 11.494v-.003A10.755 10.755 0 0 1 3 18.186c.308.038.618.057.928.058a7.655 7.655 0 0 0 4.841-1.733c-1.668-.032-3.13-1.16-3.642-2.805a3.753 3.753 0 0 0 1.76-.07C5.07 13.256 3.76 11.6 3.76 9.676v-.05a3.77 3.77 0 0 0 1.77.505C3.816 8.945 3.288 6.583 4.322 4.737c1.98 2.524 4.9 4.058 8.034 4.22a4.137 4.137 0 0 1 1.128-3.86A3.807 3.807 0 0 1 19 5.274a7.657 7.657 0 0 0 2.475-.98c-.29.934-.9 1.729-1.713 2.233A7.54 7.54 0 0 0 22 5.89a8.084 8.084 0 0 1-1.945 2.093Z" />
         </svg>
     );
@@ -8,7 +13,12 @@ export function TwitterIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export function FacebookIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
-        <svg viewBox="0 0 448 512" aria-hidden="true" fill="currentColor" {...props}>
+        <svg
+            viewBox="0 0 448 512"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
             <path d="M64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64h98.2V334.2H109.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H255V480H384c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64z" />
         </svg>
     );
@@ -16,7 +26,12 @@ export function FacebookIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export function GitHubIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -28,15 +43,38 @@ export function GitHubIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export function LinkedInIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
             <path d="M18.335 18.339H15.67v-4.177c0-.996-.02-2.278-1.39-2.278-1.389 0-1.601 1.084-1.601 2.205v4.25h-2.666V9.75h2.56v1.17h.035c.358-.674 1.228-1.387 2.528-1.387 2.7 0 3.2 1.778 3.2 4.091v4.715zM7.003 8.575a1.546 1.546 0 01-1.548-1.549 1.548 1.548 0 111.547 1.549zm1.336 9.764H5.666V9.75H8.34v8.589zM19.67 3H4.329C3.593 3 3 3.58 3 4.297v15.406C3 20.42 3.594 21 4.328 21h15.338C20.4 21 21 20.42 21 19.703V4.297C21 3.58 20.4 3 19.666 3h.003z" />
+        </svg>
+    );
+}
+
+export function InstagramIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
+    return (
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
+            <path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 0 1 1.772 1.153 4.902 4.902 0 0 1 1.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 0 1-1.153 1.772 4.902 4.902 0 0 1-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 0 1-1.772-1.153 4.902 4.902 0 0 1-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 0 1 1.153-1.772A4.902 4.902 0 0 1 5.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 0 0-.748-1.15 3.098 3.098 0 0 0-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16.36a4.198 4.198 0 1 1 0-8.396 4.198 4.198 0 0 1 0 8.396zm7.846-10.405a1.441 1.441 0 1 1-2.881 0 1.441 1.441 0 0 1 2.881 0z" />
         </svg>
     );
 }
 
 export function NpmIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
-        <svg viewBox="0 0 640 640" aria-hidden="true" fill="currentColor" {...props}>
+        <svg
+            viewBox="0 0 640 640"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
             <path d="M320 352L288 352L288 288L320 288L320 352zM608 224L608 416L320 416L320 448L192 448L192 416L32 416L32 224L608 224zM192 256L64 256L64 384L128 384L128 288L160 288L160 384L192 384L192 256zM352 256L224 256L224 416L288 416L288 384L352 384L352 256zM576 256L384 256L384 384L448 384L448 288L480 288L480 384L512 384L512 288L544 288L544 384L576 384L576 256z" />
         </svg>
     );
@@ -44,7 +82,12 @@ export function NpmIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 
 export function VSCodeIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+        <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="currentColor"
+            {...props}
+        >
             <path d="M23.663 3.037L17.202 0l-5.632 5.084L6.236 1.485 0 4.14v15.72l6.236 2.655 5.334-3.599 5.632 5.084L23.663 20.963V3.037zM16.362 17.58l-3.328-2.583 3.328-2.583v5.166zM6.963 6.42l3.328 2.583-3.328 2.583V6.42z" />
         </svg>
     );

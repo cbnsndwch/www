@@ -44,7 +44,8 @@
         "THESALT",
         "Turborepo",
         "unpad",
-        "unpadded"
+        "unpadded",
+        "Wynwood"
     ],
     "debug.inlineValues": "on",
     "editor.rulers": [
