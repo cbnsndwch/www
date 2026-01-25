@@ -26,7 +26,7 @@ export default function EngagementWidget({
     }, [extras]);
 
     // TEMPORARILY DISABLED ENGAGEMENT WIDGET due to CSS issues
-    // 
+    //
     // const widgetData = useMemo(
     //     () => ({
     //         'crossorigin': 1,

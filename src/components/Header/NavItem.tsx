@@ -20,7 +20,7 @@ export function NavItem({ href, children }: NavItemProps) {
                     'relative block px-3 py-2 transition',
                     isActive
                         ? 'text-amber-500 dark:text-amber-400'
-                        : 'hover:text-amber-500 dark:hover:text-amber-400',
+                        : 'hover:text-amber-500 dark:hover:text-amber-400'
                 )}
             >
                 {children}

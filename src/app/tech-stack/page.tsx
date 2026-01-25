@@ -7,7 +7,7 @@ import Tool from './Tool';
 export const metadata = {
     title: 'My Tech Stack',
     description:
-        'Software I use, programming languages and frameworks I love, and other stuff I recommend.',
+        'Software I use, programming languages and frameworks I love, and other stuff I recommend.'
 };
 
 export default function TechStack() {

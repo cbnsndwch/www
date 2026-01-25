@@ -3,7 +3,7 @@ import { ForwardedRef, forwardRef, memo, ReactNode, SVGProps } from 'react';
 export default function createSvgIcon(
     contents: ReactNode,
     displayName: string,
-    viewBox = '0 0 24 24',
+    viewBox = '0 0 24 24'
 ) {
     function Component(props: SVGProps<SVGSVGElement>, ref: ForwardedRef<any>) {
         return (

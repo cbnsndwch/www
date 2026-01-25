@@ -14,7 +14,9 @@ function usePrevious<T>(value: T) {
     return ref.current;
 }
 
-export const AppContext = createContext<{ previousPathname?: string | null }>({});
+export const AppContext = createContext<{ previousPathname?: string | null }>(
+    {}
+);
 
 export function Providers({ children }: { children: React.ReactNode }) {
     let pathname = usePathname();

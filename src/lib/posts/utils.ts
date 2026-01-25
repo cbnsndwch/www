@@ -18,7 +18,7 @@ async function importPost(postFilename: string): Promise<PostWithSlug> {
     return {
         slug: postFilename.replace(/(\/page)?\.mdx$/, ''),
         raw,
-        ...post,
+        ...post
     };
 }
 
@@ -29,17 +29,17 @@ async function importPost(postFilename: string): Promise<PostWithSlug> {
  */
 export async function getAllPosts(includeDrafts = false) {
     let articleFilenames = await glob('*/page.mdx', {
-        cwd: './src/app/posts',
+        cwd: './src/app/posts'
     });
 
     let posts = await Promise.all(articleFilenames.map(importPost));
 
     if (!includeDrafts) {
-        posts = posts.filter((post) => !post.draft);
+        posts = posts.filter(post => !post.draft);
     }
 
     const sortedPosts = posts.sort(
-        (a, z) => +new Date(z.date) - +new Date(a.date),
+        (a, z) => +new Date(z.date) - +new Date(a.date)
     );
 
     return sortedPosts;

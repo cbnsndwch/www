@@ -9,12 +9,12 @@ export type PostSummaryListProps = {
 
 export default function PostSummaryList({
     title,
-    posts,
+    posts
 }: PostSummaryListProps) {
     return (
         <div className="flex flex-col gap-16">
             <p className="text-left text-xl font-bold">{title}</p>
-            {posts.map((post) => (
+            {posts.map(post => (
                 <PostSummary key={post.slug} post={post} />
             ))}
         </div>

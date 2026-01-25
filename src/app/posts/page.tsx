@@ -42,7 +42,7 @@ function PostSummary({ post }: PostSummaryProps) {
 export const metadata: Metadata = {
     title: 'Posts',
     description:
-        'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+        'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.'
 };
 
 export default async function PostsIndex() {
@@ -61,7 +61,7 @@ export default async function PostsIndex() {
                         </p>
                     )}
 
-                    {posts.map((post) => (
+                    {posts.map(post => (
                         <PostSummary key={post.slug} post={post} />
                     ))}
                 </div>

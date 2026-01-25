@@ -10,7 +10,7 @@ export default function CardTitle<T extends React.ElementType = 'h2'>({
     as,
     href,
     newTab,
-    children,
+    children
 }: CardTitleProps<T>) {
     let Component = as ?? 'h2';
 

@@ -11,11 +11,11 @@ export type PostTagLisProps = {
 export default function PostTagList({
     tags,
     className,
-    color = 'cyan',
+    color = 'cyan'
 }: PostTagLisProps) {
     return (
         <div className={clsx('flex gap-1', className)}>
-            {tags.map((tag) => (
+            {tags.map(tag => (
                 <PostTag key={tag} color={color} title={tag.toLowerCase()} />
             ))}
         </div>
