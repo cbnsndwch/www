@@ -121,7 +121,7 @@ export default function ProjectLayout({
                                     </Link>
                                 </div>
                                 <ul role="list" className="mt-6 space-y-10">
-                                    {updates.slice(0, 3).map(update => (
+                                    {updates.slice(0, 5).map(update => (
                                         <li key={update.slug}>
                                             <Card>
                                                 <Card.Title
