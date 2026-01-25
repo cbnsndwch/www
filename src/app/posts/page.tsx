@@ -33,8 +33,8 @@ export default async function PostsIndex(props: {
 
     const getParamArray = (name: string) => {
         const val = searchParams[name];
-        if (typeof val === 'string') return val.split(',');
-        if (Array.isArray(val)) return val;
+        if (typeof val === 'string') return val.split(',').filter(Boolean);
+        if (Array.isArray(val)) return val.filter(Boolean);
         return [];
     };
 

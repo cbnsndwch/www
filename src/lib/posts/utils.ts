@@ -1,4 +1,5 @@
 import { ComponentType } from 'react';
+import { join } from 'path';
 import glob from 'fast-glob';
 
 import { Post, PostWithSlug, isGuestPost, isOwnPost } from './contracts';
@@ -28,8 +29,10 @@ async function importPost(postFilename: string): Promise<PostWithSlug> {
  * @param includeDrafts Whether to include draft posts in the results.
  */
 export async function getAllPosts(includeDrafts = false) {
+    const postsDirectory = join(process.cwd(), 'src/app/posts');
+
     let articleFilenames = await glob('*/page.mdx', {
-        cwd: './src/app/posts'
+        cwd: postsDirectory
     });
 
     let posts = await Promise.all(articleFilenames.map(importPost));
