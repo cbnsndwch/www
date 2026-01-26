@@ -1,0 +1,164 @@
+import Image from 'next/image';
+
+import { Button } from '@/components/ui/button';
+import PostLayout from '@/components/PostLayout';
+
+import statsCover from './01-stats-cover.jpg';
+import attendanceRoles from './02-attendance-roles.png';
+import experienceLevels from './03-experience-levels.png';
+import requestedEvents from './04-requested-events.png';
+import geographicDistribution from './05-geographic-distribution.jpg';
+import winterVibes from './06-winter-vibes.jpg';
+
+export const post = {
+    title: 'Hello Miami: 2025 Year in Review',
+    description:
+        'A look back at what consistency and grassroots community focus achieved in 2025.',
+    author: 'Sergio Leon',
+    date: '2026-01-07',
+    cover: {
+        image: statsCover,
+        title: 'Hello Miami 2025 Review'
+    },
+    tags: ['community', 'miami', 'year-in-review', 'hack night']
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+        title: post.title,
+        description: post.description,
+        type: 'article',
+        images: [
+            {
+                url: '/posts/hello-miami-2025-year-in-review/opengraph-image.png',
+                width: 1200
+            }
+        ]
+    }
+};
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+}
+
+<div className="my-12 rounded-2xl border border-zinc-100 bg-zinc-50 p-8 text-center dark:border-zinc-700/40 dark:bg-zinc-800/10">
+    <h3 className="mt-0 mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+        Want the full immersive experience?
+    </h3>
+    <p className="mb-6 text-zinc-600 dark:text-zinc-400">
+        This post is a summary. For the full data story with interactive charts
+        and terminal vibes, check out the microsite.
+    </p>
+    <Button
+        variant="ghost"
+        className="group w-full sm:w-auto py-3! px-8! text-base! shadow-sm hover:bg-teal-50 dark:hover:bg-teal-900/20"
+        asChild
+    >
+        <a
+            href="https://state-of-hack-night-2025.cbnsndwch.dev/"
+            target="_blank"
+            className="flex items-center justify-center gap-2 text-teal-600 dark:text-teal-400 font-semibold no-underline! whitespace-nowrap"
+        >
+            <span>View State of Hack Night 2025</span>
+            {/* prettier-ignore */}
+            <span
+                aria-hidden="true"
+                className="block transition-transform group-hover:translate-x-1"
+            >→</span>
+        </a>
+    </Button>
+</div>
+
+Reflecting on 2025, it's amazing to see what consistency and a focus on grassroots community building can achieve. We set out to create a regular space for builders in Miami, and the results have exceeded our expectations.
+
+We hosted **75 Hack Night events** throughout the year. We're pretty picky about our approvals to ensure a high-quality environment for builders, yet we still approved **3,103 registrations**. Most importantly, we saw **315 unique builders** join us, with a massive number of them becoming regular attendees.
+
+<figure>
+    <Image
+        src={statsCover}
+        alt="Hello Miami 2025 Stats"
+        className="rounded-xl w-full"
+    />
+    <figcaption className="mt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        2025 at a glance: 75 events, 3k+ registrations, and 315 unique builders
+        over the last 3 quarters.
+    </figcaption>
+</figure>
+
+## The Community
+
+The second half of the year—specifically July, September, and October—saw incredible energy. The diversity of roles has been fascinating. While Software Engineers make up the bulk of our attendees, we've seen a strong showing from startup founders, designers, hardware/electrical engineers, investors, and product managers.
+
+<figure>
+    <Image
+        src={attendanceRoles}
+        alt="Hack Night attendance by role"
+        className="rounded-xl w-full"
+    />
+    <figcaption className="mt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        Engineers lead the pack, but Founders, Designers, and Investors are well
+        represented.
+    </figcaption>
+</figure>
+
+It hasn't just been senior folks or just students; it's a healthy mix. We've successfully created an environment where seasoned industry veterans share the space with newcomers, fostering mentorship and collaboration naturally.
+
+<figure>
+    <Image
+        src={experienceLevels}
+        alt="Experience levels at Hack Night"
+        className="rounded-xl w-full"
+    />
+    <figcaption className="mt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        From new grads to 20y+ veterans, everyone has a place at Hack Night.
+    </figcaption>
+</figure>
+
+## What's Next
+
+The data is clear: the appetite for a mature technical scene in Miami is not just a hype cycle—it's real and it's growing. Our builders have spoken about what they want to see next. Beyond more Hack Nights, there is a strong demand for deeper technical engagement: hackathons, intimate dinners with local engineers, exclusive technical events, demo nights, and expert-led workshops.
+
+<figure>
+    <Image
+        src={requestedEvents}
+        alt="Event types requested by the community"
+        className="rounded-xl w-full"
+    />
+    <figcaption className="mt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        The community wants more: Hackathon, Dinners, and Technical Workshops
+        top the list.
+    </figcaption>
+</figure>
+
+## Beyond Miami
+
+While the core of our community hails from the Miami-Ft. Lauderdale-West Palm metro area, Hack Night has become a destination. We frequently host builders visiting from major tech hubs like New York and New Jersey, California, and a surprisingly strong contingent from the Midwest.
+
+<figure>
+    <Image
+        src={geographicDistribution}
+        alt="Geographic distribution of attendees"
+        className="rounded-xl w-full"
+    />
+    <figcaption className="mt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        While locally rooted, we attract builders from NY, CA, and across the
+        globe.
+    </figcaption>
+</figure>
+
+## Looking Ahead
+
+If you're reading this from a colder climate (looking at you, NYC and SF) and dreading the rest of winter, consider this your invitation. Our doors are open. If you're coming down to Miami, DM us—we'd love to have you join us or even speak at a future Hack Night.
+
+<figure>
+    <Image
+        src={winterVibes}
+        alt="Vibes at Miami Hack Night"
+        className="rounded-xl w-full"
+    />
+    <figcaption className="mt-4 text-center text-sm text-zinc-600 dark:text-zinc-400">
+        Escape the cold. Build with us.
+    </figcaption>
+</figure>
