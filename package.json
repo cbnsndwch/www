@@ -55,7 +55,7 @@
         "eslint": "9.39.2",
         "eslint-config-next": "15.5.9",
         "mdx": "^0.3.1",
-        "npm-check-updates": "^19.3.1",
+        "npm-check-updates": "^19.3.2",
         "postcss": "^8.5.6",
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
