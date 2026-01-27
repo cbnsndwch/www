@@ -136,34 +136,35 @@ export default function GhlDevPartnerServicePage() {
                     <div>
                         <h3 className="flex items-center gap-2 font-semibold text-amber-600 dark:text-amber-400">
                             <CheckIcon className="h-5 w-5" />
-                            Great Fit
+                            We're a great fit if you:
                         </h3>
                         <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-400">
                             <li className="flex gap-3">
                                 <CheckIcon className="h-5 w-5 shrink-0 text-amber-500" />
                                 <span>
-                                    Businesses with existing GHL accounts
-                                    looking to expand capabilities
+                                    Are a business or agency owner with an
+                                    existing GHL account looking to expand
+                                    capabilities
                                 </span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckIcon className="h-5 w-5 shrink-0 text-amber-500" />
                                 <span>
-                                    Companies ready to invest in custom
-                                    solutions that drive real ROI
+                                    Are ready to invest in bespoke solutions
+                                    that drive real ROI
                                 </span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckIcon className="h-5 w-5 shrink-0 text-amber-500" />
                                 <span>
-                                    Teams with clear project requirements and
-                                    realistic timelines
+                                    Have a team with clear project requirements
+                                    and realistic timelines
                                 </span>
                             </li>
                             <li className="flex gap-3">
                                 <CheckIcon className="h-5 w-5 shrink-0 text-amber-500" />
                                 <span>
-                                    Partners who value quality and deep
+                                    Are someone who values quality and deep
                                     collaboration over quick fixes
                                 </span>
                             </li>
@@ -174,7 +175,7 @@ export default function GhlDevPartnerServicePage() {
                     <div>
                         <h3 className="flex items-center gap-2 font-semibold text-zinc-600 dark:text-zinc-400">
                             <XIcon className="h-5 w-5" />
-                            Probably Not a Fit
+                            Probably not a fit for:
                         </h3>
                         <ul className="mt-4 space-y-3 text-sm text-zinc-600 dark:text-zinc-500">
                             <li className="flex gap-3">
@@ -192,7 +193,9 @@ export default function GhlDevPartnerServicePage() {
                             </li>
                             <li className="flex gap-3">
                                 <XIcon className="h-5 w-5 shrink-0" />
-                                <span>Very small budgets (under $2,500)</span>
+                                <span>
+                                    Very small budgets (e.g.: under $2,500)
+                                </span>
                             </li>
                             <li className="flex gap-3">
                                 <XIcon className="h-5 w-5 shrink-0" />
