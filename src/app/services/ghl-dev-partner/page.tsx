@@ -136,7 +136,7 @@ export default function GhlDevPartnerServicePage() {
                     <div>
                         <h3 className="flex items-center gap-2 font-semibold text-amber-600 dark:text-amber-400">
                             <CheckIcon className="h-5 w-5" />
-                            We're a great fit if you:
+                            We&apos;re a great fit if you:
                         </h3>
                         <ul className="mt-4 space-y-3 text-sm text-zinc-700 dark:text-zinc-400">
                             <li className="flex gap-3">
