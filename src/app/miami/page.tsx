@@ -170,9 +170,9 @@ export default function MiamiPage() {
                 <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
                     I believe Miami has everything it needs to be a first-class
                     global tech hub. My mission is to bridge the gap between
-                    &quot;sun and fun&quot; and &quot;serious
-                    engineering&quot; by fostering a community of builders who
-                    hold themselves to the highest standards.
+                    &quot;sun and fun&quot; and &quot;serious engineering&quot;
+                    by fostering a community of builders who hold themselves to
+                    the highest standards.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-6">
                     <SocialLink

@@ -20,11 +20,11 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     }, [initialIndex]);
 
     const showNext = useCallback(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setCurrentIndex(prev => (prev + 1) % images.length);
     }, [images.length]);
 
     const showPrev = useCallback(() => {
-        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+        setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
     }, [images.length]);
 
     useEffect(() => {
@@ -53,7 +53,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             onClick={onClose}
         >
             <button
-                onClick={(e) => {
+                onClick={e => {
                     e.stopPropagation();
                     onClose();
                 }}
@@ -64,7 +64,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </button>
 
             <button
-                onClick={(e) => {
+                onClick={e => {
                     e.stopPropagation();
                     showPrev();
                 }}
@@ -76,7 +76,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
 
             <div
                 className="relative h-[80vh] w-[90vw] animate-in zoom-in-95 duration-300 cursor-auto"
-                onClick={(e) => e.stopPropagation()}
+                onClick={e => e.stopPropagation()}
             >
                 <Image
                     src={images[currentIndex]}
@@ -88,7 +88,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </div>
 
             <button
-                onClick={(e) => {
+                onClick={e => {
                     e.stopPropagation();
                     showNext();
                 }}
