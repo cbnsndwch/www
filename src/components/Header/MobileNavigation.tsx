@@ -60,7 +60,7 @@ export default function MobileNavigation(
                                     Posts
                                 </MobileNavItem>
                                 <MobileNavItem href="/projects">
-                                    Open Source
+                                    Projects
                                 </MobileNavItem>
                                 <MobileNavItem href="/miami">
                                     Miami Hub
