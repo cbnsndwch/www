@@ -63,7 +63,7 @@ export default function MobileNavigation(
                                     Projects
                                 </MobileNavItem>
                                 <MobileNavItem href="/miami">
-                                    Miami Hub
+                                    Miami
                                 </MobileNavItem>
                                 {/* <MobileNavItem href="/speaking">
                                     Speaking

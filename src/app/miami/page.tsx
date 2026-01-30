@@ -36,11 +36,11 @@ import image17 from '@/images/community/GoRC6ckWsAEIUzM.webp';
 import image18 from '@/images/community/Gx4FS_UX0AAj7ZH.webp';
 
 export const metadata: Metadata = {
-    title: 'Miami Hub',
+    title: 'Miami',
     description:
         'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.',
     openGraph: {
-        title: 'Miami Hub',
+        title: 'Miami',
         description:
             'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.',
         type: 'website',
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
                 url: '/miami/opengraph-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'Miami Hub - A mission for the city'
+                alt: 'Miami - A mission for the city'
             }
         ]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Miami Hub',
+        title: 'Miami',
         description:
             'A personal mission to make Miami a first-class tech hub through community, engineering, and impact.',
         images: ['/miami/opengraph-image.png']
