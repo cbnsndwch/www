@@ -1,0 +1,96 @@
+export const update = {
+    title: 'fractal-svg v0.2.0: Now with an Interactive Playground',
+    date: '2026-01-31',
+    description:
+        'Major restructure into a monorepo with three publishable packages, plus a live demo for designing fractals in the browser.'
+};
+
+## 🏗️ Monorepo Architecture
+
+The project has been restructured into a proper Turborepo monorepo with clear separation of concerns:
+
+| Package                        | Purpose                                                        |
+| ------------------------------ | -------------------------------------------------------------- |
+| `@cbnsndwch/fractal-generator` | Isomorphic core library — zero dependencies, works in Node.js and browser |
+| `@cbnsndwch/fractal-cli`       | Command-line tool with interactive and scriptable modes        |
+| `@cbnsndwch/fractal-react`     | Drop-in React components for embedding fractals                |
+
+All packages are now published to npm and can be installed independently.
+
+---
+
+## 🎮 Interactive Playground
+
+The headline feature: a fully interactive web-based playground at **[fractals.cbnsndwch.dev](https://fractals.cbnsndwch.dev/)**
+
+- Real-time preview as you adjust parameters
+- Supports all 10 fractal types
+- Curated gradient presets (from uiGradients)
+- One-click SVG download
+- Type-specific controls (sides for Koch, complex constants for Julia, zoom for Mandelbrot)
+- Optional circular backdrop for logo designs
+
+Built with Next.js 15, React 19, and Tailwind CSS.
+
+---
+
+## ⚛️ React Components
+
+New `@cbnsndwch/fractal-react` package makes embedding fractals trivial:
+
+```tsx
+import { FractalGenerator } from '@cbnsndwch/fractal-react';
+
+<FractalGenerator
+  type="dragon"
+  options={{
+    iterations: 12,
+    size: 512,
+    stroke: '#ff6b6b',
+    strokeWidth: 1.5
+  }}
+/>
+```
+
+---
+
+## 📦 Improved Developer Experience
+
+- Proper TypeScript exports with full type definitions
+- ESM-first builds via tsup
+- Changesets for versioning
+- GitHub Actions CI/CD pipeline
+- Contributing guide and architecture docs
+
+---
+
+## Published Packages
+
+```bash
+npm install @cbnsndwch/fractal-generator
+npm install @cbnsndwch/fractal-cli
+npm install @cbnsndwch/fractal-react
+```
+
+Or use the CLI directly:
+
+```bash
+npx @cbnsndwch/fractal-cli dragon --iter 14 --stroke "#ec4899"
+```
+
+---
+
+## What's Next
+
+- **Generic L-system engine** — Define custom fractals via axiom/rules config
+- **Animation support** — CSS or SMIL-based animated paths
+- **Additional fractal types** — Barnsley fern, fractal trees
+- **Auto-scaling stroke** — Adjust stroke width based on iteration depth
+
+---
+
+## Links
+
+- **Live Demo:** <a href="https://fractals.cbnsndwch.dev/" target="_blank" rel="noopener noreferrer">fractals.cbnsndwch.dev</a>
+- **Repository:** <a href="https://github.com/cbnsndwch/fractal-svg" target="_blank" rel="noopener noreferrer">github.com/cbnsndwch/fractal-svg</a>
+- **npm:** <a href="https://www.npmjs.com/package/@cbnsndwch/fractal-generator" target="_blank" rel="noopener noreferrer">@cbnsndwch/fractal-generator</a>
