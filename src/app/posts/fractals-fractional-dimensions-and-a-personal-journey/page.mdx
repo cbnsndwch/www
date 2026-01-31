@@ -1,0 +1,98 @@
+import Image from 'next/image';
+
+import PostLayout from '@/components/PostLayout';
+import Quote from '@/components/Quote';
+
+import coverImage from './opengraph-image.png';
+import kochFractal from './koch-fractal-5-7iter-sunrise.svg';
+
+export const post = {
+    title: 'Fractals, Fractional Dimensions, and a Personal Journey',
+    description:
+        'From Encarta 98 demos to open-source project icons—how fractal geometry went from childhood fascination to real-world engineering.',
+    author: 'Sergio Leon',
+    date: '2026-01-31',
+    cover: {
+        image: coverImage,
+        title: 'Fractal Geometry'
+    },
+    tags: ['fractals', 'engineering', 'mathematics', 'open-source']
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+        title: post.title,
+        description: post.description,
+        type: 'article',
+        images: [
+            {
+                url: '/posts/fractals-fractional-dimensions-and-a-personal-journey/opengraph-image.png',
+                width: 1200
+            }
+        ]
+    }
+};
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+}
+
+I still remember the first time I encountered a _fractal_. It was the late 90s—I was maybe 8 years old—poking around Microsoft Encarta '98 on CD-ROM when I stumbled on a little interactive demo. It zoomed into the Mandelbrot set, and as it zoomed, there were more patterns. And inside those, more patterns. Endless. I had no idea what I was looking at, but I was completely hooked. That moment stuck with me.
+
+To this day I'm still entranced by them, so I've decided to start using fractal shapes as icons for my [open-source projects](/projects). Why? They look **awesome**, and they embody one of the ideas I love most about human ingenuity:
+
+<Quote attribution="yours truly, paraphrasing a thousand vague quotes">
+    From humble beginnings come great things
+</Quote>
+
+But fractals aren't just pretty patterns. They embody a profound idea: _fractional dimension_. Unlike a line (1D) or a plane (2D), a fractal can be something in between. The Sierpinski triangle, for example, has a dimension of about 1.585—not quite a line, not quite an area.
+
+This self-similarity is one of the key aspects that give these types of fractals their infinite complexity. It also turns out to be incredibly useful.
+
+<figure className="my-10">
+    <Image
+        src={kochFractal}
+        alt="Koch snowflake fractal after 7 iterations with a sunrise gradient"
+        className="mx-auto rounded-2xl"
+    />
+    <figcaption className="mt-3 text-center text-sm text-zinc-500 dark:text-zinc-400">
+        A Koch snowflake after 7 iterations—generated with my{' '}
+        <a
+            href="/projects/fractal-svg"
+            className="text-teal-500 hover:text-teal-600"
+        >
+            Fractal SVG Generator
+        </a>
+    </figcaption>
+</figure>
+
+## Where Fractals Meet Engineering
+
+Here's a quick tour of how fractal geometry shows up in real-world applications:
+
+**Antenna Design** — Shapes like the Koch snowflake let engineers pack a very long electrical pathway into a small physical space. The result: compact antennas that resonate at multiple frequencies simultaneously. Crack open a smartphone and you might find a zig-zaggy fractal pattern on the circuit board.
+
+**Thermal Management** — Hilbert curves snake through compact areas without self-intersecting, maximizing surface contact for heat transfer. Researchers have 3D-printed fractal heat exchangers that outperform traditional designs.
+
+**Structural Engineering** — Sierpinski-based trusses distribute loads hierarchically, increasing strength-to-weight ratios dramatically. Big implications for aerospace where every gram counts.
+
+**Manufacturing** — Some 3D printers use Hilbert curve infill patterns, tracing a single continuous path rather than separate lines. Faster prints, more uniform structure, better strength.
+
+**Medical Imaging** — Fractal dimension helps quantify irregular patterns in tissue—useful for detecting early-stage tumors or analyzing blood vessel networks.
+
+## What's Next
+
+This post kicks off a series diving deeper into each application. Upcoming topics:
+
+- **Wireless & Antennas** — Specific fractal designs and performance gains
+- **Thermal Systems** — 3D-printed fractal heat exchangers
+- **Structural Engineering** — Sierpinski trusses in aerospace
+- **Manufacturing** — CNC toolpaths and 3D print optimization
+- **Medical Imaging** — Fractal analysis for diagnostics
+- **Art & Design** — Generative art with [my Fractal SVG Generator](/projects/fractal-svg)
+
+Did you have a favorite fractal screensaver growing up? Know of other cool fractal applications? Hit me up on [X/Twitter](https://x.com/cbnsndwch).
+
+Cheers to fractional dimensions and never-ending patterns!
