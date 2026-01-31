@@ -1,0 +1,90 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logo from '@/images/logos/fractal-svg.svg';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon } from '@/components/SocialIcons';
+
+export const project = {
+    name: 'Fractal SVG',
+    description:
+        'A TypeScript library for generating beautiful, self-similar fractal patterns in SVG format with support for gradients, L-systems, and interactive CLI.',
+    logo: logo,
+    link: {
+        href: 'https://github.com/cbnsndwch/fractal-svg',
+        label: 'cbnsndwch/fractal-svg',
+        icon: GitHubIcon
+    },
+    tech: [
+        'TypeScript',
+        'Node.js',
+        'SVG',
+        'L-Systems',
+        'Fractals',
+        'CLI',
+        'pnpm'
+    ],
+    order: 1,
+    date: '2026-01-31'
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('fractal-svg');
+
+    return (
+        <ProjectLayout
+            project={{ slug: 'fractal-svg', ...project }}
+            updates={updates}
+            {...props}
+        />
+    );
+}
+
+**Fractal SVG** is a TypeScript library for generating beautiful, self-similar fractal patterns in clean, scalable SVG format. From classic Sierpinski carpets to space-filling Hilbert curves, it supports 10 fractal types with multi-color gradients, circular backgrounds, and both interactive and CLI modes.
+
+## Features
+
+- **10 Fractal Types** — Sierpinski carpet, Koch snowflake, Mandelbrot set, Julia sets, Dragon curve, Hilbert curve, Lévy C curve, Sierpinski arrowhead, Peano curve, and Gosper flowsnake
+- **Vector Output** — Clean, scalable SVG files with efficient single-path rendering for L-system fractals
+- **Gradient Support** — Multi-color linear gradients at any angle
+- **Circular Backgrounds** — Optional circular backdrop behind fractals, perfect for logo designs
+- **Interactive & CLI Modes** — User-friendly prompts or scriptable commands
+
+## Quick Start
+
+```bash
+# Clone and install
+git clone https://github.com/cbnsndwch/fractal-svg.git
+cd fractal-svg && pnpm install
+
+# Interactive mode
+pnpm dev
+
+# CLI examples
+npx tsx src/index.ts koch --sides 3 --iter 4 --gradient "#ff6b6b,#4ecdc4"
+npx tsx src/index.ts dragon --iter 12 --stroke "#ff6b6b" --strokeWidth 1.5
+npx tsx src/index.ts mandelbrot --gradient "#22c55e,#06b6d4,#3b82f6"
+```
+
+## Supported Fractal Types
+
+| Type | Description | Rendering |
+|------|-------------|-----------|
+| `carpet` | Sierpinski-style grid carpet | Rectangles |
+| `koch` | Koch curve snowflake/polygon | Path (filled) |
+| `mandelbrot` | Mandelbrot set boundary | Contour path |
+| `julia` | Julia set with customizable constant | Contour path |
+| `dragon` | Dragon curve (L-system) | Path (stroked) |
+| `hilbert` | Hilbert space-filling curve | Path (stroked) |
+| `levy` | Lévy C curve (feathery pattern) | Path (stroked) |
+| `sierpinski` | Sierpinski arrowhead curve | Path (stroked) |
+| `peano` | Peano space-filling curve | Path (stroked) |
+| `gosper` | Gosper flowsnake curve | Path (stroked) |
+
+## Design Principles
+
+All generated fractals follow these invariants:
+
+1. **Square Output** — Width and height are always equal
+2. **Centered Fractals** — All fractals are centered at `(size/2, size/2)`
+3. **Circular Bounding** — Fractals fit within an inscribed circle with radius `size/2 - margin`
+
+For the full usage guide and API reference, visit the [GitHub repository](https://github.com/cbnsndwch/fractal-svg).

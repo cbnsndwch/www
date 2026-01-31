@@ -1,0 +1,57 @@
+export const update = {
+    title: 'Introducing fractal-svg: Generate Beautiful Mathematical Art in SVG',
+    date: '2026-01-31',
+    description:
+        'A TypeScript library for generating self-similar fractal patterns as clean, scalable SVG files.'
+};
+
+Today marks the initial release of **fractal-svg**, a TypeScript library for generating beautiful, self-similar fractal patterns in clean, scalable SVG format.
+
+## Key Features
+
+### 10 Fractal Types
+
+- **Carpet** — Sierpinski-style grid subdivision
+- **Koch** — Classic snowflake curves with configurable polygon bases
+- **Mandelbrot** — Boundary contour of the famous set
+- **Julia** — Julia sets with customizable complex constant _c_
+- **Dragon** — L-system dragon curve
+- **Hilbert** — Space-filling curve
+- **Lévy C** — Feathery symmetric pattern
+- **Sierpinski Arrowhead** — Line-based triangle variant
+- **Peano** — Original space-filling curve (3×3 subdivision)
+- **Gosper Flowsnake** — Hexagonal space-filling curve
+
+### Gradient Support
+
+Multi-color linear gradients with configurable angle, working across all fractal types.
+
+### Dual CLI Modes
+
+- **Interactive mode** with guided prompts via `pnpm dev`
+- **Scriptable CLI** for automation and batch generation
+
+### Efficient Rendering
+
+- Line-based fractals render as single `<path>` elements
+- Contour-traced Mandelbrot/Julia sets
+- Type-specific iteration limits to prevent memory exhaustion
+
+### Design Principles
+
+- Square output (`width === height`)
+- Fractals centered at viewport midpoint
+- Circular bounding space with configurable margin
+- Optional circular background for logo designs
+
+## What's Next (Roadmap)
+
+- **Generic L-system engine** — Allow custom user-defined fractals via axiom/rules config
+- **Auto-scaling stroke width** — Adjust stroke based on iteration depth
+- **Animation support** — CSS or SMIL-based animated fractals
+- **Additional fractal types** — Barnsley fern, tree fractals, and more
+
+## Links
+
+- [Repository](https://github.com/cbnsndwch/fractal-svg)
+- License: MIT
