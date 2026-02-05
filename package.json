@@ -53,7 +53,7 @@
         "@vercel/og": "^0.8.6",
         "dotenv": "^17.2.3",
         "eslint": "9.39.2",
-        "eslint-config-next": "15.5.10",
+        "eslint-config-next": "15.5.12",
         "mdx": "^0.3.1",
         "npm-check-updates": "^19.3.2",
         "postcss": "^8.5.6",
