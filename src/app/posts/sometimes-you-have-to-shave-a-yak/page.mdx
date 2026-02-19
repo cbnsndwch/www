@@ -1,6 +1,9 @@
+import Image from 'next/image';
+
 import PostLayout from '@/components/PostLayout';
 
 import coverImage from './cover.jpg';
+import demoImage from './footer.jpg';
 
 export const post = {
     author: 'Sergio Leon',
@@ -10,7 +13,7 @@ export const post = {
         'Improving the developer experience for Portainer API by creating an LLM-friendly documentation site.',
     cover: {
         image: coverImage,
-        title: 'The (Unofficial) Portainer API Docs'
+        title: 'Portainer is the operational control plane that lets enterprise IT teams run Kubernetes and Docker environments consistently, safely, predictably, and at scale.'
     },
     tags: ['portainer', 'api', 'dx', 'oss', 'yak-shaving']
 };
@@ -37,8 +40,19 @@ export default function (props) {
 
 So the [@portainerio](https://x.com/portainerio) REST API docs are, ahem, **not great** (oh Swagger, how I love you!).
 
-I kept wasting tokens and time fighting the agent but because I'm <s>stubborn</s>, determined I had to make it work. So I shaved a yak and made an LLM + human-friendly docs site I can point my clanker to.
+I kept wasting tokens and time fighting the agent but because I'm <s>stubborn</s> determined I had to make it work. So I shaved a yak and made an LLM + human-friendly docs site I can point my clanker to.
 
 Absolute shoutout to [@fuma_nama](https://x.com/fuma_nama) for the UX bits and the OpenAPI interop (Custom Generators FTW!). The silicon citizen (ha!) is now happy because it can peruse the MDX contents and I am delighted that I get to save my [@GitHubCopilot](https://x.com/GitHubCopilot) premium requests to do actual work.
+
+<figure className="my-10">
+    <Image
+        src={demoImage}
+        alt="Screenshot of the Unofficial Portainer API Documentation site showing the API reference v2.33.7"
+        className="mx-auto rounded-2xl"
+    />
+    <figcaption className="mt-3 text-center text-sm text-zinc-500 dark:text-zinc-400">
+        The docs site for the Portainer CE REST API for v2.33.7 (LTS)
+    </figcaption>
+</figure>
 
 Check it out at [The (Unofficial) Portainer API Docs](https://portainer-api-docs.cbnsndwch.dev/docs/getting-started) and if you find any of the (inevitable) blunders I made, shoot me an issue or better yet, a PR, on [the GitHub repo](https://github.com/cbnsndwch/portainer-api-docs).
