@@ -1,0 +1,50 @@
+import Image from 'next/image';
+
+import demoImage from './the-mandelbrot-set-at-500-iterations.png';
+
+export const update = {
+    title: 'fractal-svg v0.3.0: Escape-Time Fractals and Multi-Band Contours',
+    date: '2026-02-19',
+    description:
+        'The latest update to Fractal SVG introduces Mandelbrot and Julia sets with multi-band contour rendering, interactive playground controls, and PWA support.',
+    image: demoImage
+};
+
+**Fractal SVG v0.3.0** is here! This update brings a major enhancement to the library's rendering engine, focusing on escape-time fractals like the Mandelbrot and Julia sets.
+
+<figure>
+    <Image
+        src={demoImage}
+        alt="The Mandelbrot set rendered at 500 iterations with multi-band contour SVG paths"
+        className="rounded-2xl"
+    />
+    <figcaption>The Mandelbrot set at 500 iterations</figcaption>
+</figure>
+
+## Multi-Band Contour Rendering
+
+Previously, rendering escape-time fractals in SVG format was challenging due to the pixel-based nature of these mathematical sets. In v0.3.0, we've implemented a **multi-band contour rendering** algorithm. Instead of generating thousands of individual pixel rects, the engine now calculates continuous contour paths for different iteration bands.
+
+This approach produces clean, scalable, vector-based SVG paths that look stunning at any resolution and keep the file size manageable.
+
+## Interactive Playground Upgrades
+
+The [interactive demo](https://fractals.cbnsndwch.dev) has received a significant upgrade to support these new features:
+
+- **New Controls**: You can now tweak Mandelbrot and Julia parameters directly in the UI, including center coordinates, zoom level, max iterations, and the number of contour bands.
+- **PWA Support**: The playground is now a Progressive Web App! You can install it on your device for offline access and a native-like experience.
+- **Gradient Presets**: We've added new gradient presets specifically designed to highlight the intricate details of escape-time fractals.
+
+## Core Engine Improvements
+
+Under the hood, we've also improved the coordinate transformation and centering logic for all fractal types, ensuring that your generated SVGs are perfectly framed regardless of the parameters you choose. The CLI has also been updated to support the new generator parameters.
+
+## Try It Out
+
+You can try out the new features in the [interactive playground](https://fractals.cbnsndwch.dev), or install the latest version of the library via npm:
+
+```bash
+pnpm add @cbnsndwch/fractal-generator
+```
+
+Check out the [GitHub repository](https://github.com/cbnsndwch/fractal-svg) for full documentation and CLI usage examples. Happy rendering!
