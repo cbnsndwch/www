@@ -1,0 +1,44 @@
+import PostLayout from '@/components/PostLayout';
+
+import coverImage from './cover.jpg';
+
+export const post = {
+    author: 'Sergio Leon',
+    date: '2026-02-18',
+    title: 'Sometimes you have to shave a Yak',
+    description:
+        'Improving the developer experience for Portainer API by creating an LLM-friendly documentation site.',
+    cover: {
+        image: coverImage,
+        title: 'The (Unofficial) Portainer API Docs'
+    },
+    tags: ['portainer', 'api', 'dx', 'oss', 'yak-shaving']
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+        title: post.title,
+        description: post.description,
+        type: 'article',
+        images: [
+            {
+                url: '/posts/sometimes-you-have-to-shave-a-yak/cover.png',
+                width: 1200
+            }
+        ]
+    }
+};
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+}
+
+So the [@portainerio](https://x.com/portainerio) REST API docs are, ahem, **not great** (oh Swagger, how I love you!).
+
+I kept wasting tokens and time fighting the agent but because I'm <strikethrough>stubborn</strikethrough>, determined I had to make it work. So I shaved a yak and made an LLM + human-friendly docs site I can point my clanker to.
+
+Absolute shoutout to [@fuma_nama](https://x.com/fuma_nama) for the UX bits and the OpenAPI interop (Custom Generators FTW!). The silicon citizen (ha!) is now happy because it can peruse the MDX contents and I am delighted that I get to save my [@GitHubCopilot](https://x.com/GitHubCopilot) premium requests to do actual work.
+
+Check it out at [The (Unofficial) Portainer API Docs](https://portainer-api-docs.cbnsndwch.dev/docs/getting-started) and if you find any of the (inevitable) blunders I made, shoot me an issue or better yet, a PR, on [the GitHub repo](https://github.com/cbnsndwch/portainer-api-docs).
