@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { type Metadata } from 'next';
 
 import { getAllProjectUpdates, getProjectUpdates } from '@/lib/projects/utils';
 import Container from '@/components/Container';
@@ -18,6 +19,46 @@ export async function generateStaticParams() {
 type ProjectUpdatePageProps = {
     params: Promise<{ slug: string; updateSlug: string }>;
 };
+
+export async function generateMetadata({
+    params
+}: ProjectUpdatePageProps): Promise<Metadata> {
+    const { slug, updateSlug } = await params;
+    const projectUpdates = await getProjectUpdates(slug);
+    const update = projectUpdates.find(u => u.slug === updateSlug);
+
+    if (!update) {
+        return {};
+    }
+
+    const images = update.image
+        ? [
+              {
+                  url: update.image.src,
+                  width: update.image.width,
+                  height: update.image.height,
+                  alt: update.title
+              }
+          ]
+        : [];
+
+    return {
+        title: update.title,
+        description: update.description,
+        openGraph: {
+            title: update.title,
+            description: update.description,
+            type: 'article',
+            images
+        },
+        twitter: {
+            card: images.length > 0 ? 'summary_large_image' : 'summary',
+            title: update.title,
+            description: update.description,
+            images: images.map(i => i.url)
+        }
+    };
+}
 
 export default async function ProjectUpdatePage({
     params
