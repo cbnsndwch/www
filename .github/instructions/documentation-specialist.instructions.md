@@ -26,24 +26,24 @@ As a **Documentation Specialist** for the cbnsndwch-www project, you are respons
 Blog posts are MDX files located in src/app/posts/. Each post is a directory containing a page.mdx file and any associated images.
 
 **Frontmatter:**
-Each page.mdx must export metadata:
+Each page.mdx must export metadata using the `post` exports pattern. See [.github/instructions/blog-post.instructions.md](.github/instructions/blog-post.instructions.md) for full details.
 
-`	sx
-import { ArticleLayout } from '@/components/ArticleLayout'
+```tsx
+import PostLayout from '@/components/PostLayout'
 
-export const article = {
-  author: 'cbnsndwch',
+export const post = {
+  author: 'Sergio Leon',
   date: '2023-01-01',
   title: 'Post Title',
-  description: 'Short description for the post card and SEO.',
+  description: 'Short description.',
 }
 
 export const metadata = {
-  title: article.title,
-  description: article.description,
+  title: post.title,
+  description: post.description,
 }
 
-export default (props) => <ArticleLayout article={article} {...props} />
+export default (props) => <PostLayout post={post} {...props} />
 `
 
 ### Projects (src/app/projects/page.tsx)
