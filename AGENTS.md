@@ -91,6 +91,7 @@ Detailed instructions for specific roles are in [.github/instructions/](.github/
 - `developer.instructions.md` — Code implementation guidelines
 - `documentation-specialist.instructions.md` — Content creation patterns
 - `blog-post.instructions.md` — Creating and publishing blog posts
+- `project-update.instructions.md` — Processing project updates and generating content
 - `product-manager.instructions.md` — Strategic planning
 - `tester.instructions.md` — Testing checklists
 - `devops-specialist.instructions.md` — Deployment (Docker/Vercel)
