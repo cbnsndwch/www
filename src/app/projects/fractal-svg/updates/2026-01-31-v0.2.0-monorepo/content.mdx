@@ -9,11 +9,11 @@ export const update = {
 
 The project has been restructured into a proper Turborepo monorepo with clear separation of concerns:
 
-| Package                        | Purpose                                                        |
-| ------------------------------ | -------------------------------------------------------------- |
+| Package                        | Purpose                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------- |
 | `@cbnsndwch/fractal-generator` | Isomorphic core library — zero dependencies, works in Node.js and browser |
-| `@cbnsndwch/fractal-cli`       | Command-line tool with interactive and scriptable modes        |
-| `@cbnsndwch/fractal-react`     | Drop-in React components for embedding fractals                |
+| `@cbnsndwch/fractal-cli`       | Command-line tool with interactive and scriptable modes                   |
+| `@cbnsndwch/fractal-react`     | Drop-in React components for embedding fractals                           |
 
 All packages are now published to npm and can be installed independently.
 
@@ -42,14 +42,14 @@ New `@cbnsndwch/fractal-react` package makes embedding fractals trivial:
 import { FractalGenerator } from '@cbnsndwch/fractal-react';
 
 <FractalGenerator
-  type="dragon"
-  options={{
-    iterations: 12,
-    size: 512,
-    stroke: '#ff6b6b',
-    strokeWidth: 1.5
-  }}
-/>
+    type="dragon"
+    options={{
+        iterations: 12,
+        size: 512,
+        stroke: '#ff6b6b',
+        strokeWidth: 1.5
+    }}
+/>;
 ```
 
 ---
