@@ -47,7 +47,7 @@
         "@tailwindcss/postcss": "^4.1.18",
         "@tailwindcss/typography": "^0.5.19",
         "@types/node": "^24",
-        "@types/react": "19.2.10",
+        "@types/react": "19.2.14",
         "@types/react-dom": "19.2.3",
         "@types/webpack-env": "^1.18.8",
         "@vercel/og": "^0.8.6",
