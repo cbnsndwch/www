@@ -10,6 +10,7 @@ export interface ProjectUpdate {
     title: string;
     date: string;
     description: string;
+    image?: StaticImageData;
     content?: string;
     draft?: boolean;
 }
