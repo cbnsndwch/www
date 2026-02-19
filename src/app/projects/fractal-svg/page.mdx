@@ -8,7 +8,7 @@ import Favicon from './Favicon';
 export const project = {
     name: 'Fractal SVG',
     description:
-        'A TypeScript library for generating beautiful, self-similar fractal patterns in SVG format with support for gradients, L-systems, and interactive CLI.',
+        'A TypeScript library for generating beautiful, self-similar fractal patterns in SVG format with support for gradients, L-systems, escape-time fractals, and interactive CLI.',
     logo: logo,
     link: {
         href: 'https://github.com/cbnsndwch/fractal-svg',
@@ -29,7 +29,7 @@ export const project = {
         'pnpm'
     ],
     order: 1,
-    date: '2026-01-31'
+    date: '2026-02-19'
 };
 
 export default async function (props) {
@@ -47,14 +47,13 @@ export default async function (props) {
 
 **Fractal SVG** is a TypeScript library for generating beautiful, self-similar fractal patterns in clean, scalable SVG format. From classic Sierpinski carpets to space-filling Hilbert curves, it supports 10 fractal types with multi-color gradients, circular backgrounds, and both interactive and CLI modes.
 
-
 ## Features
 
 - **10 Fractal Types** — Sierpinski carpet, Koch snowflake, Mandelbrot set, Julia sets, Dragon curve, Hilbert curve, Lévy C curve, Sierpinski arrowhead, Peano curve, and Gosper flowsnake
-- **Vector Output** — Clean, scalable SVG files with efficient single-path rendering for L-system fractals
+- **Vector Output** — Clean, scalable SVG files with efficient single-path rendering for L-system fractals and multi-band contour rendering for escape-time fractals
 - **Gradient Support** — Multi-color linear gradients at any angle
 - **Circular Backgrounds** — Optional circular backdrop behind fractals, perfect for logo designs
-- **Interactive & CLI Modes** — User-friendly prompts or scriptable commands
+- **Interactive & CLI Modes** — User-friendly prompts or scriptable commands, plus a PWA-enabled interactive playground
 
 ## Demo
 
