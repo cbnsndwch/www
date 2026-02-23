@@ -52,7 +52,7 @@
         "@types/webpack-env": "^1.18.8",
         "@vercel/og": "^0.8.6",
         "dotenv": "^17.3.1",
-        "eslint": "9.39.2",
+        "eslint": "9.39.3",
         "eslint-config-next": "15.5.10",
         "mdx": "^0.3.1",
         "npm-check-updates": "^19.4.0",
