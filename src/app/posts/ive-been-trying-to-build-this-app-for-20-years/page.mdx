@@ -1,0 +1,119 @@
+import PostLayout from '@/components/PostLayout';
+import coverImage from '../../projects/musicologia/opengraph-image.png';
+
+export const post = {
+    author: 'Sergio Leon',
+    date: '2026-03-10T12:00:00-04:00',
+    title: 'I’ve been trying to build this app for 20 years',
+    description:
+        'The story of how I built an immersive music experience, picking up an idea I half-completed in highschool.',
+    cover: {
+        image: coverImage,
+        title: 'Musicologia App'
+    },
+    tags: ['projects', 'music', 'development', 'story']
+};
+
+export const metadata = {
+    title: post.title,
+    description: post.description,
+    openGraph: {
+        title: post.title,
+        description: post.description,
+        type: 'article',
+        images: [
+            {
+                url: coverImage.src,
+                width: coverImage.width,
+                height: coverImage.height,
+                alt: post.cover.title
+            }
+        ]
+    }
+};
+
+export default function (props) {
+    return <PostLayout post={post} {...props} />;
+}
+
+I built my first app as a teenager.
+
+In sophomore year of high school they started teaching us VB6 and I got immediately nerd sniped. I found a copy of Microsoft's Visual Basic 6.0 Programmer's Guide, tore through it in a weekend, and then started doing what every teenager did back then when they first discover software: dragging random controls onto windows and wiring up event handlers until something happened.
+
+It was messy as hell, but I loved it.
+
+Around that same time I was also going through a huge music discovery phase.
+
+At home my parents played ballads, 70s disco, 80s classic rock, and 90s Latin dance music. In school reggaeton was everywhere. Then I became friends with the nerd pack and through them I found metal, punk, emo, and black metal.
+
+So my brain was basically getting hit from all sides at once.
+
+And then there was this The Beatles CD-ROM app my mom had.
+
+I still remember it. You’d open it and it launched this full-screen multimedia experience with all the album covers. You could click one, hear the disc spin up, wait a second, and then get the track list. Click a song and it would start playing, show the cover art, and scroll the lyrics along with it.
+
+That thing absolutely blew my mind.
+
+Not because it was technically advanced by today’s standards. It probably wasn’t. But because it made music feel bigger. It wasn’t just “play track.” It felt like you were entering a little world around the song.
+
+That stuck with me.
+
+So of course I thought: I want to build something like that.
+
+I had no idea what I was doing.
+
+I didn’t know how to properly work with music files. I didn’t know how to extract metadata. I definitely didn’t know how to play mp3s programmatically. So I just grabbed the closest music collection I had access to: a folder full of low-bitrate mp3s of Avril Lavigne's first two albums, with the album art embedded.
+
+Then I either transcribed the lyrics by ear or got some of my nerd friends to help me find them, and started building.
+
+I never got playback working back then.
+
+That part defeated me.
+
+But I did manage to build a main menu, an album listing, a track list window, and a song detail window where you could read the lyrics. Then I’d play the actual mp3s in Winamp and use my little app to browse the songs and sing along.
+
+Very scuffed. Very janky. Very satisfying.
+
+And honestly, that idea never really left me.
+
+Fast forward a couple decades.
+
+Now music is everywhere, and I’m still the kind of person Spotify loves to shame every year with Wrapped. I’m consistently in the top 1% of listeners for some of the artists I follow, and the same itch keeps coming back:
+
+I want a richer experience around the music I love.
+
+Not just a playlist.
+
+Not just a player.
+
+Not just a page with lyrics slapped onto it.
+
+Something immersive. Something with motion, visuals, mood, context. Something that treats a song like a whole little universe instead of just another row in a database.
+
+The difference now is that the tools are finally here.
+
+Now I can actually build the thing teenage me was reaching for.
+
+Lyrics are available. Metadata is available. LLMs are good at helping with research, copy, and pulling together interesting context. Image, audio, and video models can help create visual layers around a song. The browser is ridiculously capable now. We’ve got Three.js, Motion, WebGL, modern audio APIs, and a whole pile of creative tools that would have felt like science fiction back when I was messing around in VB6.
+
+So I finally stopped romanticizing the idea and started building it.
+
+That project is Musicologia.
+
+It’s a personal listening archive / immersive music experiment / excuse for me to make weird, beautiful pages about songs I love.
+
+The idea is pretty simple: take tracks that matter to me and build a custom experience around them. Music, visuals, lyrics, motion, writing, mood, context. Not as a generic music app trying to catalog everything, but as a more intentional space for songs that actually mean something.
+
+Basically: what if each song got treated like it deserved its own little corner of the internet?
+
+That’s what I’m chasing.
+
+The first release is live now at **[musicologia.de](https://musicologia.de)**.
+
+It’s still early. Still evolving. Still very much the beginning. But it’s real, and that feels good. This has been sitting in some corner of my brain since I was a teenager, and now there’s finally a version of it out in the world.
+
+If you love music and wish the web did a better job of making room for obsession, memory, atmosphere, and feeling around the songs that matter to you, check it out:
+
+**[musicologia.de](https://musicologia.de)**
+
+Would also love to hear what people think. This project is deeply personal, but that’s kind of the point.
