@@ -163,13 +163,13 @@ export function FeaturedPhotos({ images }: { images: any[] }) {
 
     return (
         <div className="mt-16 sm:mt-20">
-            <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
+            <div className="-my-4 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-4 py-4 touch-pan-x overscroll-x-contain sm:gap-8 sm:px-0 sm:justify-center [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                 {images.slice(0, 6).map((image, index) => (
                     <button
                         key={index}
                         onClick={() => openLightbox(index)}
                         className={clsx(
-                            'group relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl cursor-pointer',
+                            'group relative aspect-9/10 w-44 flex-none snap-center overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl cursor-pointer',
                             rotations[index % rotations.length]
                         )}
                     >
