@@ -14,6 +14,7 @@ import logoHelloMiami from '@/images/logos/hello-miami.svg';
 import logoMoonlighter from '@/images/logos/moonlighter.webp';
 import logoTheLab from '@/images/logos/the-lab-miami-sq.webp';
 import logoInit from '@/images/logos/init.webp';
+import logoG2i from '@/images/logos/g2i.svg';
 import { CommunityGallery, FeaturedPhotos } from './CommunityGallery';
 
 import image1 from '@/images/community/3f4f0c21-77ff-4b4e-92d2-4e6912fb38ed.png';
@@ -284,6 +285,16 @@ export default function MiamiPage() {
                             A S.T.E.A.M. Learning Center and digital fabrication
                             lab that serves as the perfect backdrop for our
                             Thursday night builds in Miami Beach.
+                        </CommunityHighlight>
+                        <CommunityHighlight
+                            name="G2i"
+                            role="Talent Partner"
+                            image={logoG2i}
+                            href={`https://www.g2i.co/${UTM_PARAMS}`}
+                        >
+                            A platform helping companies hire world-class
+                            engineers while investing deeply in the developer
+                            and AI builder ecosystem.
                         </CommunityHighlight>
                         <CommunityHighlight
                             name="INIT"
