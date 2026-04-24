@@ -2,5 +2,7 @@ ignoredBuiltDependencies:
   - sharp
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - '@vercel/speed-insights'
+  - esbuild
   - unrs-resolver
