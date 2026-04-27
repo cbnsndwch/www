@@ -1,0 +1,49 @@
+export const update = {
+    title: 'Introducing Wigg: A Self-Correcting Harness for Agentic Coding',
+    date: '2026-04-27',
+    description:
+        'Initial launch of a TypeScript CLI that runs coding agents in an iterative loop with verification, task tracking, and resumable state.'
+};
+
+Today marks the public launch of **Wigg**, a TypeScript CLI for running coding agents in a tighter engineering loop.
+
+Instead of treating an AI run like a single request and response, Wigg keeps track of what happened, runs verification commands, records progress, and gives the next iteration the context it needs to do better work.
+
+This project is my own implementation of the **Ralph Wiggum technique** introduced by **Geoffrey Huntley**, and it was strongly inspired by [`Th0rgal/open-ralph-wiggum`](https://github.com/Th0rgal/open-ralph-wiggum), which demonstrated how effective the pattern can be as a practical CLI.
+
+## Launch Highlights
+
+### Multi-Agent Support
+
+Wigg can orchestrate multiple coding agent CLIs behind the same interface, including **Claude Code**, **OpenCode**, and **Codex**.
+
+### Verification-Driven Iteration
+
+After each iteration, Wigg can run commands like `pnpm lint` or `pnpm test` and feed the results back into the next pass. Completion is gated by those checks instead of wishful thinking.
+
+### Tasks Mode and Loop State
+
+For larger missions, Wigg can track structured tasks, persist loop state, and resume work without losing the thread.
+
+### Windows-Safe Execution
+
+The CLI includes explicit shell handling for Windows environments to avoid the stdin, quoting, and argument-length issues that make other wrappers brittle.
+
+## Early Follow-Up Work
+
+The project already picked up a few practical improvements immediately after launch:
+
+- **Cross-platform bin wrapper fixes** for cleaner execution.
+- **Improved terminal output** with better streaming visibility.
+- **Publishing hardening** to avoid shipping unresolved `catalog:` dependency versions.
+
+## Why This One Matters
+
+I built Wigg to make agentic coding feel less magical and more operational. The point is not to let a model freestyle in your repo. The point is to create a loop where the tool can keep making bounded progress, learn from failing checks, and stop only when the work is actually done.
+
+It also matters because the underlying idea deserves clear attribution: the technique itself comes from Geoffrey Huntley, and Wigg stands in conversation with the open-source work already done in Open Ralph Wiggum.
+
+## Links
+
+- [Repository](https://github.com/cbnsndwch/wigg)
+- [npm package](https://www.npmjs.com/package/@cbnsndwch/wigg)

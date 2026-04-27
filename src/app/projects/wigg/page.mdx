@@ -1,0 +1,89 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logo from '@/images/logos/wigg.svg';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon, NpmIcon } from '@/components/SocialIcons';
+
+export const project = {
+    name: 'Wigg',
+    description:
+        'A pure TypeScript CLI that wraps coding agents in a self-correcting loop until the task is actually finished.',
+    logo: logo,
+    link: {
+        href: 'https://github.com/cbnsndwch/wigg',
+        label: 'cbnsndwch/wigg',
+        icon: GitHubIcon
+    },
+    secondaryLink: {
+        href: 'https://www.npmjs.com/package/@cbnsndwch/wigg',
+        label: '@cbnsndwch/wigg',
+        icon: NpmIcon
+    },
+    tech: [
+        'TypeScript',
+        'Node.js',
+        'CLI Tooling',
+        'Agent Orchestration',
+        'PNPM',
+        'Changesets',
+        'Vitest',
+        'OXC'
+    ],
+    order: 6,
+    date: '2026-04-27'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('wigg');
+
+    return (
+        <ProjectLayout project={{ slug: 'wigg', ...project }} updates={updates} {...props} />
+    );
+
+}
+
+## Overview
+
+**Wigg** is a lightweight TypeScript harness for running AI coding agents in an iterative loop instead of a one-shot prompt. It keeps state between runs, feeds prior verification failures back into the next iteration, and keeps going until the task is genuinely complete.
+
+The core idea is simple: if an agent makes partial progress, trips a test, or exits early, the harness should capture that context and give the next iteration a better shot instead of forcing the operator to manually restate everything.
+
+Wigg is my implementation of the **Ralph Wiggum technique** described by **Geoffrey Huntley**, and it was directly inspired by [`Th0rgal/open-ralph-wiggum`](https://github.com/Th0rgal/open-ralph-wiggum), which helped turn the technique into a concrete, reusable CLI workflow.
+
+## What It Does Well
+
+- **Wraps multiple agent CLIs** so the same workflow can target Claude Code, OpenCode, or Codex.
+- **Runs verification commands after each iteration** and feeds failures back into the loop.
+- **Tracks task state and recent history** so the agent can resume with more context and less repetition.
+- **Works cross-platform** with explicit Windows shell handling to avoid the usual CLI quoting and stdin edge cases.
+- **Auto-commits progress** when desired so each iteration can leave behind a reproducible checkpoint.
+
+## Why I Built It
+
+I wanted a small tool that treats agentic coding like an engineering loop instead of a chat session. That means preserving context, enforcing verification, and making it cheap to keep iterating until the output is good enough to trust.
+
+The result is a tool that feels closer to a pragmatic operator workflow: define the mission, choose the agent, add checks, and let the loop keep tightening the output. In that sense, Wigg is not trying to invent a new pattern so much as carry the Ralph Wiggum technique into a TypeScript-first implementation shaped around the workflows I actually use.
+
+## Acknowledgements
+
+- **Geoffrey Huntley** for articulating the Ralph Wiggum technique.
+- **[`Th0rgal/open-ralph-wiggum`](https://github.com/Th0rgal/open-ralph-wiggum)** for proving out the pattern as a practical open-source tool and helping shape the direction for Wigg.
+
+## Usage Snapshot
+
+```bash
+pnpm dlx @cbnsndwch/wigg "Refactor the auth flow" \
+  --agent claude-code \
+  --verify "lint:pnpm lint" \
+  --verify "test:pnpm test"
+```
+
+Wigg also supports task mode for multi-step missions, mission files for longer prompts, and loop context injection while a run is active.
+
+## Current Direction
+
+The project is already published to npm and has moved past the first release with improvements around terminal output, package publishing, and cross-platform execution. The next layer of value is making the loop even more observable and dependable for day-to-day coding work.
