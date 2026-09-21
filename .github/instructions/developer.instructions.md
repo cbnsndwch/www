@@ -23,7 +23,7 @@ As a **Developer** for the cbnsndwch-www project, you are responsible for implem
 ### 3. Code Quality & Standards
 
 - **Type Safety**: Leverage TypeScript effectively for type safety across the codebase.
-- **Linting & Formatting**: Ensure code adheres to ESLint and Prettier configurations.
+- **Linting & Formatting**: Ensure code adheres to Oxlint and Oxfmt configurations.
 - **Accessibility**: Ensure all components meet WCAG accessibility standards.
 
 ## Repository Technical Context
@@ -57,7 +57,7 @@ Our codebase is a standard Next.js application:
 
 - **pnpm**: Package management.
 - **TypeScript**: Static typing.
-- **ESLint & Prettier**: Code quality.
+- **Oxlint & Oxfmt**: Code quality.
 
 ### Development Guidelines
 

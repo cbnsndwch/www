@@ -74,8 +74,8 @@ Our repository follows a standard Next.js App Router structure:
 - **pnpm dev** - Start development server
 - **pnpm build** - Build the application for production
 - **pnpm start** - Start the production server
-- **pnpm lint** - Lint code
-- **pnpm format** - Format code with Prettier
+- **pnpm lint** - Lint code with Oxlint
+- **pnpm format** - Format code with Oxfmt
 
 ## Role-specific Instructions
 
