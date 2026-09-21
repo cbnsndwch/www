@@ -12,7 +12,9 @@ import ES from '@/components/Flags/ES';
 import US from '@/components/Flags/US';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import imgAiRenaissance from '@/images/speaking/ai-renaissance.webp';
 import imgDataChaos from '@/images/speaking/data-chaos-podcast.webp';
+import imgElDream from '@/images/speaking/el-dream-podcast.webp';
 import imgSpotlightChatHq from '@/images/speaking/highlevel-spotlight-chathq.webp';
 import imgHighLevelSso from '@/images/speaking/highlevel-sso.webp';
 import imgHighLevelWidgets from '@/images/speaking/highlevel-widgets.webp';
@@ -120,6 +122,29 @@ export default function Speaking() {
                         cta="About the conference"
                         image={imgReactMiami}
                         imageAlt="React Miami 2026"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="AI RENAissance with Rena">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=DcDgSJVZeB0"
+                        title="He Built an AI Lab in His Living Room, and His Agents Never Sleep"
+                        description="On running a home AI lab, keeping coding agents useful over long horizons, and what changes when the machines keep working after you go to bed."
+                        event="AI RENAissance with Rena, August 2026"
+                        cta="Watch episode"
+                        image={imgAiRenaissance}
+                        imageAlt="AI RENAissance with Rena"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="El Dream Podcast">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=LffVhm-xlHs"
+                        title="Conversación con Sergio, un León del emprendimiento"
+                        description="Sobre emprender desde Miami, construir equipos técnicos y el camino de La Habana a fundar empresas de software."
+                        event="El Dream Podcast EP27, junio 2025"
+                        cta="Ver episodio"
+                        lang="es"
+                        image={imgElDream}
+                        imageAlt="El Dream Podcast episodio 27"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="My YouTube Channel">
