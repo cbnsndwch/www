@@ -1,15 +1,15 @@
 'use client';
 
-import { type CSSProperties, type ElementRef, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
+import { type CSSProperties, type ElementRef, useEffect, useRef } from 'react';
 
 import Container from '@/components/Container';
 
-import MobileNavigation from './MobileNavigation';
-import DesktopNavigation from './DesktopNavigation';
-import ThemeToggle from './ThemeToggle';
-import AvatarContainer from './AvatarContainer';
 import Avatar from './Avatar';
+import AvatarContainer from './AvatarContainer';
+import DesktopNavigation from './DesktopNavigation';
+import MobileNavigation from './MobileNavigation';
+import ThemeToggle from './ThemeToggle';
 
 function clamp(number: number, a: number, b: number) {
     const min = Math.min(a, b);

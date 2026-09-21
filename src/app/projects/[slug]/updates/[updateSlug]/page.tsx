@@ -1,12 +1,12 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
 import { type Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
-import { getAllProjectUpdates, getProjectUpdates } from '@/lib/projects/utils';
 import Container from '@/components/Container';
+import ArrowLeftIcon from '@/components/PostLayout/ArrowLeftIcon';
 import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';
-import ArrowLeftIcon from '@/components/PostLayout/ArrowLeftIcon';
+import { getAllProjectUpdates, getProjectUpdates } from '@/lib/projects/utils';
 
 export async function generateStaticParams() {
     const updates = await getAllProjectUpdates();

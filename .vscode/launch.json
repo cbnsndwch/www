@@ -9,17 +9,11 @@
             "type": "node",
             "request": "launch",
             "runtimeExecutable": "npx",
-            "runtimeArgs": [
-                "tsx",
-                "${file}"
-            ],
+            "runtimeArgs": ["tsx", "${file}"],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
-            "skipFiles": [
-                "<node_internals>/**",
-                "node_modules/**"
-            ]
+            "skipFiles": ["<node_internals>/**", "node_modules/**"]
         }
     ]
 }

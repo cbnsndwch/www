@@ -6,6 +6,6 @@ import typographyStyles from './typography';
 export default {
     plugins: [typographyPlugin],
     theme: {
-        typography: typographyStyles,
-    },
+        typography: typographyStyles
+    }
 } satisfies Config;

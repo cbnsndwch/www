@@ -1,6 +1,6 @@
+import clsx from 'clsx';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import clsx from 'clsx';
 import Link from 'next/link';
 
 import Card from '@/components/Card';
@@ -11,39 +11,8 @@ import {
     LinkedInIcon,
     TwitterIcon
 } from '@/components/SocialIcons';
-import logoHelloMiami from '@/images/logos/hello-miami.svg';
-import logoMoonlighter from '@/images/logos/tile-moonlighter.webp';
-import logoTheLab from '@/images/logos/tile-the-lab.webp';
-import logoClerk from '@/images/logos/tile-clerk.webp';
-import logoTeal from '@/images/logos/tile-teal.webp';
-import logoSimplifai from '@/images/logos/tile-simplifai.webp';
-import logoSprint from '@/images/logos/marketing-ai-sprint.webp';
-import { CommunityGallery, FeaturedPhotos } from './CommunityGallery';
-
-import n1 from '@/images/community/hack-night-2026-09-17-01.webp';
-import n2 from '@/images/community/hack-night-2026-09-17-02.webp';
-import n3 from '@/images/community/hack-night-2026-09-17-03.webp';
-import n4 from '@/images/community/hack-night-2026-09-17-04.webp';
-import n5 from '@/images/community/hack-night-2026-09-17-05.webp';
-import n6 from '@/images/community/hack-night-2026-09-17-06.webp';
-import n7 from '@/images/community/hack-night-2026-09-17-07.webp';
-import n8 from '@/images/community/hack-night-2026-09-17-08.webp';
-
-import hn1 from '@/images/community/hack-night-2026-09-15-01.webp';
-import hn2 from '@/images/community/hack-night-2026-09-15-02.webp';
-import hn3 from '@/images/community/hack-night-2026-09-15-03.webp';
-import hn4 from '@/images/community/hack-night-2026-09-15-04.webp';
-import hn5 from '@/images/community/hack-night-2026-09-15-05.webp';
-import hn6 from '@/images/community/hack-night-2026-09-15-06.webp';
-import hn7 from '@/images/community/hack-night-2026-09-15-07.webp';
-import hn8 from '@/images/community/hack-night-2026-09-15-08.webp';
-
 import image1 from '@/images/community/3f4f0c21-77ff-4b4e-92d2-4e6912fb38ed.png';
-import image2 from '@/images/community/reframed-lab-neon.webp';
 import image3 from '@/images/community/518877047_17907205785190767_9036288187190743634_n.jpg';
-import image4 from '@/images/community/reframed-moonlighter-group.webp';
-import image5 from '@/images/community/G3314HPXwAAB85H.webp';
-import image6 from '@/images/community/G3314HXWUAA3DiJ.webp';
 import image7 from '@/images/community/G5mVWz-XAAA4RHt.webp';
 import image8 from '@/images/community/G5mVWz7WAAAa9a4.webp';
 import image9 from '@/images/community/G5mVWzsXUAAE1uU.webp';
@@ -53,9 +22,38 @@ import image12 from '@/images/community/G7NcYrpX0AAeXhF.webp';
 import image13 from '@/images/community/G7xNdXaWYAACOOt.webp';
 import image14 from '@/images/community/G7xNdXYWIAAAd0W.webp';
 import image15 from '@/images/community/G7xXHZ8XQAA9jLi.webp';
+import image5 from '@/images/community/G3314HPXwAAB85H.webp';
+import image6 from '@/images/community/G3314HXWUAA3DiJ.webp';
 import image16 from '@/images/community/Gilzx1QXcAAjECN.webp';
 import image17 from '@/images/community/GoRC6ckWsAEIUzM.webp';
 import image18 from '@/images/community/Gx4FS_UX0AAj7ZH.webp';
+import hn1 from '@/images/community/hack-night-2026-09-15-01.webp';
+import hn2 from '@/images/community/hack-night-2026-09-15-02.webp';
+import hn3 from '@/images/community/hack-night-2026-09-15-03.webp';
+import hn4 from '@/images/community/hack-night-2026-09-15-04.webp';
+import hn5 from '@/images/community/hack-night-2026-09-15-05.webp';
+import hn6 from '@/images/community/hack-night-2026-09-15-06.webp';
+import hn7 from '@/images/community/hack-night-2026-09-15-07.webp';
+import hn8 from '@/images/community/hack-night-2026-09-15-08.webp';
+import n1 from '@/images/community/hack-night-2026-09-17-01.webp';
+import n2 from '@/images/community/hack-night-2026-09-17-02.webp';
+import n3 from '@/images/community/hack-night-2026-09-17-03.webp';
+import n4 from '@/images/community/hack-night-2026-09-17-04.webp';
+import n5 from '@/images/community/hack-night-2026-09-17-05.webp';
+import n6 from '@/images/community/hack-night-2026-09-17-06.webp';
+import n7 from '@/images/community/hack-night-2026-09-17-07.webp';
+import n8 from '@/images/community/hack-night-2026-09-17-08.webp';
+import image2 from '@/images/community/reframed-lab-neon.webp';
+import image4 from '@/images/community/reframed-moonlighter-group.webp';
+import logoHelloMiami from '@/images/logos/hello-miami.svg';
+import logoSprint from '@/images/logos/marketing-ai-sprint.webp';
+import logoClerk from '@/images/logos/tile-clerk.webp';
+import logoMoonlighter from '@/images/logos/tile-moonlighter.webp';
+import logoSimplifai from '@/images/logos/tile-simplifai.webp';
+import logoTeal from '@/images/logos/tile-teal.webp';
+import logoTheLab from '@/images/logos/tile-the-lab.webp';
+
+import { CommunityGallery, FeaturedPhotos } from './CommunityGallery';
 
 const description =
     'Miami has capital, venues and a real inflow of technical people. It also needs a culture of serious engineering, and a memory. Here is what I am building toward that.';
@@ -467,10 +465,7 @@ export default function MiamiPage() {
                 </Section>
 
                 <Section title="Partners & Supporters">
-                    <ul
-                        
-                        className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2"
-                    >
+                    <ul className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
                         <CommunityHighlight
                             name="Clerk"
                             relationship="Event Series Partner"

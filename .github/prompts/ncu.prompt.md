@@ -79,6 +79,7 @@ If build or tests fail:
 ```
 
 Options:
+
 1. Fix the breaking change if straightforward
 2. Pin to a working minor version
 3. Revert and skip this package, noting it for manual review

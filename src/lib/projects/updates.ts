@@ -1,6 +1,7 @@
-import { ComponentType } from 'react';
 import { join } from 'path';
+
 import glob from 'fast-glob';
+import { ComponentType } from 'react';
 
 import { ProjectUpdate, ProjectUpdateWithSlug } from './contracts';
 
@@ -39,7 +40,7 @@ export async function getProjectUpdates(
         `src/app/projects/${projectSlug}/updates`
     );
 
-    let updateFilenames = await glob('**/content.mdx', {
+    const updateFilenames = await glob('**/content.mdx', {
         cwd: updatesDirectory
     });
 

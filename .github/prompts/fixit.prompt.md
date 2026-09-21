@@ -5,6 +5,7 @@
 ## Context
 
 This project uses:
+
 - **Next.js** as the framework
 - **ESLint** with TypeScript for linting
 - **Prettier** for formatting
@@ -12,10 +13,10 @@ This project uses:
 
 ### Key Commands
 
-| Command | Description |
-|---------|-------------|
-| `pnpm lint` | Run ESLint |
-| `pnpm build` | Build the application |
+| Command       | Description               |
+| ------------- | ------------------------- |
+| `pnpm lint`   | Run ESLint                |
+| `pnpm build`  | Build the application     |
 | `pnpm format` | Format code with Prettier |
 
 ---
@@ -51,6 +52,7 @@ Report findings in a structured format:
 Group issues by type for atomic fixes:
 
 **Lint Issue Categories (in order of priority):**
+
 1. **Build-breaking**: Type errors, missing imports, syntax errors
 2. **Auto-fixable**: Issues that `pnpm lint --fix` or `pnpm format` can resolve
 3. **Manual fixes**: Unused variables, missing types, logic issues
@@ -76,6 +78,7 @@ pnpm lint
 #### C. Apply Manual Fixes
 
 For each issue:
+
 1. Read the affected file
 2. Understand the context (3-5 lines before/after)
 3. Apply the minimal fix that resolves the issue
@@ -109,6 +112,7 @@ If a fix introduces new issues:
 ```
 
 **Escape hatches (use sparingly):**
+
 - `// eslint-disable-next-line <rule>` - Disable for one line with reason
 - `// @ts-expect-error <reason>` - Suppress type error with explanation
 - Skip the issue and document for manual review
@@ -118,11 +122,13 @@ If a fix introduces new issues:
 ## Compact Error Handling (Factor 9)
 
 When encountering errors:
+
 1. Capture the essential error (type + message + location)
 2. Discard full stack traces after understanding the issue
 3. Focus on root cause, not symptoms
 
 Example transformation:
+
 ```
 # Before (verbose)
 Error: Cannot find module '@/lib/utils'
@@ -142,11 +148,13 @@ Fix: Update import path or add path alias to tsconfig.json
 Each commit should address ONE logical issue:
 
 ✅ **Good commits:**
+
 - `fix(main): remove unused imports in auth module`
 - `fix(tests): add SidebarProvider wrapper to navigation tests`
 - `fix(lint): resolve no-unused-vars in workspace components`
 
 ❌ **Bad commits:**
+
 - `fix: resolve all lint issues` (too broad)
 - `fix: lint and tests and add new feature` (mixed concerns)
 

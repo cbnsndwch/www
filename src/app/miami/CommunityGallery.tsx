@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import clsx from 'clsx';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import Image from 'next/image';
+import { useState, useEffect, useCallback } from 'react';
 
 interface LightboxProps {
     images: any[];
@@ -28,12 +28,20 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     }, [images.length]);
 
     useEffect(() => {
-        if (!isOpen) {return;}
+        if (!isOpen) {
+            return;
+        }
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {onClose();}
-            if (e.key === 'ArrowRight') {showNext();}
-            if (e.key === 'ArrowLeft') {showPrev();}
+            if (e.key === 'Escape') {
+                onClose();
+            }
+            if (e.key === 'ArrowRight') {
+                showNext();
+            }
+            if (e.key === 'ArrowLeft') {
+                showPrev();
+            }
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -45,7 +53,9 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
         };
     }, [isOpen, onClose, showNext, showPrev]);
 
-    if (!isOpen) {return null;}
+    if (!isOpen) {
+        return null;
+    }
 
     return (
         <div

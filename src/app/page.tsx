@@ -1,34 +1,31 @@
-import type { ComponentPropsWithoutRef, ComponentType } from 'react';
+import clsx from 'clsx';
 import Image, { type ImageProps } from 'next/image';
 import Link from 'next/link';
-import clsx from 'clsx';
+import type { ComponentPropsWithoutRef, ComponentType } from 'react';
 
 import { Button } from '@/components/Button';
 import Container from '@/components/Container';
+import PostSummaryList from '@/components/Home/PostSummaryList';
 import {
     GitHubIcon,
     FacebookIcon,
     LinkedInIcon,
     TwitterIcon
 } from '@/components/SocialIcons';
-import PostSummaryList from '@/components/Home/PostSummaryList';
-
-import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
-
+import logo1NationUp from '@/images/logos/1nationup.svg';
+import logoChatHQ from '@/images/logos/chathq.svg';
 import logoExtendly from '@/images/logos/extendly.svg';
 import logoHelloMiami from '@/images/logos/hello-miami.svg';
-import logoChatHQ from '@/images/logos/chathq.svg';
-import logo1NationUp from '@/images/logos/1nationup.svg';
-import logoNowl from '@/images/logos/nowl.png';
 import logoKhph from '@/images/logos/khph.png';
-import logoTheLab from '@/images/logos/the-lab-miami-sq.webp';
+import logoNowl from '@/images/logos/nowl.png';
 import logoPahoy from '@/images/logos/pahoy.svg';
-
+import logoTheLab from '@/images/logos/the-lab-miami-sq.webp';
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.jpg';
+import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
 
 function MailIcon(props: ComponentPropsWithoutRef<'svg'>) {
     return (

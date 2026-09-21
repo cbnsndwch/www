@@ -12,17 +12,9 @@
         "browser": true,
         "es2024": true
     },
-    "plugins": [
-        "import",
-        "react",
-        "jsx-a11y",
-        "typescript"
-    ],
+    "plugins": ["import", "react", "jsx-a11y", "typescript"],
     "rules": {
-        "curly": [
-            "error",
-            "all"
-        ],
+        "curly": ["error", "all"],
         "import/newline-after-import": [
             "error",
             {
@@ -52,9 +44,7 @@
     ],
     "overrides": [
         {
-            "files": [
-                "src/app/providers.tsx"
-            ],
+            "files": ["src/app/providers.tsx"],
             "rules": {
                 "react/refs": "allow"
             }
@@ -69,9 +59,7 @@
             }
         },
         {
-            "files": [
-                "src/components/ui/**"
-            ],
+            "files": ["src/components/ui/**"],
             "rules": {
                 "jsx-a11y/prefer-tag-over-role": "allow"
             }

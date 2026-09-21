@@ -1,8 +1,8 @@
-import { SimpleLayout } from '@/components/SimpleLayout';
 import Prose from '@/components/Prose';
+import { SimpleLayout } from '@/components/SimpleLayout';
 
-import ToolsSection from './ToolsSection';
 import Tool from './Tool';
+import ToolsSection from './ToolsSection';
 
 export const metadata = {
     title: 'My Tech Stack',

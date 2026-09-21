@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Card from '@/components/Card';
 import Container from '@/components/Container';
 import Prose from '@/components/Prose';
+import { formatDate } from '@/lib/formatDate';
 import {
     ProjectWithSlug,
     ProjectUpdateWithSlug
 } from '@/lib/projects/contracts';
-import { formatDate } from '@/lib/formatDate';
-import Card from '@/components/Card';
 
 type ProjectLayoutProps = {
     project: ProjectWithSlug;
@@ -129,7 +129,7 @@ export default function ProjectLayout({
                                         View all
                                     </Link>
                                 </div>
-                                <ul  className="mt-6 space-y-10">
+                                <ul className="mt-6 space-y-10">
                                     {updates.slice(0, 5).map(update => (
                                         <li key={update.slug}>
                                             <Card>

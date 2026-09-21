@@ -19,12 +19,12 @@
 
 **ALWAYS USE PNPM - NEVER USE NPM**
 
-- **Package Manager**: pnpm (version 10.27.0+) - **NEVER use 
-pm**
+- **Package Manager**: pnpm (version 10.27.0+) - **NEVER use
+  pm**
 - **Commands**: Always use pnpm commands: pnpm install, pnpm build, pnpm dev
 - **Scripts**: When running scripts, use pnpm run <script> or pnpm <script>
-- **Adding Packages**: Use pnpm add <package> (NOT 
-pm install <package>)
+- **Adding Packages**: Use pnpm add <package> (NOT
+  pm install <package>)
 
 **Examples of CORRECT commands:**
 `ash
@@ -35,12 +35,13 @@ pnpm add clsx                   # Add a dependency
 `
 
 **NEVER use these npm commands:**
+
 - ~~
-pm install~~ → Use pnpm install
+  pm install~~ → Use pnpm install
 - ~~
-pm run build~~ → Use pnpm build
+  pm run build~~ → Use pnpm build
 - ~~
-pm start~~ → Use pnpm dev or pnpm start
+  pm start~~ → Use pnpm dev or pnpm start
 
 ## Setting the stage
 
@@ -49,11 +50,13 @@ You and I are maintaining the **cbnsndwch-www** repository - a personal website 
 ## Development Standards
 
 ### TypeScript-First Approach
+
 - **ALL code must be TypeScript**: Application code, tools, scripts, configuration files
 - **No JavaScript files**: Convert any .js files to .ts or .tsx with proper typing (except config files where necessary)
 - **Type Safety**: Use strict TypeScript configuration, avoid ny types where possible
 
 ### Tech Stack
+
 - **Next.js 15** with App Router
 - **React 19**
 - **Tailwind CSS 4**

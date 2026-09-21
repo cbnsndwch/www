@@ -46,23 +46,28 @@ Use the format: `type(scope): message`
 ## Incremental Commit Workflow
 
 ### Step 1: Assess the current state
+
 ```bash
 git status --porcelain
 ```
 
 ### Step 2: Group changes by logical unit
+
 Identify the smallest set of related changes that:
+
 - Are self-contained and make sense together
 - Don't break the build if applied in isolation
 - Can be described in a single commit message without "and"
 
 ### Step 3: Stage and commit one group at a time
+
 ```bash
 git add <files-for-this-commit>
 git commit -m "type(scope): message"
 ```
 
 ### Step 4: Repeat until all changes are committed
+
 After each commit, reassess remaining changes. Don't try to plan all commits upfront—adapt as you go.
 
 ---

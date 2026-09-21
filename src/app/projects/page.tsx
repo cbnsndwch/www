@@ -32,10 +32,7 @@ export default async function Projects() {
             title="Projects"
             intro="Erden is a platform I’m building for real, though it isn’t public yet. The rest are tools I needed and couldn’t find, which is the only reason I’ve ever started anything. Most are open source, so if something here piques your interest, read the code, file an issue, or send a PR."
         >
-            <ul
-                
-                className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-            >
+            <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {projects.map(project => (
                     <Card
                         as="li"

@@ -1,9 +1,10 @@
 import Image from 'next/image';
+
 import Card from '@/components/Card';
 import PostTagList from '@/components/Tags/PostTagList';
+import avatarImage from '@/images/avatar.jpg';
 import { formatDate } from '@/lib/formatDate';
 import { isOwnPost, type PostWithSlug } from '@/lib/posts/contracts';
-import avatarImage from '@/images/avatar.jpg';
 
 export type PostSummaryProps = {
     post: PostWithSlug;

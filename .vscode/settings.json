@@ -57,13 +57,9 @@
         "Wynwood"
     ],
     "debug.inlineValues": "on",
-    "editor.rulers": [
-        80
-    ],
+    "editor.rulers": [80],
     "eslint.lintTask.options": "-c .eslintrc.vscode.js",
-    "eslint.workingDirectories": [
-        "apps/main"
-    ],
+    "eslint.workingDirectories": ["apps/main"],
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         ".env": ".env.*",

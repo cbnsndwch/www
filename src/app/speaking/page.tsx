@@ -1,15 +1,15 @@
+import type { Metadata } from 'next';
 import type {
     ComponentPropsWithoutRef,
     PropsWithChildren,
     ReactElement
 } from 'react';
-import type { Metadata } from 'next';
 
 import Card from '@/components/Card';
+import ES from '@/components/Flags/ES';
+import US from '@/components/Flags/US';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import US from '@/components/Flags/US';
-import ES from '@/components/Flags/ES';
 
 function SpeakingSection({
     children,

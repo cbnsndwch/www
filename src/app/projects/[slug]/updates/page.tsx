@@ -1,12 +1,12 @@
 import { type Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 import Card from '@/components/Card';
+import Container from '@/components/Container';
+import ArrowLeftIcon from '@/components/PostLayout/ArrowLeftIcon';
 import { formatDate } from '@/lib/formatDate';
 import { getAllProjects, getProjectUpdates } from '@/lib/projects/utils';
-import ArrowLeftIcon from '@/components/PostLayout/ArrowLeftIcon';
-import Container from '@/components/Container';
 
 export async function generateStaticParams() {
     const projects = await getAllProjects();

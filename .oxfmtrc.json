@@ -13,9 +13,7 @@
         "customGroups": [
             {
                 "groupName": "app-alias",
-                "elementNamePattern": [
-                    "@/**"
-                ]
+                "elementNamePattern": ["@/**"]
             }
         ],
         "groups": [
@@ -23,10 +21,7 @@
             "external",
             "app-alias",
             "parent",
-            [
-                "sibling",
-                "index"
-            ],
+            ["sibling", "index"],
             "unknown"
         ],
         "newlinesBetween": true,
@@ -34,10 +29,7 @@
     },
     "overrides": [
         {
-            "files": [
-                "*.yml",
-                "*.yaml"
-            ],
+            "files": ["*.yml", "*.yaml"],
             "options": {
                 "tabWidth": 2
             }

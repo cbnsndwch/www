@@ -9,31 +9,31 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'images.lumacdn.com',
+                hostname: 'images.lumacdn.com'
             },
             {
                 protocol: 'https',
-                hostname: 'raw.githubusercontent.com',
-            },
-        ],
+                hostname: 'raw.githubusercontent.com'
+            }
+        ]
     },
     async redirects() {
         return [
             {
                 source: '/call/ghl-integration-discovery',
                 destination: '/services/ghl-dev-partner',
-                permanent: true,
-            },
+                permanent: true
+            }
         ];
-    },
+    }
 };
 
 const withMDX = nextMDX({
     extension: /\.mdx?$/,
     options: {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [rehypePrism],
-    },
+        rehypePlugins: [rehypePrism]
+    }
 });
 
 export default withMDX(nextConfig);
