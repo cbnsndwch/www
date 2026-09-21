@@ -4,7 +4,7 @@ import { getAllPosts } from '@/lib/posts/utils';
 import { getAllProjects, getAllProjectUpdates } from '@/lib/projects/utils';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    let siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
     if (!siteUrl) {
         throw Error('Missing NEXT_PUBLIC_SITE_URL environment variable');
     }
@@ -22,12 +22,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             changeFrequency: 'monthly',
             priority: 0.9
         },
-        // {
-        //     url: `${siteUrl}/speaking`,
-        //     lastModified: new Date(),
-        //     changeFrequency: 'weekly',
-        //     priority: 0.8
-        // },
+        {
+            url: `${siteUrl}/speaking`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.8
+        },
         {
             url: `${siteUrl}/tech-stack`,
             lastModified: new Date(),
@@ -56,8 +56,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const posts = await getAllPosts();
 
-    for (let post of posts) {
-        let url = String(new URL(`/posts/${post.slug}`, siteUrl));
+    for (const post of posts) {
+        const url = String(new URL(`/posts/${post.slug}`, siteUrl));
 
         map.push({
             url,
@@ -69,8 +69,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const projects = await getAllProjects();
 
-    for (let project of projects) {
-        let url = String(new URL(`/projects/${project.slug}`, siteUrl));
+    for (const project of projects) {
+        const url = String(new URL(`/projects/${project.slug}`, siteUrl));
 
         map.push({
             url,
@@ -79,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.75
         });
 
-        let updatesUrl = String(
+        const updatesUrl = String(
             new URL(`/projects/${project.slug}/updates`, siteUrl)
         );
         map.push({
@@ -92,8 +92,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const updates = await getAllProjectUpdates();
 
-    for (let update of updates) {
-        let url = String(
+    for (const update of updates) {
+        const url = String(
             new URL(
                 `/projects/${update.projectSlug}/updates/${update.slug}`,
                 siteUrl

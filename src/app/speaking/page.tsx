@@ -75,21 +75,30 @@ function Appearance({
 
 export const metadata: Metadata = {
     title: 'Speaking',
-    description: 'I’ve been interviewed on a few really cool podcasts.'
-    // 'I’ve spoken at events all around the world and been interviewed for many podcasts.',
+    description:
+        'Conference talks, podcast interviews and tutorials on engineering craft, marketplaces, and building software worth trusting.'
 };
 
 export default function Speaking() {
     return (
         <SimpleLayout
-            title="Discover Insights on App Development: My YouTube Channel and Podcast Features."
+            title="Talks, interviews, and thinking out loud."
             intro={[
-                "Welcome to my digital hub, where I specialize in educating developers and marketing agencies on the intricacies of building apps for the HighLevel Marketplace. Through my YouTube channel, I delve into the specifics of app development, offering tutorials, tips, and industry insights. My content is designed to empower both aspiring and experienced developers with the knowledge and tools needed to thrive in this dynamic marketplace. It's a resource-rich platform where learning and practical application go hand-in-hand.",
-                "In addition to my YouTube channel, I have had the opportunity to share my experiences and perspectives on various podcasts. These podcast interviews provide a more conversational exploration of topics related to app development, digital marketing, and technology trends. They serve as a complementary resource, where listeners can gain additional insights and learn from my journey in the tech industry. I love podcast interviews because they give me the opportunity to reach audiences far beyond what's possible with in person events.",
-                "Whether you are a developer looking to enhance your skills, a marketing agency aiming to expand your services, or just someone interested in the world of app development, there is content here for you. And if you're organizing a conference or event and need a speaker who can bring valuable insights to your audience, feel free to reach out. Let's collaborate to share knowledge and drive innovation in the digital space."
+                "Teaching was my first job, and it never quite wore off. The fastest way I know to find out whether I actually understand something is to try to explain it to a room, so I take most chances I get, whether that's a conference stage, someone else's podcast, or a tutorial nobody asked for.",
+                "The topics move around, but the thread doesn't: how to build software you can still reason about in a year, how marketplaces and platforms really behave once real people touch them, and why engineering judgment matters more than whatever is currently trending.",
+                "If you're organizing an event and want a speaker who'll say something specific, reach out. I'm also happy to do this in Spanish."
             ]}
         >
             <div className="space-y-20">
+                <SpeakingSection title="Conferences">
+                    <Appearance
+                        href="https://reactmiami.com"
+                        title="The Anti-Shiny Object Syndrome"
+                        description="On the cost of chasing every new framework, library and paradigm, and how to tell the difference between a tool that will still matter in three years and one that is currently loud."
+                        event="React Miami 2026"
+                        cta="About the conference"
+                    />
+                </SpeakingSection>
                 <SpeakingSection title="My YouTube Channel">
                     <Appearance
                         href="https://www.youtube.com/watch?v=3rveQDuVlR0&list=PLxp-vlg1uh-aajKG9OYjKfsa-2SCC0Qf4"

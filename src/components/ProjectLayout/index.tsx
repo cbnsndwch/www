@@ -42,11 +42,11 @@ export default function ProjectLayout({
             <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
                 <div className="lg:pl-20">
                     <div className="max-w-xs px-2.5 lg:max-w-none">
-                        <div className="relative z-10 flex h-24 w-24 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                        <div className="relative z-10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:ring-white/10">
                             <Image
                                 src={project.logo}
                                 alt={`${project.name} logo`}
-                                className="h-16 w-16"
+                                className="h-full w-full object-cover"
                                 unoptimized
                             />
                         </div>
@@ -61,18 +61,20 @@ export default function ProjectLayout({
                     </div>
 
                     <div className="mt-6 flex gap-6">
-                        {(() => {
-                            const PrimaryIcon = project.link.icon || LinkIcon;
-                            return (
-                                <Link
-                                    href={project.link.href}
-                                    className="group flex gap-2 text-sm font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
-                                >
-                                    <PrimaryIcon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-amber-500" />
-                                    {project.link.label}
-                                </Link>
-                            );
-                        })()}
+                        {project.link &&
+                            (() => {
+                                const PrimaryIcon =
+                                    project.link!.icon || LinkIcon;
+                                return (
+                                    <Link
+                                        href={project.link!.href}
+                                        className="group flex gap-2 text-sm font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                                    >
+                                        <PrimaryIcon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-amber-500" />
+                                        {project.link!.label}
+                                    </Link>
+                                );
+                            })()}
                         {project.secondaryLink &&
                             (() => {
                                 const SecondaryIcon =
@@ -127,7 +129,7 @@ export default function ProjectLayout({
                                         View all
                                     </Link>
                                 </div>
-                                <ul role="list" className="mt-6 space-y-10">
+                                <ul  className="mt-6 space-y-10">
                                     {updates.slice(0, 5).map(update => (
                                         <li key={update.slug}>
                                             <Card>

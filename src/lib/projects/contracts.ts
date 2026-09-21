@@ -24,7 +24,7 @@ export interface Project {
     name: string;
     description: string;
     logo: string | StaticImageData;
-    link: ProjectLink;
+    link?: ProjectLink;
     secondaryLink?: ProjectLink;
     tech?: string[];
     draft?: boolean;
