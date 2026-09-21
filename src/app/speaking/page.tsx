@@ -165,28 +165,6 @@ export default function Speaking() {
                         cta="View playlist"
                     />
                 </SpeakingSection>
-                {/* TODO: both Lei Nai Shou links are broken. EP190
-                    (OsXmDRZyz-o) is private or removed, and EP193 points at
-                    the HighLevel Spotlight video instead. Restore once the
-                    correct URLs are known. */}
-                {/* <SpeakingSection title="Lei Nai Shou">
-                    <Appearance
-                        href="https://www.youtube.com/watch?v=OsXmDRZyz-o&"
-                        title="1Nation Up Brand Boosters - Lei Nai Shou 190"
-                        description="Entrevistamos al equipo de 1NationUp, una agencia de marketing en Miami. #Cuba #1NationUp #Miami"
-                        event="Lei Nai Shou EP190, May 2023"
-                        cta="Ver episodio"
-                        lang="es"
-                    />
-                    <Appearance
-                        href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
-                        title="Sergio León - Lei Nai Shou 193"
-                        description="Conversamos con el ingeniero de telecomunicaciones Sergio León sobre ChatGPT y la nueva tecnología de inteligencia artificial! #ChatGpt #InteligenciaArtificial #Ai"
-                        event="Lei Nai Shou EP193, May 2023"
-                        cta="Ver episodio"
-                        lang="es"
-                    />
-                </SpeakingSection> */}
 
                 <SpeakingSection title="Propel Data">
                     <Appearance

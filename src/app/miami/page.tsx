@@ -420,7 +420,9 @@ export default function MiamiPage() {
                                     unoptimized
                                 />
                             </div>
-                            <Card.Title>The Marketing AI Sprint</Card.Title>
+                            <Card.Title href="https://simplifai.studio" newTab>
+                                The Marketing AI Sprint
+                            </Card.Title>
                             <Card.Eyebrow decorate>
                                 Upcoming • with The LAB Miami & SimplifAI Studio
                             </Card.Eyebrow>
@@ -431,9 +433,10 @@ export default function MiamiPage() {
                                 infrastructure, the submission and judging
                                 pipeline, and making sure the builders in the
                                 room have everything they need to ship something
-                                real in a weekend. Details and registration
-                                coming soon.
+                                real in a weekend. Still being planned; dates
+                                and registration to follow.
                             </Card.Description>
+                            <Card.Cta>See SimplifAI Studio</Card.Cta>
                         </Card>
 
                         {/* TODO: the impact report still only covers 2025.
