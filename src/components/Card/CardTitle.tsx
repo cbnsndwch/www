@@ -12,7 +12,7 @@ export default function CardTitle<T extends React.ElementType = 'h2'>({
     newTab,
     children
 }: CardTitleProps<T>) {
-    let Component = as ?? 'h2';
+    const Component = as ?? 'h2';
 
     return (
         <Component className="text-base font-semibold tracking-tight text-zinc-800 dark:text-zinc-100">

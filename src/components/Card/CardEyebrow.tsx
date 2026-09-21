@@ -14,7 +14,7 @@ export default function CardEyebrow<T extends React.ElementType = 'p'>({
     children,
     ...props
 }: CardEyebrowProps<T>) {
-    let Component = as ?? 'p';
+    const Component = as ?? 'p';
 
     return (
         <Component

@@ -1,0 +1,80 @@
+{
+    "$schema": "./node_modules/oxlint/configuration_schema.json",
+    "categories": {
+        "correctness": "warn"
+    },
+    "options": {
+        "typeAware": true,
+        "maxWarnings": 0
+    },
+    "env": {
+        "builtin": true,
+        "browser": true,
+        "es2024": true
+    },
+    "plugins": [
+        "import",
+        "react",
+        "jsx-a11y",
+        "typescript"
+    ],
+    "rules": {
+        "curly": [
+            "error",
+            "all"
+        ],
+        "import/newline-after-import": [
+            "error",
+            {
+                "count": 1,
+                "exactCount": true,
+                "considerComments": true
+            }
+        ],
+        "no-unused-expressions": "error",
+        "no-var": "error",
+        "prefer-const": "error",
+        "react/jsx-key": "error",
+        "react/no-children-prop": "error"
+    },
+    "ignorePatterns": [
+        "**/.next/**",
+        "**/build/**",
+        "**/dist/**",
+        "**/node_modules/**",
+        ".agents/**",
+        ".claude/**",
+        ".github/**",
+        ".local/**",
+        ".plantuml/**",
+        "coverage/**",
+        "next-env.d.ts"
+    ],
+    "overrides": [
+        {
+            "files": [
+                "src/app/providers.tsx"
+            ],
+            "rules": {
+                "react/refs": "allow"
+            }
+        },
+        {
+            "files": [
+                "src/components/Header/ThemeToggle.tsx",
+                "src/app/miami/CommunityGallery.tsx"
+            ],
+            "rules": {
+                "react/set-state-in-effect": "allow"
+            }
+        },
+        {
+            "files": [
+                "src/components/ui/**"
+            ],
+            "rules": {
+                "jsx-a11y/prefer-tag-over-role": "allow"
+            }
+        }
+    ]
+}

@@ -28,12 +28,12 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     }, [images.length]);
 
     useEffect(() => {
-        if (!isOpen) return;
+        if (!isOpen) {return;}
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'Escape') {onClose();}
+            if (e.key === 'ArrowRight') {showNext();}
+            if (e.key === 'ArrowLeft') {showPrev();}
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -45,12 +45,13 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
         };
     }, [isOpen, onClose, showNext, showPrev]);
 
-    if (!isOpen) return null;
+    if (!isOpen) {return null;}
 
     return (
         <div
             className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-900/90 backdrop-blur-sm animate-in fade-in duration-300 cursor-pointer"
             onClick={onClose}
+            role="presentation"
         >
             <button
                 onClick={e => {
@@ -77,6 +78,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             <div
                 className="relative h-[80vh] w-[90vw] animate-in zoom-in-95 duration-300 cursor-auto"
                 onClick={e => e.stopPropagation()}
+                role="presentation"
             >
                 <Image
                     src={images[currentIndex]}
@@ -148,7 +150,7 @@ export function FeaturedPhotos({ images }: { images: any[] }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
-    let rotations = [
+    const rotations = [
         'rotate-2',
         '-rotate-2',
         'rotate-2',

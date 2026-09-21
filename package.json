@@ -7,8 +7,12 @@
         "dev": "next dev --port 3405",
         "build": "next build",
         "start": "next start",
-        "lint": "eslint .",
-        "format": "prettier --write ./src"
+        "lint": "oxlint --type-aware .",
+        "format": "oxfmt .",
+        "lint:fix": "oxlint --type-aware --fix .",
+        "format:check": "oxfmt --check .",
+        "typecheck": "tsc --noEmit -p tsconfig.json",
+        "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck"
     },
     "dependencies": {
         "@headlessui/react": "^2.2.9",
@@ -52,12 +56,13 @@
         "@types/webpack-env": "^1.18.8",
         "@vercel/og": "^0.11.1",
         "dotenv": "^17.3.1",
-        "eslint": "9.39.4",
         "eslint-config-next": "15.5.10",
         "mdx": "^0.3.1",
         "npm-check-updates": "^19.6.3",
+        "oxfmt": "0.67.0",
+        "oxlint": "1.82.0",
+        "oxlint-tsgolint": "7.0.2001",
         "postcss": "^8.5.8",
-        "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",
         "tailwindcss": "^4.2.1",
         "typescript": "5.9.3",
@@ -65,5 +70,5 @@
         "yaml": "^2.8.2"
     },
     "browserslist": "defaults, not ie <= 11",
-    "packageManager": "pnpm@10.28.2+sha512.41872f037ad22f7348e3b1debbaf7e867cfd448f2726d9cf74c08f19507c31d2c8e7a11525b983febc2df640b5438dee6023ebb1f84ed43cc2d654d2bc326264"
+    "packageManager": "pnpm@12.5.1+sha512.e3f305bc784a2bc89f5ad3b6138889470fae8d2af5f36b61216ec91c2c3d64089775f9de38aac331044ea40f245cb0d5666392dfdf65824e1907ef6a2c62de5f"
 }

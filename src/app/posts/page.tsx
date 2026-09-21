@@ -33,8 +33,8 @@ export default async function PostsIndex(props: {
 
     const getParamArray = (name: string) => {
         const val = searchParams[name];
-        if (typeof val === 'string') return val.split(',').filter(Boolean);
-        if (Array.isArray(val)) return val.filter(Boolean);
+        if (typeof val === 'string') {return val.split(',').filter(Boolean);}
+        if (Array.isArray(val)) {return val.filter(Boolean);}
         return [];
     };
 
@@ -53,15 +53,15 @@ export default async function PostsIndex(props: {
                         tagsFilter.length > 0 &&
                         !tagsFilter.some(t => post.tags?.includes(t))
                     )
-                        return false;
+                        {return false;}
                     if (
                         yearsFilter.length > 0 &&
                         !yearsFilter.some(y => post.date.startsWith(y))
                     )
-                        return false;
+                        {return false;}
                     if (monthsFilter.length > 0) {
                         const postMonth = post.date.split('-')[1];
-                        if (!monthsFilter.includes(postMonth)) return false;
+                        if (!monthsFilter.includes(postMonth)) {return false;}
                     }
                     return true;
                 })
@@ -77,15 +77,15 @@ export default async function PostsIndex(props: {
                         authorsFilter.length > 0 &&
                         !authorsFilter.includes(post.author)
                     )
-                        return false;
+                        {return false;}
                     if (
                         yearsFilter.length > 0 &&
                         !yearsFilter.some(y => post.date.startsWith(y))
                     )
-                        return false;
+                        {return false;}
                     if (monthsFilter.length > 0) {
                         const postMonth = post.date.split('-')[1];
-                        if (!monthsFilter.includes(postMonth)) return false;
+                        if (!monthsFilter.includes(postMonth)) {return false;}
                     }
                     return true;
                 })
@@ -101,15 +101,15 @@ export default async function PostsIndex(props: {
                         authorsFilter.length > 0 &&
                         !authorsFilter.includes(post.author)
                     )
-                        return false;
+                        {return false;}
                     if (
                         tagsFilter.length > 0 &&
                         !tagsFilter.some(t => post.tags?.includes(t))
                     )
-                        return false;
+                        {return false;}
                     if (monthsFilter.length > 0) {
                         const postMonth = post.date.split('-')[1];
-                        if (!monthsFilter.includes(postMonth)) return false;
+                        if (!monthsFilter.includes(postMonth)) {return false;}
                     }
                     return true;
                 })
@@ -123,37 +123,37 @@ export default async function PostsIndex(props: {
                 authorsFilter.length > 0 &&
                 !authorsFilter.includes(post.author)
             )
-                return false;
+                {return false;}
             if (
                 tagsFilter.length > 0 &&
                 !tagsFilter.some(t => post.tags?.includes(t))
             )
-                return false;
+                {return false;}
             if (
                 yearsFilter.length > 0 &&
                 !yearsFilter.some(y => post.date.startsWith(y))
             )
-                return false;
+                {return false;}
             return post.date.split('-')[1] === m.value;
         })
     );
 
     const posts = allPosts.filter(post => {
         if (authorsFilter.length > 0 && !authorsFilter.includes(post.author))
-            return false;
+            {return false;}
         if (
             tagsFilter.length > 0 &&
             !tagsFilter.some(t => post.tags?.includes(t))
         )
-            return false;
+            {return false;}
         if (
             yearsFilter.length > 0 &&
             !yearsFilter.some(y => post.date.startsWith(y))
         )
-            return false;
+            {return false;}
         if (monthsFilter.length > 0) {
             const postMonth = post.date.split('-')[1];
-            if (!monthsFilter.includes(postMonth)) return false;
+            if (!monthsFilter.includes(postMonth)) {return false;}
         }
         return true;
     });

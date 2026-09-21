@@ -14,7 +14,7 @@ export default function Card<T extends React.ElementType = 'div'>({
     as?: T;
     className?: string;
 }) {
-    let Component = as ?? 'div';
+    const Component = as ?? 'div';
 
     return (
         <Component

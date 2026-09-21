@@ -12,21 +12,21 @@ import AvatarContainer from './AvatarContainer';
 import Avatar from './Avatar';
 
 function clamp(number: number, a: number, b: number) {
-    let min = Math.min(a, b);
-    let max = Math.max(a, b);
+    const min = Math.min(a, b);
+    const max = Math.max(a, b);
     return Math.min(Math.max(number, min), max);
 }
 
 export default function Header() {
-    let isHomePage = usePathname() === '/';
+    const isHomePage = usePathname() === '/';
 
-    let headerRef = useRef<ElementRef<'div'>>(null);
-    let avatarRef = useRef<ElementRef<'div'>>(null);
-    let isInitial = useRef(true);
+    const headerRef = useRef<ElementRef<'div'>>(null);
+    const avatarRef = useRef<ElementRef<'div'>>(null);
+    const isInitial = useRef(true);
 
     useEffect(() => {
-        let downDelay = avatarRef.current?.offsetTop ?? 0;
-        let upDelay = 64;
+        const downDelay = avatarRef.current?.offsetTop ?? 0;
+        const upDelay = 64;
 
         function setProperty(property: string, value: string) {
             document.documentElement.style.setProperty(property, value);
@@ -41,8 +41,8 @@ export default function Header() {
                 return;
             }
 
-            let { top, height } = headerRef.current.getBoundingClientRect();
-            let scrollY = clamp(
+            const { top, height } = headerRef.current.getBoundingClientRect();
+            const scrollY = clamp(
                 window.scrollY,
                 0,
                 document.body.scrollHeight - window.innerHeight
@@ -58,7 +58,7 @@ export default function Header() {
                 setProperty('--header-height', `${downDelay + height}px`);
                 setProperty('--header-mb', `${-downDelay}px`);
             } else if (top + height < -upDelay) {
-                let offset = Math.max(height, scrollY - upDelay);
+                const offset = Math.max(height, scrollY - upDelay);
                 setProperty('--header-height', `${offset}px`);
                 setProperty('--header-mb', `${height - offset}px`);
             } else if (top === 0) {
@@ -82,12 +82,12 @@ export default function Header() {
                 return;
             }
 
-            let fromScale = 1;
-            let toScale = 36 / 64;
-            let fromX = 0;
-            let toX = 2 / 16;
+            const fromScale = 1;
+            const toScale = 36 / 64;
+            const fromX = 0;
+            const toX = 2 / 16;
 
-            let scrollY = downDelay - window.scrollY;
+            const scrollY = downDelay - window.scrollY;
 
             let scale = (scrollY * (fromScale - toScale)) / downDelay + toScale;
             scale = clamp(scale, fromScale, toScale);
@@ -100,9 +100,9 @@ export default function Header() {
                 `translate3d(${x}rem, 0, 0) scale(${scale})`
             );
 
-            let borderScale = 1 / (toScale / scale);
-            let borderX = (-toX + x) * borderScale;
-            let borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
+            const borderScale = 1 / (toScale / scale);
+            const borderX = (-toX + x) * borderScale;
+            const borderTransform = `translate3d(${borderX}rem, 0, 0) scale(${borderScale})`;
 
             setProperty('--avatar-border-transform', borderTransform);
             setProperty(

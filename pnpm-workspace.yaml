@@ -1,8 +1,5 @@
-ignoredBuiltDependencies:
-  - sharp
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@vercel/speed-insights'
-  - esbuild
-  - unrs-resolver
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
