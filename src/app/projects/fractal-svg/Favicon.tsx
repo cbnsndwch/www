@@ -1,4 +1,4 @@
-export function Favicon(props: React.ComponentPropsWithoutRef<'svg'>) {
+export function Favicon(_props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

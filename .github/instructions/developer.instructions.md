@@ -32,7 +32,7 @@ As a **Developer** for the cbnsndwch-www project, you are responsible for implem
 
 Our codebase is a standard Next.js application:
 
-`
+```text
 ├── src/
 │   ├── app/                # App Router pages and layouts
 │   ├── components/         # Shared React components
@@ -41,7 +41,7 @@ Our codebase is a standard Next.js application:
 │   └── images/             # Static assets
 ├── public/                 # Public static files
 └── next.config.mjs         # Next.js configuration
-`
+```
 
 ### Technology Stack
 
@@ -64,5 +64,4 @@ Our codebase is a standard Next.js application:
 1. **Server Components by Default**: Use React Server Components for data fetching and static content. Use Client Components ('use client') only when interactivity is needed.
 2. **Tailwind for Styling**: Use Tailwind utility classes for styling. Avoid custom CSS unless absolutely necessary.
 3. **Responsive Design**: Ensure all pages work well on mobile, tablet, and desktop.
-4. **Image Optimization**: Use 
-ext/image for all images to ensure optimization.
+4. **Image Optimization**: Use next/image for all images to ensure optimization.

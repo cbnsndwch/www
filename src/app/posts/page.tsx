@@ -1,9 +1,9 @@
 import { type Metadata } from 'next';
 
+import { PostFilters } from '@/components/PostFilters';
+import PostSummary from '@/components/PostSummary';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import { getAllPosts } from '@/lib/posts/utils';
-import PostSummary from '@/components/PostSummary';
-import { PostFilters } from '@/components/PostFilters';
 
 export const metadata: Metadata = {
     title: 'Posts',
@@ -33,8 +33,12 @@ export default async function PostsIndex(props: {
 
     const getParamArray = (name: string) => {
         const val = searchParams[name];
-        if (typeof val === 'string') return val.split(',').filter(Boolean);
-        if (Array.isArray(val)) return val.filter(Boolean);
+        if (typeof val === 'string') {
+            return val.split(',').filter(Boolean);
+        }
+        if (Array.isArray(val)) {
+            return val.filter(Boolean);
+        }
         return [];
     };
 
@@ -52,16 +56,20 @@ export default async function PostsIndex(props: {
                     if (
                         tagsFilter.length > 0 &&
                         !tagsFilter.some(t => post.tags?.includes(t))
-                    )
+                    ) {
                         return false;
+                    }
                     if (
                         yearsFilter.length > 0 &&
                         !yearsFilter.some(y => post.date.startsWith(y))
-                    )
+                    ) {
                         return false;
+                    }
                     if (monthsFilter.length > 0) {
                         const postMonth = post.date.split('-')[1];
-                        if (!monthsFilter.includes(postMonth)) return false;
+                        if (!monthsFilter.includes(postMonth)) {
+                            return false;
+                        }
                     }
                     return true;
                 })
@@ -76,16 +84,20 @@ export default async function PostsIndex(props: {
                     if (
                         authorsFilter.length > 0 &&
                         !authorsFilter.includes(post.author)
-                    )
+                    ) {
                         return false;
+                    }
                     if (
                         yearsFilter.length > 0 &&
                         !yearsFilter.some(y => post.date.startsWith(y))
-                    )
+                    ) {
                         return false;
+                    }
                     if (monthsFilter.length > 0) {
                         const postMonth = post.date.split('-')[1];
-                        if (!monthsFilter.includes(postMonth)) return false;
+                        if (!monthsFilter.includes(postMonth)) {
+                            return false;
+                        }
                     }
                     return true;
                 })
@@ -100,16 +112,20 @@ export default async function PostsIndex(props: {
                     if (
                         authorsFilter.length > 0 &&
                         !authorsFilter.includes(post.author)
-                    )
+                    ) {
                         return false;
+                    }
                     if (
                         tagsFilter.length > 0 &&
                         !tagsFilter.some(t => post.tags?.includes(t))
-                    )
+                    ) {
                         return false;
+                    }
                     if (monthsFilter.length > 0) {
                         const postMonth = post.date.split('-')[1];
-                        if (!monthsFilter.includes(postMonth)) return false;
+                        if (!monthsFilter.includes(postMonth)) {
+                            return false;
+                        }
                     }
                     return true;
                 })
@@ -122,38 +138,46 @@ export default async function PostsIndex(props: {
             if (
                 authorsFilter.length > 0 &&
                 !authorsFilter.includes(post.author)
-            )
+            ) {
                 return false;
+            }
             if (
                 tagsFilter.length > 0 &&
                 !tagsFilter.some(t => post.tags?.includes(t))
-            )
+            ) {
                 return false;
+            }
             if (
                 yearsFilter.length > 0 &&
                 !yearsFilter.some(y => post.date.startsWith(y))
-            )
+            ) {
                 return false;
+            }
             return post.date.split('-')[1] === m.value;
         })
     );
 
     const posts = allPosts.filter(post => {
-        if (authorsFilter.length > 0 && !authorsFilter.includes(post.author))
+        if (authorsFilter.length > 0 && !authorsFilter.includes(post.author)) {
             return false;
+        }
         if (
             tagsFilter.length > 0 &&
             !tagsFilter.some(t => post.tags?.includes(t))
-        )
+        ) {
             return false;
+        }
         if (
             yearsFilter.length > 0 &&
             !yearsFilter.some(y => post.date.startsWith(y))
-        )
+        ) {
             return false;
+        }
         if (monthsFilter.length > 0) {
             const postMonth = post.date.split('-')[1];
-            if (!monthsFilter.includes(postMonth)) return false;
+            if (!monthsFilter.includes(postMonth)) {
+                return false;
+            }
         }
         return true;
     });

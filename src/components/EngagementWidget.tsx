@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 export type EngagementWidgetProps = {
     /**
@@ -14,10 +14,7 @@ export type EngagementWidgetProps = {
     extras?: Record<string, unknown>;
 };
 
-export default function EngagementWidget({
-    widgetId,
-    extras
-}: EngagementWidgetProps) {
+export default function EngagementWidget({ extras }: EngagementWidgetProps) {
     useEffect(() => {
         window.engagementContextExtra = Object.assign(
             window.engagementContextExtra || {},

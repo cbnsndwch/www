@@ -1,9 +1,8 @@
 {
     "recommendations": [
         "codezombiech.gitignore",
-        "dbaeumer.vscode-eslint",
         "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
+        "oxc.oxc-vscode",
         "formulahendry.auto-close-tag",
         "formulahendry.auto-rename-tag",
         "jebbs.plantuml",

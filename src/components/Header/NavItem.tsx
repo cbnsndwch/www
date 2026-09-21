@@ -1,16 +1,16 @@
 'use client';
 
-import type { PropsWithChildren } from 'react';
+import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
+import type { PropsWithChildren } from 'react';
 
 type NavItemProps = PropsWithChildren<{
     href: string;
 }>;
 
 export function NavItem({ href, children }: NavItemProps) {
-    let isActive = usePathname() === href;
+    const isActive = usePathname() === href;
 
     return (
         <li>

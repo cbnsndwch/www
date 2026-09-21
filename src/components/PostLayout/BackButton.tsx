@@ -1,15 +1,15 @@
 'use client';
 
-import { useContext } from 'react';
 import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
 
 import { AppContext } from '@/app/providers';
 
 import ArrowLeftIcon from './ArrowLeftIcon';
 
 export default function BackButton() {
-    let router = useRouter();
-    let { previousPathname } = useContext(AppContext);
+    const router = useRouter();
+    const { previousPathname } = useContext(AppContext);
 
     if (!previousPathname) {
         return null;

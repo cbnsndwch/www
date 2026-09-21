@@ -5,18 +5,21 @@
 ## Context
 
 This project uses:
+
 - **Next.js** as the framework
-- **ESLint** with TypeScript for linting
-- **Prettier** for formatting
+- **Oxlint** for linting
+- **Oxfmt** for formatting
 - **pnpm** as the package manager
 
 ### Key Commands
 
-| Command | Description |
-|---------|-------------|
-| `pnpm lint` | Run ESLint |
-| `pnpm build` | Build the application |
-| `pnpm format` | Format code with Prettier |
+| Command             | Description                 |
+| ------------------- | --------------------------- |
+| `pnpm lint`         | Run Oxlint                  |
+| `pnpm lint:fix`     | Auto-fix lint issues        |
+| `pnpm build`        | Build the application       |
+| `pnpm format`       | Format code with Oxfmt      |
+| `pnpm format:check` | Check formatting with Oxfmt |
 
 ---
 
@@ -37,7 +40,7 @@ Report findings in a structured format:
   category: "lint"
   count: 5
   breakdown:
-    - rule: "@typescript-eslint/no-unused-vars"
+    - rule: "no-unused-vars"
       count: 3
       files: ["src/foo.ts", "src/bar.ts"]
     - rule: "import/order"
@@ -51,8 +54,9 @@ Report findings in a structured format:
 Group issues by type for atomic fixes:
 
 **Lint Issue Categories (in order of priority):**
+
 1. **Build-breaking**: Type errors, missing imports, syntax errors
-2. **Auto-fixable**: Issues that `pnpm lint --fix` or `pnpm format` can resolve
+2. **Auto-fixable**: Issues that `pnpm lint:fix` or `pnpm format` can resolve
 3. **Manual fixes**: Unused variables, missing types, logic issues
 4. **Warnings**: Non-critical style or deprecation warnings
 
@@ -63,7 +67,7 @@ Follow this cycle for EACH category:
 #### A. Attempt Auto-Fix First
 
 ```bash
-pnpm lint --fix
+pnpm lint:fix
 pnpm format
 ```
 
@@ -76,6 +80,7 @@ pnpm lint
 #### C. Apply Manual Fixes
 
 For each issue:
+
 1. Read the affected file
 2. Understand the context (3-5 lines before/after)
 3. Apply the minimal fix that resolves the issue
@@ -104,12 +109,13 @@ If a fix introduces new issues:
   attempted_fix: "removed variable declaration"
   new_error: "ReferenceError: foo is not defined"
   root_cause: "variable was used in a different scope"
-  resolution: "keep variable, add eslint-disable comment with explanation"
+  resolution: "keep variable, add a scoped rule-suppression comment with explanation"
 </error_context>
 ```
 
 **Escape hatches (use sparingly):**
-- `// eslint-disable-next-line <rule>` - Disable for one line with reason
+
+- `// oxlint-disable-next-line <rule>` - Disable for one line with reason
 - `// @ts-expect-error <reason>` - Suppress type error with explanation
 - Skip the issue and document for manual review
 
@@ -118,11 +124,13 @@ If a fix introduces new issues:
 ## Compact Error Handling (Factor 9)
 
 When encountering errors:
+
 1. Capture the essential error (type + message + location)
 2. Discard full stack traces after understanding the issue
 3. Focus on root cause, not symptoms
 
 Example transformation:
+
 ```
 # Before (verbose)
 Error: Cannot find module '@/lib/utils'
@@ -142,11 +150,13 @@ Fix: Update import path or add path alias to tsconfig.json
 Each commit should address ONE logical issue:
 
 ✅ **Good commits:**
+
 - `fix(main): remove unused imports in auth module`
 - `fix(tests): add SidebarProvider wrapper to navigation tests`
 - `fix(lint): resolve no-unused-vars in workspace components`
 
 ❌ **Bad commits:**
+
 - `fix: resolve all lint issues` (too broad)
 - `fix: lint and tests and add new feature` (mixed concerns)
 
@@ -160,7 +170,7 @@ After each fix cycle, update progress:
 <fix_progress>
   phase: "lint"
   completed:
-    - "@typescript-eslint/no-unused-vars" (3 issues)
+    - "no-unused-vars" (3 issues)
   in_progress:
     - "import/order" (2 remaining)
   remaining:

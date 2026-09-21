@@ -14,5 +14,5 @@ updates:
     target-branch: 'main'
     ignore:
       - dependency-name: '*'
-        update-types: 
+        update-types:
           - 'version-update:semver-major'

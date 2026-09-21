@@ -1,0 +1,77 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logo from '@/images/logos/tile-musicologia.webp';
+import ProjectLayout from '@/components/ProjectLayout';
+import { GitHubIcon } from '@/components/SocialIcons';
+
+export const project = {
+    name: 'Musicologia',
+    description:
+        'A personal listening archive where each track opens an immersive profile: audio, visuals, context and composition in one focused experience.',
+    logo: logo,
+    link: {
+        href: 'https://musicologia.de',
+        label: 'musicologia.de'
+    },
+    secondaryLink: {
+        href: 'https://github.com/cbnsndwch/music-poc',
+        label: 'cbnsndwch/music-poc',
+        icon: GitHubIcon
+    },
+    tech: [
+        'React Router 7',
+        'NestJS',
+        'MongoDB',
+        'Three.js',
+        'React Three Fiber',
+        'GSAP',
+        'Tailwind CSS',
+        'Turborepo',
+        'Docker'
+    ],
+    order: 0,
+    date: '2026-03-10'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('musicologia');
+
+    return (
+        <ProjectLayout project={{ slug: 'musicologia', ...project }} updates={updates} {...props} />
+    );
+
+}
+
+## Overview
+
+**Musicologia** is my listening archive. Each track opens an immersive profile that brings together the audio, the visuals, the context and the composition in one focused experience.
+
+It is not a music app trying to catalogue everything. It is a deliberately small, deliberately personal space for songs that actually mean something to me, where each one gets treated as a world rather than a row in a database.
+
+## The Twenty Year Version
+
+I have been trying to build this since I was a teenager.
+
+The original inspiration was a Beatles CD-ROM my mother owned. You opened it, picked an album cover, heard the disc spin up, and got a track list. Click a song and it played, showed the artwork, and scrolled the lyrics along with it. By modern standards it was not technically impressive. What it did was make the music feel bigger, like you were stepping into a little world built around the song.
+
+My first attempt at recreating that was in Visual Basic 6, using a folder of low-bitrate Avril Lavigne MP3s and lyrics I transcribed by ear. I never got playback working. I built the menu, the album listing, the track list and the lyrics window, then played the actual files in Winamp while I clicked through my own app to sing along. Extremely janky, and I loved it.
+
+The idea never left. What changed is that the tools finally caught up. Lyrics and metadata are available, language models help with research and context, generative models can produce visual layers around a track, and the browser now does things that would have looked like science fiction from inside VB6.
+
+There is a longer version of this story in [I've been trying to build this app for 20 years](/posts/ive-been-trying-to-build-this-app-for-20-years).
+
+## How It's Built
+
+React Router 7 running on a NestJS custom server, in a Turborepo and pnpm monorepo. Server-side rendering up front, a real backend behind it, and MongoDB for the archive itself.
+
+The visual layer is where most of the interesting work happens: Three.js through React Three Fiber for the spatial and generative pieces, GSAP for motion, and Tailwind for everything conventional. There is a separate video rendering app in the monorepo for producing the moving pieces that accompany a track, plus a Playwright end-to-end suite and multi-architecture Docker images published to GitHub Container Registry.
+
+## Current Direction
+
+The first release is live. It is early, and it is the kind of project that is never really finished, which is part of the appeal.
+
+The work ahead is depth rather than breadth: richer per-track experiences, better tooling for building a profile without hand-assembling every element, and continuing to push on what a song's page can be when nobody is asking it to scale to fifty million tracks.

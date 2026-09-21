@@ -30,23 +30,20 @@ export default async function Projects() {
     return (
         <SimpleLayout
             title="Projects"
-            intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+            intro="Erden is a platform I’m building for real, though it isn’t public yet. The rest are tools I needed and couldn’t find, which is the only reason I’ve ever started anything. Most are open source, so if something here piques your interest, read the code, file an issue, or send a PR."
         >
-            <ul
-                role="list"
-                className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-            >
+            <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {projects.map(project => (
                     <Card
                         as="li"
                         key={project.slug}
                         className="rounded-2xl bg-zinc-50/40 p-10 ring-1 ring-zinc-900/5 transition-colors hover:bg-zinc-50/80 dark:bg-zinc-800/10 dark:ring-white/10 dark:hover:bg-zinc-800/30"
                     >
-                        <div className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
+                        <div className="relative z-10 flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-white shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:ring-white/10">
                             <Image
                                 src={project.logo}
                                 alt=""
-                                className="h-8 w-8"
+                                className="h-full w-full object-cover"
                                 unoptimized
                             />
                         </div>
@@ -61,15 +58,23 @@ export default async function Projects() {
                         <Card.Description className="flex-1">
                             {project.description}
                         </Card.Description>
-                        <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-amber-500 dark:text-zinc-200">
-                            {(() => {
-                                const Icon = project.link.icon || LinkIcon;
-                                return (
-                                    <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-amber-500" />
-                                );
-                            })()}
-                            <span className="ml-2">{project.link.label}</span>
-                        </p>
+                        {project.link ? (
+                            <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-amber-500 dark:text-zinc-200">
+                                {(() => {
+                                    const Icon = project.link!.icon || LinkIcon;
+                                    return (
+                                        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-amber-500" />
+                                    );
+                                })()}
+                                <span className="ml-2">
+                                    {project.link!.label}
+                                </span>
+                            </p>
+                        ) : (
+                            <p className="relative z-10 mt-6 text-sm font-medium text-zinc-400 dark:text-zinc-500">
+                                Not public yet
+                            </p>
+                        )}
                     </Card>
                 ))}
             </ul>

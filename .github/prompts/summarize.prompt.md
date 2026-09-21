@@ -22,31 +22,38 @@ Generate a structured summary using this format:
 ## Session State Summary
 
 ### Current Objective
+
 [One clear sentence describing what we're trying to accomplish]
 
 ### Completed Work
+
 - [Bullet list of completed tasks with file paths where relevant]
 
 ### Active Context
+
 - **Working Files**: [List of files currently being modified]
 - **Key Decisions Made**: [Important architectural or implementation decisions]
 - **Current Approach**: [Brief description of the strategy being used]
 
 ### Remaining Tasks
+
 1. [Numbered list of what still needs to be done]
 
 ### Critical Context to Preserve
+
 - [Any domain-specific knowledge discovered]
 - [Important constraints or requirements]
 - [Error patterns to avoid / lessons learned]
 
 ### Discarded Approaches
+
 - [Brief note of what was tried and didn't work, to avoid repeating]
 ```
 
 ### 3. Compact Errors Intelligently
 
 Per Factor 9 - once an error is resolved:
+
 - Remove the full stack trace from context
 - Keep only a brief note: "Resolved: [error type] by [solution]"
 - This prevents the LLM from getting distracted by old problems
@@ -54,6 +61,7 @@ Per Factor 9 - once an error is resolved:
 ### 4. Apply Small, Focused Agent Principles
 
 Per Factor 10 - keep the summarized context focused:
+
 - If the session has drifted across multiple concerns, identify the PRIMARY goal
 - Suggest breaking remaining work into focused sub-tasks
 - Recommend which context can be safely dropped vs. must be retained
@@ -62,16 +70,17 @@ Per Factor 10 - keep the summarized context focused:
 
 Transform verbose content into compact representations:
 
-| Instead of... | Use... |
-|---------------|--------|
-| Full file contents | File path + relevant line ranges |
+| Instead of...         | Use...                                |
+| --------------------- | ------------------------------------- |
+| Full file contents    | File path + relevant line ranges      |
 | Complete error traces | Error type + root cause + fix applied |
-| Exploration history | Final decision + brief rationale |
-| Repeated tool outputs | Summary of findings |
+| Exploration history   | Final decision + brief rationale      |
+| Repeated tool outputs | Summary of findings                   |
 
 ### 6. Pre-fetch Guidance
 
 Per Factor 13 - identify what context the next phase will need:
+
 - List files that should be read at session resumption
 - Note any external resources or documentation referenced
 - Capture environment state if relevant (test status, build state)
@@ -96,18 +105,22 @@ Continue work on [PROJECT] with this context:
 **Objective**: [Clear goal]
 
 **Current State**:
+
 - [Key file] has been modified to [change]
 - [Feature] is partially implemented
 - Tests are [passing/failing with specific issue]
 
 **Next Steps**:
+
 1. [Immediate next action]
 2. [Following action]
 
 **Key Constraints**:
+
 - [Important requirement or limitation]
 
 **Files to Reference**:
+
 - [path/to/file1.ts] - [why it's relevant]
 - [path/to/file2.ts] - [why it's relevant]
 ```
@@ -122,4 +135,4 @@ Continue work on [PROJECT] with this context:
 
 ---
 
-*Based on principles from [12-factor-agents](https://github.com/humanlayer/12-factor-agents), particularly Factor 3 (Own Your Context Window), Factor 9 (Compact Errors), Factor 10 (Small Focused Agents), and Factor 13 (Pre-fetch Context).*
+_Based on principles from [12-factor-agents](https://github.com/humanlayer/12-factor-agents), particularly Factor 3 (Own Your Context Window), Factor 9 (Compact Errors), Factor 10 (Small Focused Agents), and Factor 13 (Pre-fetch Context)._

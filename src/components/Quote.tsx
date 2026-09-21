@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
-import { Quote as QuoteIcon } from 'lucide-react';
 import clsx from 'clsx';
+import { Quote as QuoteIcon } from 'lucide-react';
+import type { ReactNode } from 'react';
 
 interface QuoteProps {
     children: ReactNode;

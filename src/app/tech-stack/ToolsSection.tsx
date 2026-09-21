@@ -8,9 +8,7 @@ export default function ToolsSection({
 }: ComponentPropsWithoutRef<typeof Section>) {
     return (
         <Section {...props}>
-            <ul role="list" className="space-y-16">
-                {children}
-            </ul>
+            <ul className="space-y-16">{children}</ul>
         </Section>
     );
 }

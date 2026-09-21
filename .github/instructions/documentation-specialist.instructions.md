@@ -59,3 +59,4 @@ Speaking engagements are listed in the Speaking page component.
 - **MDX**: Extended Markdown for content.
 - **Next.js**: Renders the content.
 - **Tailwind Typography**: Styles the prose content.
+```

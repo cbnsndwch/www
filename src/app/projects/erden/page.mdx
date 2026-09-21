@@ -1,0 +1,68 @@
+import { getProjectUpdates } from '@/lib/projects/updates';
+import logo from '@/images/logos/tile-erden.webp';
+import ProjectLayout from '@/components/ProjectLayout';
+
+export const project = {
+    name: 'Erden',
+    description:
+        'A platform for building, publishing, and checking evidence-backed ontologies. In development, not public yet.',
+    logo: logo,
+    tech: [
+        'TypeScript',
+        'Node 24',
+        'PostgreSQL',
+        'S3-Compatible Storage',
+        'React',
+        'Turborepo',
+        'Playwright',
+        'Docker'
+    ],
+    order: 7,
+    date: '2026-09-21'
+};
+
+export const metadata = {
+    title: project.name,
+    description: project.description
+};
+
+export default async function (props) {
+    const updates = await getProjectUpdates('erden');
+
+    return (
+        <ProjectLayout project={{ slug: 'erden', ...project }} updates={updates} {...props} />
+    );
+
+}
+
+## Overview
+
+**Erden** is a platform for building, publishing, and checking evidence-backed ontologies.
+
+The short version: an ontology should be something you can version, publish, depend on, and verify, the same way you already do with code. Today it usually isn't. It's a diagram somebody made in a workshop, or a spreadsheet, or a graph database nobody has the authority to change. There's no release, no dependency edge, no provenance, and no way for a downstream consumer to check that what they pulled is what the publisher actually signed.
+
+Erden treats an ontology as a **package**. It has a canonical identity, a SemVer history, explicit dependencies on other layers, a content digest, and a validation report. You publish it, other people resolve it, and the claims inside it carry the evidence that backs them.
+
+## What's There
+
+- **A publication pipeline.** Packages upload as a single authenticated archive, stream straight into private object storage under backpressure, and get picked up by a server-owned worker. PostgreSQL owns the leases, fences, retry budgets, and the atomic release transition, so multiple replicas can race without corrupting a release.
+- **A registry.** Anonymous discovery over canonical JSON routes: search current heads, walk a layer's release history, resolve a canonical IRI, pin an exact version. Every read rechecks current authority on the way through.
+- **A reasoner**, so the platform checks ontologies as well as storing them.
+- **A package format** (`application/vnd.erden.package.v1`) with digest-addressed archives and bounded, declared dependencies.
+- **An operational posture that assumes the host is not trusted.** Dual-origin dispatch, secrets read only from files, a read-only root filesystem, a non-root UID, liveness separated from readiness, and logs that never carry identities, paths, headers, bodies, or stacks.
+
+## Why I'm Building It
+
+I've spent the last few years watching agents and LLM tooling get dramatically better at _doing_ things and barely better at _remembering_ them. Every engagement starts by re-explaining the same context. Every new hire rebuilds the same mental model from scratch. The industry's answer so far has mostly been bigger context windows, which postpones the problem.
+
+A maintained, versioned, verifiable ontology is the other answer. It's harder and less glamorous, and I think it's the one that compounds.
+
+The evidence-backed part is the piece I care most about. A claim in a knowledge graph is worth very little if you can't trace where it came from. Provenance is the reason to trust the graph at all, so it belongs in the format from the start.
+
+## Status
+
+In active development and **not public yet**. There's no hosted instance to sign up for and no repository to browse.
+
+The shape I'm working toward is a central registry with distributed tooling: the last mile in the hands of whoever is doing the work, and the aggregation in the middle. Which parts end up open and which don't is still being decided.
+
+If this is a problem you actually have, I'd like to hear about it. That's the most useful thing anyone could send me right now.

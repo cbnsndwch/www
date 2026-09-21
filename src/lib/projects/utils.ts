@@ -1,6 +1,7 @@
-import { ComponentType } from 'react';
 import { join } from 'path';
+
 import glob from 'fast-glob';
+import { ComponentType } from 'react';
 
 import { Project, ProjectWithSlug } from './contracts';
 import { getProjectUpdates } from './updates';
@@ -36,7 +37,7 @@ export async function getAllProjects(includeDrafts = false) {
     const projectsDirectory = join(process.cwd(), 'src/app/projects');
 
     // We only want directories that contain a page.mdx (the project landing page)
-    let projectFilenames = await glob('*/page.mdx', {
+    const projectFilenames = await glob('*/page.mdx', {
         cwd: projectsDirectory
     });
 

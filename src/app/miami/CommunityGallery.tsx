@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
-import Image from 'next/image';
-import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import clsx from 'clsx';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
+import Image from 'next/image';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface LightboxProps {
     images: any[];
@@ -14,6 +14,7 @@ interface LightboxProps {
 
 function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
+    const closeButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         setCurrentIndex(initialIndex);
@@ -28,12 +29,22 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     }, [images.length]);
 
     useEffect(() => {
-        if (!isOpen) return;
+        if (!isOpen) {
+            return;
+        }
+
+        closeButtonRef.current?.focus();
 
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') onClose();
-            if (e.key === 'ArrowRight') showNext();
-            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'Escape') {
+                onClose();
+            }
+            if (e.key === 'ArrowRight') {
+                showNext();
+            }
+            if (e.key === 'ArrowLeft') {
+                showPrev();
+            }
         };
 
         window.addEventListener('keydown', handleKeyDown);
@@ -45,14 +56,25 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
         };
     }, [isOpen, onClose, showNext, showPrev]);
 
-    if (!isOpen) return null;
+    if (!isOpen) {
+        return null;
+    }
 
     return (
-        <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-900/90 backdrop-blur-sm animate-in fade-in duration-300 cursor-pointer"
-            onClick={onClose}
+        <dialog
+            open
+            className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-900/90 backdrop-blur-sm animate-in fade-in duration-300"
+            aria-label="Community gallery lightbox"
         >
             <button
+                type="button"
+                className="absolute inset-0 z-0 h-full w-full"
+                onClick={onClose}
+                aria-label="Close lightbox"
+            />
+            <button
+                ref={closeButtonRef}
+                type="button"
                 onClick={e => {
                     e.stopPropagation();
                     onClose();
@@ -64,6 +86,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </button>
 
             <button
+                type="button"
                 onClick={e => {
                     e.stopPropagation();
                     showPrev();
@@ -75,8 +98,9 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </button>
 
             <div
-                className="relative h-[80vh] w-[90vw] animate-in zoom-in-95 duration-300 cursor-auto"
+                className="relative z-10 h-[80vh] w-[90vw] animate-in zoom-in-95 duration-300 cursor-auto"
                 onClick={e => e.stopPropagation()}
+                role="presentation"
             >
                 <Image
                     src={images[currentIndex]}
@@ -88,6 +112,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </div>
 
             <button
+                type="button"
                 onClick={e => {
                     e.stopPropagation();
                     showNext();
@@ -101,7 +126,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             <div className="absolute bottom-6 text-sm text-zinc-400 pointer-events-none">
                 {currentIndex + 1} / {images.length}
             </div>
-        </div>
+        </dialog>
     );
 }
 
@@ -148,7 +173,7 @@ export function FeaturedPhotos({ images }: { images: any[] }) {
     const [isOpen, setIsOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
-    let rotations = [
+    const rotations = [
         'rotate-2',
         '-rotate-2',
         'rotate-2',

@@ -1,10 +1,9 @@
+import { Popover, Transition } from '@headlessui/react';
 import { ComponentPropsWithoutRef, Fragment } from 'react';
 
-import { Popover, Transition } from '@headlessui/react';
-
+import ChevronDownIcon from './ChevronDownIcon';
 import CloseIcon from './CloseIcon';
 import MobileNavItem from './MobileNavItem';
-import ChevronDownIcon from './ChevronDownIcon';
 
 export default function MobileNavigation(
     props: ComponentPropsWithoutRef<typeof Popover>
@@ -65,9 +64,9 @@ export default function MobileNavigation(
                                 <MobileNavItem href="/miami">
                                     Miami
                                 </MobileNavItem>
-                                {/* <MobileNavItem href="/speaking">
+                                <MobileNavItem href="/speaking">
                                     Speaking
-                                </MobileNavItem> */}
+                                </MobileNavItem>
                             </ul>
                         </nav>
                     </Popover.Panel>

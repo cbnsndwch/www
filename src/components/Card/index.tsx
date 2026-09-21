@@ -3,8 +3,8 @@ import clsx from 'clsx';
 import CardCta from './CardCta';
 import CardDescription from './CardDescription';
 import CardEyebrow from './CardEyebrow';
-import CardTitle from './CardTitle';
 import CardLink from './CardLink';
+import CardTitle from './CardTitle';
 
 export default function Card<T extends React.ElementType = 'div'>({
     as,
@@ -14,7 +14,7 @@ export default function Card<T extends React.ElementType = 'div'>({
     as?: T;
     className?: string;
 }) {
-    let Component = as ?? 'div';
+    const Component = as ?? 'div';
 
     return (
         <Component

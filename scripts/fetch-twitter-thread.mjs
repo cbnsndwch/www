@@ -1,11 +1,10 @@
-import fs from 'fs';
-import path from 'path';
 import https from 'https';
+
 import { config } from 'dotenv';
 
 config({ path: '.env.local' });
 
-let apiKey = process.env.PRIVATE_X_API_KEY;
+const apiKey = process.env.PRIVATE_X_API_KEY;
 
 if (!apiKey) {
     console.error(
@@ -34,7 +33,7 @@ async function fetchTweet(id) {
     return makeRequest(url);
 }
 
-async function fetchUserTimeline(userId, conversationId) {
+async function fetchUserTimeline(userId, _conversationId) {
     const url = new URL(`https://api.x.com/2/users/${userId}/tweets`);
 
     // We fetch the user's recent tweets and will filter them manually by conversation_id
@@ -112,9 +111,9 @@ async function main() {
         const now = new Date();
         const diffDays = (now - tweetDate) / (1000 * 60 * 60 * 24);
 
-        let threadTweets = [rootTweet.data];
-        let allMedia = rootTweet.includes?.media || [];
-        let allUsers = rootTweet.includes?.users || [];
+        const threadTweets = [rootTweet.data];
+        const allMedia = rootTweet.includes?.media || [];
+        const allUsers = rootTweet.includes?.users || [];
 
         if (diffDays > 6) {
             console.log(
@@ -170,4 +169,4 @@ async function main() {
     }
 }
 
-main();
+void main();

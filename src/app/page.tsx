@@ -1,56 +1,30 @@
-import type { ComponentPropsWithoutRef, ComponentType } from 'react';
+import clsx from 'clsx';
 import Image, { type ImageProps } from 'next/image';
 import Link from 'next/link';
-import clsx from 'clsx';
+import type { ComponentPropsWithoutRef, ComponentType } from 'react';
 
-import { Button } from '@/components/Button';
 import Container from '@/components/Container';
+import PostSummaryList from '@/components/Home/PostSummaryList';
 import {
     GitHubIcon,
     FacebookIcon,
     LinkedInIcon,
     TwitterIcon
 } from '@/components/SocialIcons';
-import PostSummaryList from '@/components/Home/PostSummaryList';
-
-import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
-
+import logo1NationUp from '@/images/logos/1nationup.svg';
+import logoChatHQ from '@/images/logos/chathq.svg';
 import logoExtendly from '@/images/logos/extendly.svg';
 import logoHelloMiami from '@/images/logos/hello-miami.svg';
-import logoChatHQ from '@/images/logos/chathq.svg';
-import logo1NationUp from '@/images/logos/1nationup.svg';
-import logoNowl from '@/images/logos/nowl.png';
-import logoCujae from '@/images/logos/cujae.svg';
 import logoKhph from '@/images/logos/khph.png';
-
+import logoNowl from '@/images/logos/nowl.png';
+import logoPahoy from '@/images/logos/pahoy.svg';
+import logoTheLab from '@/images/logos/the-lab-miami-sq.webp';
 import image1 from '@/images/photos/image-1.jpg';
 import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.jpg';
-
-function MailIcon(props: ComponentPropsWithoutRef<'svg'>) {
-    return (
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-            {...props}
-        >
-            <path
-                d="M2.75 7.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
-                className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
-            />
-            <path
-                d="m4 6 6.024 5.479a2.915 2.915 0 0 0 3.952 0L20 6"
-                className="stroke-zinc-400 dark:stroke-zinc-500"
-            />
-        </svg>
-    );
-}
+import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
 
 function BriefcaseIcon(props: ComponentPropsWithoutRef<'svg'>) {
     return (
@@ -75,19 +49,6 @@ function BriefcaseIcon(props: ComponentPropsWithoutRef<'svg'>) {
     );
 }
 
-function ArrowDownIcon(props: ComponentPropsWithoutRef<'svg'>) {
-    return (
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
-            <path
-                d="M4.75 8.75 8 12.25m0 0 3.25-3.5M8 12.25v-8.5"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-            />
-        </svg>
-    );
-}
-
 type SocialLinkProps = {
     icon: ComponentType<{ className?: string }>;
 } & ComponentPropsWithoutRef<typeof Link>;
@@ -100,36 +61,6 @@ function SocialLink({ icon: Icon, ...props }: SocialLinkProps) {
     );
 }
 
-function Newsletter() {
-    return (
-        <form
-            action="/thank-you"
-            className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
-        >
-            <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-                <MailIcon className="h-6 w-6 flex-none" />
-                <span className="ml-3">Stay up to date</span>
-            </h2>
-            <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-400">
-                Get notified when I publish something new. Unsubscribe at any
-                time.
-            </p>
-            <div className="mt-6 flex">
-                <input
-                    type="email"
-                    placeholder="Email address"
-                    aria-label="Email address"
-                    required
-                    className="min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white px-3 py-[calc(--spacing(2)-1px)] shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-500/10 dark:border-zinc-700 dark:bg-zinc-700/15 dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-amber-400 dark:focus:ring-amber-400/10 sm:text-sm"
-                />
-                <Button type="submit" className="ml-4 flex-none">
-                    Join
-                </Button>
-            </div>
-        </form>
-    );
-}
-
 interface Role {
     company: string;
     title: string;
@@ -139,13 +70,13 @@ interface Role {
 }
 
 function Role({ role }: { role: Role }) {
-    let startLabel =
+    const startLabel =
         typeof role.start === 'string' ? role.start : role.start.label;
-    let startDate =
+    const startDate =
         typeof role.start === 'string' ? role.start : role.start.dateTime;
 
-    let endLabel = typeof role.end === 'string' ? role.end : role.end.label;
-    let endDate = typeof role.end === 'string' ? role.end : role.end.dateTime;
+    const endLabel = typeof role.end === 'string' ? role.end : role.end.label;
+    const endDate = typeof role.end === 'string' ? role.end : role.end.dateTime;
 
     return (
         <li className="flex gap-4">
@@ -176,7 +107,27 @@ function Role({ role }: { role: Role }) {
 }
 
 function Resume() {
-    let resume: Array<Role> = [
+    const resume: Array<Role> = [
+        {
+            company: 'PaHoy',
+            title: 'Founder',
+            logo: logoPahoy,
+            start: '2026',
+            end: {
+                label: 'Present',
+                dateTime: new Date().getFullYear().toString()
+            }
+        },
+        {
+            company: 'The LAB Miami',
+            title: 'Builder in Residence',
+            logo: logoTheLab,
+            start: '2026',
+            end: {
+                label: 'Present',
+                dateTime: new Date().getFullYear().toString()
+            }
+        },
         {
             company: 'Hack Night @ hello_miami',
             title: 'Co-Host',
@@ -202,10 +153,7 @@ function Resume() {
             title: 'CTO | Co-Founder',
             logo: logo1NationUp,
             start: '2019',
-            end: {
-                label: 'Present',
-                dateTime: new Date().getFullYear().toString()
-            }
+            end: '2026'
         },
         {
             company: 'ChatHQ (acqd.)',
@@ -227,13 +175,6 @@ function Resume() {
             logo: logoKhph,
             start: '2015',
             end: '2016'
-        },
-        {
-            company: 'Technical University of Havana',
-            title: 'Instructor | Software Engineer',
-            logo: logoCujae,
-            start: '2012',
-            end: '2016'
         }
     ];
 
@@ -248,16 +189,12 @@ function Resume() {
                     <Role key={roleIndex} role={role} />
                 ))}
             </ol>
-            {/* <Button href="#" variant="secondary" className="group mt-6 w-full">
-                Download CV
-                <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
-            </Button> */}
         </div>
     );
 }
 
 function Photos() {
-    let rotations = [
+    const rotations = [
         'rotate-2',
         '-rotate-2',
         'rotate-2',
@@ -304,46 +241,74 @@ export default async function Home() {
                         event host, OSS contributor.
                     </h1>
                     <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
-                        Hi there! I&apos;m Serge and I&apos;m the VP of
-                        Engineering at{' '}
+                        Hi there! I&apos;m Serge, a software engineer in Miami.
+                        I work for myself these days, taking on a small number
+                        of engagements at a time: platform architecture, the
+                        integrations nobody else wants to touch, and getting
+                        teams from &quot;it works on my machine&quot; to
+                        something that ships on a schedule. I&apos;m the CTO at{' '}
                         <Link
                             href="https://getextendly.com"
                             className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
                             target="_blank"
                         >
                             Extendly
-                        </Link>
-                        , where we help marketing agency owners make their
-                        HighLevel journey easier, and the CTO and Co-Founder of{' '}
+                        </Link>{' '}
+                        and I&apos;m Builder in Residence at{' '}
                         <Link
-                            href="https://www.1nationup.com"
+                            href="https://thelabmiami.com"
                             className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
                             target="_blank"
                         >
-                            1NationUp
+                            The LAB Miami
                         </Link>
-                        , the one-stop-shop branding and marketing partners for
-                        thousands of small businesses across South Florida.
+                        .
                     </p>
                     <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
-                        I&apos;m also the co-host of{' '}
+                        I&apos;m also building{' '}
                         <Link
-                            href="https://lu.ma/hello_miami"
+                            href="https://pahoy.app"
                             className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
                             target="_blank"
                         >
-                            Hack Nights by hello_miami
+                            PaHoy
                         </Link>
-                        , a weekly mini-hackathon bringing engineers, developers
-                        and designers to connect with other technical folks in
-                        Miami and build cool projects together.
+                        , a startup making it possible to find and pay for
+                        services in Cuba from anywhere in the world. Outside
+                        that there&apos;s{' '}
+                        <Link
+                            href="/projects/erden"
+                            className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                        >
+                            Erden
+                        </Link>{' '}
+                        and a pile of{' '}
+                        <Link
+                            href="/projects"
+                            className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                        >
+                            open source
+                        </Link>
+                        . I also co-host{' '}
+                        <Link
+                            href="https://events.helloworld.miami"
+                            className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                            target="_blank"
+                        >
+                            hello_miami Hack Night
+                        </Link>
+                        , now twice a week across Wynwood and South Beach.
                     </p>
                     <p className="mt-6 text-base text-zinc-700 dark:text-zinc-400">
-                        I&apos;m an avid cyclist, sci-fi fan, and music lover.
-                        I&apos;m currently on a mission to help software
-                        developers and agency owners deliver software
-                        applications to the HighLevel Apps Marketplace. Come on
-                        in!
+                        I ride a tallbike, read too much sci-fi, and I&apos;m on
+                        a{' '}
+                        <Link
+                            href="/miami"
+                            className="font-medium text-zinc-800 transition hover:text-amber-500 dark:text-zinc-200 dark:hover:text-amber-500"
+                        >
+                            mission to make Miami
+                        </Link>{' '}
+                        a place where serious engineering happens. Come on in!
                     </p>
                     <div className="mt-6 flex gap-6">
                         <SocialLink
@@ -387,9 +352,6 @@ export default async function Home() {
                         )}
                     </div>
                     <div className="space-y-10 lg:pl-16 xl:pl-24">
-                        {/* TODO: uncomment this one we've connected the newsletter form to GHL */}
-                        {/* <Newsletter /> */}
-
                         <Resume />
                     </div>
                 </div>

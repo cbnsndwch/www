@@ -1,15 +1,24 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import type {
     ComponentPropsWithoutRef,
     PropsWithChildren,
     ReactElement
 } from 'react';
-import type { Metadata } from 'next';
 
 import Card from '@/components/Card';
+import ES from '@/components/Flags/ES';
+import US from '@/components/Flags/US';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import US from '@/components/Flags/US';
-import ES from '@/components/Flags/ES';
+import imgAiRenaissance from '@/images/speaking/ai-renaissance.webp';
+import imgDataChaos from '@/images/speaking/data-chaos-podcast.webp';
+import imgElDream from '@/images/speaking/el-dream-podcast.webp';
+import imgSpotlightChatHq from '@/images/speaking/highlevel-spotlight-chathq.webp';
+import imgHighLevelSso from '@/images/speaking/highlevel-sso.webp';
+import imgHighLevelWidgets from '@/images/speaking/highlevel-widgets.webp';
+import imgReactMiami from '@/images/speaking/react-miami-2026.webp';
 
 function SpeakingSection({
     children,
@@ -51,6 +60,8 @@ type AppearanceProps = {
     cta: string;
     href: string;
     lang?: SupportedLanguage;
+    image: StaticImageData;
+    imageAlt: string;
 };
 
 function Appearance({
@@ -59,10 +70,20 @@ function Appearance({
     event,
     cta,
     href,
-    lang = 'en'
+    lang = 'en',
+    image,
+    imageAlt
 }: AppearanceProps) {
     return (
         <Card as="article">
+            <div className="relative z-10 mb-6 w-full max-w-md overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10">
+                <Image
+                    src={image}
+                    alt={imageAlt}
+                    sizes="(min-width: 640px) 28rem, 100vw"
+                    className="aspect-video h-auto w-full object-cover"
+                />
+            </div>
             <Card.Title newTab as="h3" href={href}>
                 <TitleWithFlag lang={lang}>{title}</TitleWithFlag>
             </Card.Title>
@@ -75,21 +96,55 @@ function Appearance({
 
 export const metadata: Metadata = {
     title: 'Speaking',
-    description: 'I’ve been interviewed on a few really cool podcasts.'
-    // 'I’ve spoken at events all around the world and been interviewed for many podcasts.',
+    description:
+        'Conference talks, podcast interviews and tutorials on engineering craft, marketplaces, and building software worth trusting.'
 };
 
 export default function Speaking() {
     return (
         <SimpleLayout
-            title="Discover Insights on App Development: My YouTube Channel and Podcast Features."
+            title="Talks, interviews, and thinking out loud."
             intro={[
-                "Welcome to my digital hub, where I specialize in educating developers and marketing agencies on the intricacies of building apps for the HighLevel Marketplace. Through my YouTube channel, I delve into the specifics of app development, offering tutorials, tips, and industry insights. My content is designed to empower both aspiring and experienced developers with the knowledge and tools needed to thrive in this dynamic marketplace. It's a resource-rich platform where learning and practical application go hand-in-hand.",
-                "In addition to my YouTube channel, I have had the opportunity to share my experiences and perspectives on various podcasts. These podcast interviews provide a more conversational exploration of topics related to app development, digital marketing, and technology trends. They serve as a complementary resource, where listeners can gain additional insights and learn from my journey in the tech industry. I love podcast interviews because they give me the opportunity to reach audiences far beyond what's possible with in person events.",
-                "Whether you are a developer looking to enhance your skills, a marketing agency aiming to expand your services, or just someone interested in the world of app development, there is content here for you. And if you're organizing a conference or event and need a speaker who can bring valuable insights to your audience, feel free to reach out. Let's collaborate to share knowledge and drive innovation in the digital space."
+                "Teaching was my first job, and it never quite wore off. The fastest way I know to find out whether I actually understand something is to try to explain it to a room, so I take most chances I get, whether that's a conference stage, someone else's podcast, or a tutorial nobody asked for.",
+                "The topics move around, but the thread doesn't: how to build software you can still reason about in a year, how marketplaces and platforms really behave once real people touch them, and why engineering judgment matters more than whatever is currently trending.",
+                "If you're organizing an event and want a speaker who'll say something specific, reach out. I'm also happy to do this in Spanish."
             ]}
         >
             <div className="space-y-20">
+                <SpeakingSection title="Conferences">
+                    <Appearance
+                        href="https://reactmiami.com"
+                        title="The Anti-Shiny Object Syndrome"
+                        description="On the cost of chasing every new framework, library and paradigm, and how to tell the difference between a tool that will still matter in three years and one that is currently loud."
+                        event="React Miami 2026"
+                        cta="About the conference"
+                        image={imgReactMiami}
+                        imageAlt="React Miami 2026"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="AI RENAissance with Rena">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=DcDgSJVZeB0"
+                        title="He Built an AI Lab in His Living Room, and His Agents Never Sleep"
+                        description="On running a home AI lab, keeping coding agents useful over long horizons, and what changes when the machines keep working after you go to bed."
+                        event="AI RENAissance with Rena, August 2026"
+                        cta="Watch episode"
+                        image={imgAiRenaissance}
+                        imageAlt="AI RENAissance with Rena"
+                    />
+                </SpeakingSection>
+                <SpeakingSection title="El Dream Podcast">
+                    <Appearance
+                        href="https://www.youtube.com/watch?v=LffVhm-xlHs"
+                        title="Conversación con Sergio, un León del emprendimiento"
+                        description="Sobre emprender desde Miami, construir equipos técnicos y el camino de La Habana a fundar empresas de software."
+                        event="El Dream Podcast EP27, junio 2025"
+                        cta="Ver episodio"
+                        lang="es"
+                        image={imgElDream}
+                        imageAlt="El Dream Podcast episodio 27"
+                    />
+                </SpeakingSection>
                 <SpeakingSection title="My YouTube Channel">
                     <Appearance
                         href="https://www.youtube.com/watch?v=3rveQDuVlR0&list=PLxp-vlg1uh-aajKG9OYjKfsa-2SCC0Qf4"
@@ -97,6 +152,8 @@ export default function Speaking() {
                         description="How to implement Single Sign-On for your HighLevel Marketplace app."
                         event="HighLevel Marketplace for Developers"
                         cta="Watch video"
+                        image={imgHighLevelSso}
+                        imageAlt="HighLevel Marketplace SSO Explained"
                     />
                     <Appearance
                         href="https://www.youtube.com/playlist?list=PLxp-vlg1uh-aajKG9OYjKfsa-2SCC0Qf4"
@@ -104,26 +161,11 @@ export default function Speaking() {
                         description="Go from zero to hero building apps for the HighLevel Marketplace."
                         event="Last updated: December 2023"
                         cta="View playlist"
+                        image={imgHighLevelSso}
+                        imageAlt="HighLevel Marketplace for Developers playlist"
                     />
                 </SpeakingSection>
-                <SpeakingSection title="Lei Nai Shou">
-                    <Appearance
-                        href="https://www.youtube.com/watch?v=OsXmDRZyz-o&"
-                        title="1Nation Up Brand Boosters - Lei Nai Shou 190"
-                        description="Entrevistamos al equipo de 1NationUp, una agencia de marketing en Miami. #Cuba #1NationUp #Miami"
-                        event="Lei Nai Shou EP190, May 2023"
-                        cta="Ver episodio"
-                        lang="es"
-                    />
-                    <Appearance
-                        href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
-                        title="Sergio León - Lei Nai Shou 193"
-                        description="Conversamos con el ingeniero de telecomunicaciones Sergio León sobre ChatGPT y la nueva tecnología de inteligencia artificial! #ChatGpt #InteligenciaArtificial #Ai"
-                        event="Lei Nai Shou EP193, May 2023"
-                        cta="Ver episodio"
-                        lang="es"
-                    />
-                </SpeakingSection>
+
                 <SpeakingSection title="Propel Data">
                     <Appearance
                         href="https://www.linkedin.com/events/chathq-llms-analyticsandthepowe7117905754963013632"
@@ -131,6 +173,8 @@ export default function Speaking() {
                         description="On Using Artifical Intelligence (AI), Large Language Models (LLMs), and Analytics to power white label Conversion Rate Optimization for businesses."
                         event="Propel Data Stream on LinkedIn Live, March 2023"
                         cta="Watch replay"
+                        image={imgSpotlightChatHq}
+                        imageAlt="ChatHQ LinkedIn Live session"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="Data Chaos Podcast">
@@ -140,6 +184,8 @@ export default function Speaking() {
                         description="On my 17-year journey from creating desktop applications to breaking new ground in the world of AI."
                         event="Data Chaos Podcast, March 2023"
                         cta="Listen to episode"
+                        image={imgDataChaos}
+                        imageAlt="Data Chaos Podcast"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="HighLevel Spotlight">
@@ -149,6 +195,8 @@ export default function Speaking() {
                         description="On building branded, context-rich experiences for brands by driving website traffic engagement."
                         event="HighLevel Spotlight Sessions, March 2023"
                         cta="Watch episode"
+                        image={imgHighLevelWidgets}
+                        imageAlt="Increase Engagement with Customizable Widgets"
                     />
                     <Appearance
                         href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
@@ -156,6 +204,8 @@ export default function Speaking() {
                         description="On the importance of creating seamless experiences between HighLevel extensions and the main app."
                         event="HighLevel Spotlight Sessions, February 2021"
                         cta="Watch episode"
+                        image={imgSpotlightChatHq}
+                        imageAlt="HighLevel Spotlight Sessions with Sergio Leon of ChatHQ"
                     />
                 </SpeakingSection>
             </div>

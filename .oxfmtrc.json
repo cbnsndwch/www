@@ -1,0 +1,52 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "useTabs": false,
+    "tabWidth": 4,
+    "printWidth": 80,
+    "singleQuote": true,
+    "semi": true,
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "bracketSpacing": true,
+    "endOfLine": "lf",
+    "sortImports": {
+        "customGroups": [
+            {
+                "groupName": "app-alias",
+                "elementNamePattern": ["@/**"]
+            }
+        ],
+        "groups": [
+            "builtin",
+            "external",
+            "app-alias",
+            "parent",
+            ["sibling", "index"],
+            "unknown"
+        ],
+        "newlinesBetween": true,
+        "sortSideEffects": false
+    },
+    "overrides": [
+        {
+            "files": ["*.yml", "*.yaml"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ],
+    "ignorePatterns": [
+        "**/.next/**",
+        "**/build/**",
+        "**/dist/**",
+        "**/node_modules/**",
+        ".agents/**",
+        ".claude/**",
+        ".local/**",
+        ".plantuml/**",
+        "coverage/**",
+        "pnpm-lock.yaml",
+        "tsconfig.tsbuildinfo"
+    ],
+    "proseWrap": "preserve"
+}

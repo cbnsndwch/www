@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import Script from 'next/script';
 
 export type GhlCalendarProps = {
@@ -16,6 +15,7 @@ export default function GhlCalendar({
         <div className="w-full grow h-full">
             <iframe
                 id={id}
+                title="Booking calendar"
                 src={link}
                 className={className}
                 style={{

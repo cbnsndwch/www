@@ -35,9 +35,9 @@ pnpm format   # Prettier
 
 ```tsx
 <Card>
-  <Card.Title href="/posts/example">Post Title</Card.Title>
-  <Card.Description>Description text</Card.Description>
-  <Card.Cta>Read post</Card.Cta>
+    <Card.Title href="/posts/example">Post Title</Card.Title>
+    <Card.Description>Description text</Card.Description>
+    <Card.Cta>Read post</Card.Cta>
 </Card>
 ```
 
@@ -51,18 +51,18 @@ Posts live in `src/app/posts/{slug}/page.mdx`. Each exports a `post` object and 
 import PostLayout from '@/components/PostLayout';
 
 export const post = {
-  author: 'Sergio Leon',
-  date: '2024-01-11',
-  title: 'Post Title',
-  description: 'SEO description',
-  tags: ['tag1', 'tag2'],
-  cover: { image: coverImage, title: 'Credit', creditUrl: 'https://...' },
+    author: 'Sergio Leon',
+    date: '2024-01-11',
+    title: 'Post Title',
+    description: 'SEO description',
+    tags: ['tag1', 'tag2'],
+    cover: { image: coverImage, title: 'Credit', creditUrl: 'https://...' }
 };
 
 export const metadata = { title: post.title, description: post.description };
 
 export default function (props) {
-  return <PostLayout post={post} {...props} />;
+    return <PostLayout post={post} {...props} />;
 }
 
 Your MDX content here...
