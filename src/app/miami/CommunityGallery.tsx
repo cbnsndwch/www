@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Image from 'next/image';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface LightboxProps {
     images: any[];
@@ -14,6 +14,7 @@ interface LightboxProps {
 
 function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
+    const closeButtonRef = useRef<HTMLButtonElement>(null);
 
     useEffect(() => {
         setCurrentIndex(initialIndex);
@@ -31,6 +32,8 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
         if (!isOpen) {
             return;
         }
+
+        closeButtonRef.current?.focus();
 
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') {
@@ -58,12 +61,20 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
     }
 
     return (
-        <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-900/90 backdrop-blur-sm animate-in fade-in duration-300 cursor-pointer"
-            onClick={onClose}
-            role="presentation"
+        <dialog
+            open
+            className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-900/90 backdrop-blur-sm animate-in fade-in duration-300"
+            aria-label="Community gallery lightbox"
         >
             <button
+                type="button"
+                className="absolute inset-0 z-0 h-full w-full"
+                onClick={onClose}
+                aria-label="Close lightbox"
+            />
+            <button
+                ref={closeButtonRef}
+                type="button"
                 onClick={e => {
                     e.stopPropagation();
                     onClose();
@@ -75,6 +86,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </button>
 
             <button
+                type="button"
                 onClick={e => {
                     e.stopPropagation();
                     showPrev();
@@ -86,7 +98,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </button>
 
             <div
-                className="relative h-[80vh] w-[90vw] animate-in zoom-in-95 duration-300 cursor-auto"
+                className="relative z-10 h-[80vh] w-[90vw] animate-in zoom-in-95 duration-300 cursor-auto"
                 onClick={e => e.stopPropagation()}
                 role="presentation"
             >
@@ -100,6 +112,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             </div>
 
             <button
+                type="button"
                 onClick={e => {
                     e.stopPropagation();
                     showNext();
@@ -113,7 +126,7 @@ function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProps) {
             <div className="absolute bottom-6 text-sm text-zinc-400 pointer-events-none">
                 {currentIndex + 1} / {images.length}
             </div>
-        </div>
+        </dialog>
     );
 }
 

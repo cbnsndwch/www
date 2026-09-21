@@ -60,8 +60,8 @@ type AppearanceProps = {
     cta: string;
     href: string;
     lang?: SupportedLanguage;
-    image?: StaticImageData;
-    imageAlt?: string;
+    image: StaticImageData;
+    imageAlt: string;
 };
 
 function Appearance({
@@ -76,16 +76,14 @@ function Appearance({
 }: AppearanceProps) {
     return (
         <Card as="article">
-            {image && (
-                <div className="relative z-10 mb-6 w-full max-w-md overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10">
-                    <Image
-                        src={image}
-                        alt={imageAlt ?? ''}
-                        sizes="(min-width: 640px) 28rem, 100vw"
-                        className="aspect-video h-auto w-full object-cover"
-                    />
-                </div>
-            )}
+            <div className="relative z-10 mb-6 w-full max-w-md overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10">
+                <Image
+                    src={image}
+                    alt={imageAlt}
+                    sizes="(min-width: 640px) 28rem, 100vw"
+                    className="aspect-video h-auto w-full object-cover"
+                />
+            </div>
             <Card.Title newTab as="h3" href={href}>
                 <TitleWithFlag lang={lang}>{title}</TitleWithFlag>
             </Card.Title>
@@ -163,6 +161,8 @@ export default function Speaking() {
                         description="Go from zero to hero building apps for the HighLevel Marketplace."
                         event="Last updated: December 2023"
                         cta="View playlist"
+                        image={imgHighLevelSso}
+                        imageAlt="HighLevel Marketplace for Developers playlist"
                     />
                 </SpeakingSection>
 
@@ -173,6 +173,8 @@ export default function Speaking() {
                         description="On Using Artifical Intelligence (AI), Large Language Models (LLMs), and Analytics to power white label Conversion Rate Optimization for businesses."
                         event="Propel Data Stream on LinkedIn Live, March 2023"
                         cta="Watch replay"
+                        image={imgSpotlightChatHq}
+                        imageAlt="ChatHQ LinkedIn Live session"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="Data Chaos Podcast">
