@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 import type {
     ComponentPropsWithoutRef,
     PropsWithChildren,
@@ -10,6 +12,11 @@ import ES from '@/components/Flags/ES';
 import US from '@/components/Flags/US';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
+import imgDataChaos from '@/images/speaking/data-chaos-podcast.webp';
+import imgSpotlightChatHq from '@/images/speaking/highlevel-spotlight-chathq.webp';
+import imgHighLevelSso from '@/images/speaking/highlevel-sso.webp';
+import imgHighLevelWidgets from '@/images/speaking/highlevel-widgets.webp';
+import imgReactMiami from '@/images/speaking/react-miami-2026.webp';
 
 function SpeakingSection({
     children,
@@ -51,6 +58,8 @@ type AppearanceProps = {
     cta: string;
     href: string;
     lang?: SupportedLanguage;
+    image?: StaticImageData;
+    imageAlt?: string;
 };
 
 function Appearance({
@@ -59,10 +68,22 @@ function Appearance({
     event,
     cta,
     href,
-    lang = 'en'
+    lang = 'en',
+    image,
+    imageAlt
 }: AppearanceProps) {
     return (
         <Card as="article">
+            {image && (
+                <div className="relative z-10 mb-6 w-full max-w-md overflow-hidden rounded-xl bg-zinc-100 ring-1 ring-zinc-900/5 dark:bg-zinc-800 dark:ring-white/10">
+                    <Image
+                        src={image}
+                        alt={imageAlt ?? ''}
+                        sizes="(min-width: 640px) 28rem, 100vw"
+                        className="aspect-video h-auto w-full object-cover"
+                    />
+                </div>
+            )}
             <Card.Title newTab as="h3" href={href}>
                 <TitleWithFlag lang={lang}>{title}</TitleWithFlag>
             </Card.Title>
@@ -97,6 +118,8 @@ export default function Speaking() {
                         description="On the cost of chasing every new framework, library and paradigm, and how to tell the difference between a tool that will still matter in three years and one that is currently loud."
                         event="React Miami 2026"
                         cta="About the conference"
+                        image={imgReactMiami}
+                        imageAlt="React Miami 2026"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="My YouTube Channel">
@@ -106,6 +129,8 @@ export default function Speaking() {
                         description="How to implement Single Sign-On for your HighLevel Marketplace app."
                         event="HighLevel Marketplace for Developers"
                         cta="Watch video"
+                        image={imgHighLevelSso}
+                        imageAlt="HighLevel Marketplace SSO Explained"
                     />
                     <Appearance
                         href="https://www.youtube.com/playlist?list=PLxp-vlg1uh-aajKG9OYjKfsa-2SCC0Qf4"
@@ -115,7 +140,11 @@ export default function Speaking() {
                         cta="View playlist"
                     />
                 </SpeakingSection>
-                <SpeakingSection title="Lei Nai Shou">
+                {/* TODO: both Lei Nai Shou links are broken. EP190
+                    (OsXmDRZyz-o) is private or removed, and EP193 points at
+                    the HighLevel Spotlight video instead. Restore once the
+                    correct URLs are known. */}
+                {/* <SpeakingSection title="Lei Nai Shou">
                     <Appearance
                         href="https://www.youtube.com/watch?v=OsXmDRZyz-o&"
                         title="1Nation Up Brand Boosters - Lei Nai Shou 190"
@@ -132,7 +161,8 @@ export default function Speaking() {
                         cta="Ver episodio"
                         lang="es"
                     />
-                </SpeakingSection>
+                </SpeakingSection> */}
+
                 <SpeakingSection title="Propel Data">
                     <Appearance
                         href="https://www.linkedin.com/events/chathq-llms-analyticsandthepowe7117905754963013632"
@@ -149,6 +179,8 @@ export default function Speaking() {
                         description="On my 17-year journey from creating desktop applications to breaking new ground in the world of AI."
                         event="Data Chaos Podcast, March 2023"
                         cta="Listen to episode"
+                        image={imgDataChaos}
+                        imageAlt="Data Chaos Podcast"
                     />
                 </SpeakingSection>
                 <SpeakingSection title="HighLevel Spotlight">
@@ -158,6 +190,8 @@ export default function Speaking() {
                         description="On building branded, context-rich experiences for brands by driving website traffic engagement."
                         event="HighLevel Spotlight Sessions, March 2023"
                         cta="Watch episode"
+                        image={imgHighLevelWidgets}
+                        imageAlt="Increase Engagement with Customizable Widgets"
                     />
                     <Appearance
                         href="https://www.youtube.com/watch?v=gdBsVRic0wQ"
@@ -165,6 +199,8 @@ export default function Speaking() {
                         description="On the importance of creating seamless experiences between HighLevel extensions and the main app."
                         event="HighLevel Spotlight Sessions, February 2021"
                         cta="Watch episode"
+                        image={imgSpotlightChatHq}
+                        imageAlt="HighLevel Spotlight Sessions with Sergio Leon of ChatHQ"
                     />
                 </SpeakingSection>
             </div>
