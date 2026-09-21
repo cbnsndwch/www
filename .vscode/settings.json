@@ -61,9 +61,6 @@
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns": {
         ".env": ".env.*",
-        ".eslintrc.cjs": ".eslintrc.*.cjs,.eslintignore",
-        ".eslintrc.js": ".eslintrc.*.js,.eslintignore",
-        ".eslintrc.json": ".eslintrc.*.json,.eslintignore",
         ".gitignore": ".gitkeep,.gitattributes",
         "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.http",
         "*.json": "${capture}.js,${capture}.ts",
