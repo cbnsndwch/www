@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 import { Button } from '@/components/ui/button';
-import PostLayout from '@/components/PostLayout';
 
 import statsCover from './01-stats-cover.jpg';
 import attendanceRoles from './02-attendance-roles.png';
@@ -38,10 +37,6 @@ export const metadata = {
         ]
     }
 };
-
-export default function (props) {
-    return <PostLayout post={post} {...props} />;
-}
 
 <div className="my-12 rounded-2xl border border-zinc-100 bg-zinc-50 p-8 text-center dark:border-zinc-700/40 dark:bg-zinc-800/10">
     <h3 className="mt-0 mb-4 text-lg font-semibold text-zinc-900 dark:text-zinc-100">

@@ -1,7 +1,5 @@
 import Image from 'next/image';
 
-import PostLayout from '@/components/PostLayout';
-
 import coverImage from './cover.jpg';
 import demoImage from './footer.jpg';
 
@@ -33,10 +31,6 @@ export const metadata = {
         ]
     }
 };
-
-export default function (props) {
-    return <PostLayout post={post} {...props} />;
-}
 
 So the [@portainerio](https://x.com/portainerio) REST API docs are, ahem, **not great** (oh Swagger, how I love you!).
 

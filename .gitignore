@@ -74,3 +74,7 @@ next-env.d.ts
 /.local
 
 /.claude/settings.local.json
+
+# react router / cloudflare workers
+/.react-router
+/.wrangler

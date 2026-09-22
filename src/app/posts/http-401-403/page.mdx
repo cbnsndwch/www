@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import PostLayout from '@/components/PostLayout';
 import authorAvatar from '@/images/authors/hamlet.png';
 
 import coverImage from './http-401-403.jpeg';
@@ -26,11 +25,6 @@ export const metadata = {
     title: post.title,
     description: post.description
 };
-
-export default function (props) {
-    return <PostLayout post={post} {...props} />;
-
-}
 
 HTTP has a lot of codes to identify the status on the responses. We have 200 when everything is OK. The 404 code when something is nowhere to be found. Error 500 when
 that something went **Kaboom**!

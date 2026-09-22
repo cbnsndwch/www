@@ -1,6 +1,5 @@
 import Image from 'next/image';
 
-import PostLayout from '@/components/PostLayout';
 import Quote from '@/components/Quote';
 
 import coverImage from './opengraph-image.png';
@@ -34,10 +33,6 @@ export const metadata = {
         ]
     }
 };
-
-export default function (props) {
-    return <PostLayout post={post} {...props} />;
-}
 
 I still remember the first time I encountered a _fractal_. It was the late 90s—I was maybe 8 years old—poking around Microsoft Encarta '98 on CD-ROM when I stumbled on a little interactive demo. It zoomed into the Mandelbrot set, and as it zoomed, there were more patterns. And inside those, more patterns. Endless. I had no idea what I was looking at, but I was completely hooked. That moment stuck with me.
 

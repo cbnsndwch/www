@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import type { ImageAsset } from '../content/image';
 
 export interface GuestInfo {
     firstAppearedOn: string;
@@ -6,7 +6,7 @@ export interface GuestInfo {
 }
 
 export interface PostCover {
-    image?: StaticImageData;
+    image?: ImageAsset;
     title?: string;
     creditUrl?: string;
 }
@@ -15,7 +15,7 @@ export interface Post {
     title: string;
     description: string;
     author: string;
-    authorAvatar?: StaticImageData;
+    authorAvatar?: ImageAsset;
     date: string;
 
     // Optional properties

@@ -1,28 +1,33 @@
 {
     "compilerOptions": {
-        "target": "es6",
-        "lib": ["dom", "dom.iterable", "esnext"],
+        "target": "ES2022",
+        "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "allowJs": true,
         "skipLibCheck": true,
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
         "esModuleInterop": true,
-        "module": "esnext",
+        "module": "ES2022",
         "moduleResolution": "bundler",
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "jsx": "preserve",
+        "jsx": "react-jsx",
         "incremental": true,
-        "plugins": [
-            {
-                "name": "next"
-            }
-        ],
+        "types": ["vite/client"],
+        "rootDirs": [".", "./.react-router/types"],
         "paths": {
             "@/*": ["./src/*"]
         }
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-    "exclude": ["node_modules"]
+    "include": [
+        ".react-router/types/**/*",
+        "app/**/*",
+        "src/**/*",
+        "workers/**/*",
+        "*.ts",
+        "*.tsx",
+        "worker-configuration.d.ts"
+    ],
+    "exclude": ["node_modules", "build", ".next"]
 }

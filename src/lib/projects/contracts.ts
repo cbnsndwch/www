@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+import type { ImageAsset } from '../content/image';
 
 export interface ProjectLink {
     href: string;
@@ -10,7 +10,7 @@ export interface ProjectUpdate {
     title: string;
     date: string;
     description: string;
-    image?: StaticImageData;
+    image?: ImageAsset;
     content?: string;
     draft?: boolean;
 }
@@ -23,7 +23,7 @@ export interface ProjectUpdateWithSlug extends ProjectUpdate {
 export interface Project {
     name: string;
     description: string;
-    logo: string | StaticImageData;
+    logo: ImageAsset;
     link?: ProjectLink;
     secondaryLink?: ProjectLink;
     tech?: string[];
