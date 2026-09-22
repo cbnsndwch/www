@@ -1,6 +1,4 @@
-import { getProjectUpdates } from '@/lib/projects/updates';
 import logo from '@/images/logos/tile-react-router-nest.webp';
-import ProjectLayout from '@/components/ProjectLayout';
 import { GitHubIcon, NpmIcon } from '@/components/SocialIcons';
 
 export const project = {
@@ -33,19 +31,6 @@ export const project = {
     order: 3,
     date: '2025-07-11'
 };
-
-export default async function (props) {
-    const updates = await getProjectUpdates('react-router-nest');
-
-    return (
-        <ProjectLayout
-            project={{ slug: 'react-router-nest', ...project }}
-            updates={updates}
-            {...props}
-        />
-    );
-
-}
 
 ## Overview
 

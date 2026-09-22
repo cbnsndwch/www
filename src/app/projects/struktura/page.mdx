@@ -1,6 +1,4 @@
-import { getProjectUpdates } from '@/lib/projects/updates';
 import logo from '@/images/logos/tile-struktura.webp';
-import ProjectLayout from '@/components/ProjectLayout';
 import { GitHubIcon } from '@/components/SocialIcons';
 
 export const project = {
@@ -31,19 +29,6 @@ export const metadata = {
     title: project.name,
     description: project.description
 };
-
-export default async function (props) {
-    const updates = await getProjectUpdates('struktura');
-
-    return (
-        <ProjectLayout
-            project={{ slug: 'struktura', ...project }}
-            updates={updates}
-            {...props}
-        />
-    );
-
-}
 
 **Struktura** is a no-code data management platform designed to combine the visual usability of spreadsheet tools with the structural flexibility of document databases. It addresses the need for dynamic content management by allowing users to define custom schemas and relationships through an intuitive UI. This approach enables teams to manage complex data structures without requiring dedicated engineering resources or custom internal tools.
 

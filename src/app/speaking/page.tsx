@@ -1,6 +1,3 @@
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import type { StaticImageData } from 'next/image';
 import type {
     ComponentPropsWithoutRef,
     PropsWithChildren,
@@ -10,6 +7,7 @@ import type {
 import Card from '@/components/Card';
 import ES from '@/components/Flags/ES';
 import US from '@/components/Flags/US';
+import { Image } from '@/components/primitives';
 import { Section } from '@/components/Section';
 import { SimpleLayout } from '@/components/SimpleLayout';
 import imgAiRenaissance from '@/images/speaking/ai-renaissance.webp';
@@ -19,6 +17,8 @@ import imgSpotlightChatHq from '@/images/speaking/highlevel-spotlight-chathq.web
 import imgHighLevelSso from '@/images/speaking/highlevel-sso.webp';
 import imgHighLevelWidgets from '@/images/speaking/highlevel-widgets.webp';
 import imgReactMiami from '@/images/speaking/react-miami-2026.webp';
+import type { ImageAsset } from '@/lib/content/image';
+import type { Metadata } from '@/lib/content/metadata';
 
 function SpeakingSection({
     children,
@@ -60,7 +60,7 @@ type AppearanceProps = {
     cta: string;
     href: string;
     lang?: SupportedLanguage;
-    image: StaticImageData;
+    image: ImageAsset;
     imageAlt: string;
 };
 

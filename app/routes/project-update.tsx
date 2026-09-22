@@ -1,80 +1,61 @@
-import { type Metadata } from 'next';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { data, useParams } from 'react-router';
 
 import Container from '@/components/Container';
 import ArrowLeftIcon from '@/components/PostLayout/ArrowLeftIcon';
+import { Link } from '@/components/primitives';
 import Prose from '@/components/Prose';
+import { toMetaDescriptors } from '@/lib/content/metadata';
 import { formatDate } from '@/lib/formatDate';
-import { getAllProjectUpdates, getProjectUpdates } from '@/lib/projects/utils';
+import { getProjectUpdate } from '@/lib/projects/content';
 
-export async function generateStaticParams() {
-    const updates = await getAllProjectUpdates();
-    return updates.map(update => ({
-        slug: update.projectSlug,
-        updateSlug: update.slug
-    }));
-}
-
-type ProjectUpdatePageProps = {
-    params: Promise<{ slug: string; updateSlug: string }>;
-};
-
-export async function generateMetadata({
+export function meta({
     params
-}: ProjectUpdatePageProps): Promise<Metadata> {
-    const { slug, updateSlug } = await params;
-    const projectUpdates = await getProjectUpdates(slug);
-    const update = projectUpdates.find(u => u.slug === updateSlug);
+}: {
+    params: { slug?: string; updateSlug?: string };
+}) {
+    const update =
+        params.slug && params.updateSlug
+            ? getProjectUpdate(params.slug, params.updateSlug)
+            : undefined;
 
     if (!update) {
-        return {};
+        return [{ title: 'Not found - Sergio Leon' }];
     }
 
-    const images = update.image
-        ? [
-              {
-                  url: update.image.src,
-                  width: update.image.width,
-                  height: update.image.height,
-                  alt: update.title
-              }
-          ]
-        : [];
-
-    return {
+    return toMetaDescriptors({
         title: update.title,
         description: update.description,
         openGraph: {
-            title: update.title,
-            description: update.description,
             type: 'article',
-            images
-        },
-        twitter: {
-            card: images.length > 0 ? 'summary_large_image' : 'summary',
             title: update.title,
             description: update.description,
-            images: images.map(i => i.url)
+            images: update.image ? [{ url: update.image }] : undefined
         }
-    };
+    });
 }
 
-export default async function ProjectUpdatePage({
+export function loader({
     params
-}: ProjectUpdatePageProps) {
-    const { slug, updateSlug } = await params;
-    const projectUpdates = await getProjectUpdates(slug);
-    const update = projectUpdates.find(u => u.slug === updateSlug);
+}: {
+    params: { slug?: string; updateSlug?: string };
+}) {
+    const found =
+        params.slug && params.updateSlug
+            ? getProjectUpdate(params.slug, params.updateSlug)
+            : undefined;
 
-    if (!update) {
-        notFound();
+    if (!found) {
+        throw data('Update not found', { status: 404 });
     }
 
-    // We import the MDX content dynamically
-    const { default: PostContent } = await import(
-        `../../../../projects/${slug}/updates/${updateSlug}/content.mdx`
-    );
+    return null;
+}
+
+export default function ProjectUpdateRoute() {
+    const { slug, updateSlug } = useParams();
+    const update = getProjectUpdate(slug!, updateSlug!)!;
+
+    const { Component } = update;
 
     return (
         <Container className="mt-16 lg:mt-32">
@@ -103,7 +84,7 @@ export default async function ProjectUpdatePage({
                             </h1>
                         </header>
                         <Prose className="mt-8">
-                            <PostContent />
+                            <Component />
                         </Prose>
                     </article>
                 </div>

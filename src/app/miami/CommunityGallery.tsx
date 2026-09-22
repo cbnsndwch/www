@@ -2,8 +2,9 @@
 
 import clsx from 'clsx';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
-import Image from 'next/image';
 import { useState, useEffect, useCallback, useRef } from 'react';
+
+import { Image } from '@/components/primitives';
 
 interface LightboxProps {
     images: any[];

@@ -10,10 +10,6 @@ module.exports = {
         // it takes a while for the ecosystem to catch up to TS updates
         '@types/node',
 
-        // Next 16 has breaking changes that we're not ready to address yet.
-        // The site is headed off Next entirely, so this stays pinned.
-        'next',
-
         // TypeScript 7 is the native port and too young for this to be a
         // drive-by upgrade
         'typescript'

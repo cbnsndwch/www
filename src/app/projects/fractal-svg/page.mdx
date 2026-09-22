@@ -1,9 +1,7 @@
-import { getProjectUpdates } from '@/lib/projects/updates';
 import logo from '@/images/logos/tile-fractal-svg.webp';
-import ProjectLayout from '@/components/ProjectLayout';
 import { GitHubIcon } from '@/components/SocialIcons';
 
-import Favicon from './Favicon';
+import { Favicon } from './Favicon';
 
 export const project = {
     name: 'Fractal SVG',
@@ -31,19 +29,6 @@ export const project = {
     order: 1,
     date: '2026-02-19'
 };
-
-export default async function (props) {
-    const updates = await getProjectUpdates('fractal-svg');
-
-    return (
-        <ProjectLayout
-            project={{ slug: 'fractal-svg', ...project }}
-            updates={updates}
-            {...props}
-        />
-    );
-
-}
 
 **Fractal SVG** is a TypeScript library for generating beautiful, self-similar fractal patterns in clean, scalable SVG format. From classic Sierpinski carpets to space-filling Hilbert curves, it supports 10 fractal types with multi-color gradients, circular backgrounds, and both interactive and CLI modes.
 

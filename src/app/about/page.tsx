@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import { type Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 
 import Container from '@/components/Container';
+import { Image } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import {
     GitHubIcon,
     FacebookIcon,
@@ -11,6 +10,7 @@ import {
     TwitterIcon
 } from '@/components/SocialIcons';
 import portraitImage from '@/images/portrait.jpg';
+import type { Metadata } from '@/lib/content/metadata';
 
 function SocialLink({
     className,

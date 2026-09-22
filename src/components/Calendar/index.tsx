@@ -1,4 +1,4 @@
-import Script from 'next/script';
+import { Script } from '@/components/primitives';
 
 export type GhlCalendarProps = {
     id: string;

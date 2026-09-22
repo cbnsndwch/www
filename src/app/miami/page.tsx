@@ -1,10 +1,9 @@
 import clsx from 'clsx';
-import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
 
 import Card from '@/components/Card';
 import Container from '@/components/Container';
+import { Image } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import { Section } from '@/components/Section';
 import {
     InstagramIcon,
@@ -52,6 +51,7 @@ import logoMoonlighter from '@/images/logos/tile-moonlighter.webp';
 import logoSimplifai from '@/images/logos/tile-simplifai.webp';
 import logoTeal from '@/images/logos/tile-teal.webp';
 import logoTheLab from '@/images/logos/tile-the-lab.webp';
+import type { Metadata } from '@/lib/content/metadata';
 
 import { CommunityGallery, FeaturedPhotos } from './CommunityGallery';
 

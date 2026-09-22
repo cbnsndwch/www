@@ -1,8 +1,7 @@
-import Image from 'next/image';
-import Link from 'next/link';
-
 import Card from '@/components/Card';
 import Container from '@/components/Container';
+import { Image } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import Prose from '@/components/Prose';
 import { formatDate } from '@/lib/formatDate';
 import {

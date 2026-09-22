@@ -1,9 +1,10 @@
 'use client';
 
 import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import type { PropsWithChildren } from 'react';
+
+import { Link } from '@/components/primitives';
+import { usePathname } from '@/components/primitives';
 
 type NavItemProps = PropsWithChildren<{
     href: string;

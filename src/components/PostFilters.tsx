@@ -1,9 +1,9 @@
 'use client';
 
 import { X } from 'lucide-react';
-import { useRouter, useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 
+import { useRouter, useSearchParams } from '@/components/primitives';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { MultiSelect } from '@/components/ui/multi-select';
@@ -39,7 +39,7 @@ export function PostFilters({
 
     const handleFilterChange = (name: string, value: string[]) => {
         const query = createQueryString(name, value);
-        router.push(`/posts?${query}`, { scroll: false });
+        void router.push(`/posts?${query}`, { scroll: false });
     };
 
     const getParamArray = (name: string) => {
@@ -59,7 +59,7 @@ export function PostFilters({
         currentMonths.length > 0;
 
     const clearFilters = () => {
-        router.push('/posts', { scroll: false });
+        void router.push('/posts', { scroll: false });
     };
 
     return (

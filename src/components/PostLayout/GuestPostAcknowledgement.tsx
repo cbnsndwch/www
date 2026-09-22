@@ -1,5 +1,4 @@
-import Link from 'next/link';
-
+import { Link } from '@/components/primitives';
 import type { GuestPost } from '@/lib/posts/contracts';
 
 export type GuestPostAcknowledgementProps = {

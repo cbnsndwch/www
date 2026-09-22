@@ -1,10 +1,9 @@
-import { type Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-
 import Card from '@/components/Card';
+import { Image } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import { getAllProjects } from '@/lib/projects/utils';
+import type { Metadata } from '@/lib/content/metadata';
+import { getAllProjects } from '@/lib/projects/content';
 
 function LinkIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
     return (
@@ -24,8 +23,8 @@ export const metadata: Metadata = {
     description: 'Things I’ve made trying to put my dent in the universe.'
 };
 
-export default async function Projects() {
-    const projects = await getAllProjects();
+export default function Projects() {
+    const projects = getAllProjects();
 
     return (
         <SimpleLayout

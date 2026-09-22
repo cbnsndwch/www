@@ -1,9 +1,9 @@
-import { type Metadata } from 'next';
-
 import { PostFilters } from '@/components/PostFilters';
 import PostSummary from '@/components/PostSummary';
+import { useSearchParams } from '@/components/primitives';
 import { SimpleLayout } from '@/components/SimpleLayout';
-import { getAllPosts } from '@/lib/posts/utils';
+import type { Metadata } from '@/lib/content/metadata';
+import { getAllPosts } from '@/lib/posts/content';
 
 export const metadata: Metadata = {
     title: 'Posts',
@@ -26,20 +26,12 @@ const MONTHS = [
     { label: 'December', value: '12' }
 ];
 
-export default async function PostsIndex(props: {
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
-    const searchParams = await props.searchParams;
+export default function PostsIndex() {
+    const searchParams = useSearchParams();
 
     const getParamArray = (name: string) => {
-        const val = searchParams[name];
-        if (typeof val === 'string') {
-            return val.split(',').filter(Boolean);
-        }
-        if (Array.isArray(val)) {
-            return val.filter(Boolean);
-        }
-        return [];
+        const val = searchParams.get(name);
+        return val ? val.split(',').filter(Boolean) : [];
     };
 
     const authorsFilter = getParamArray('author');
@@ -47,7 +39,7 @@ export default async function PostsIndex(props: {
     const yearsFilter = getParamArray('year');
     const monthsFilter = getParamArray('month');
 
-    const allPosts = await getAllPosts();
+    const allPosts = getAllPosts();
 
     const authors = Array.from(
         new Set(

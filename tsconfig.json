@@ -27,7 +27,8 @@
         "workers/**/*",
         "*.ts",
         "*.tsx",
-        "worker-configuration.d.ts"
+        "worker-configuration.d.ts",
+        "window.d.ts"
     ],
     "exclude": ["node_modules", "build", ".next"]
 }

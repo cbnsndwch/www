@@ -1,6 +1,5 @@
-import Image from 'next/image';
-
 import Container from '@/components/Container';
+import { Image } from '@/components/primitives';
 import Prose from '@/components/Prose';
 import avatarImage from '@/images/avatar.jpg';
 import { formatDate } from '@/lib/formatDate';

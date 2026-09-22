@@ -1,6 +1,5 @@
-import { type Metadata } from 'next';
-
 import { SimpleLayout } from '@/components/SimpleLayout';
+import type { Metadata } from '@/lib/content/metadata';
 
 export const metadata: Metadata = {
     title: 'You’re subscribed',

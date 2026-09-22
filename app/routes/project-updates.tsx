@@ -1,53 +1,38 @@
-import { type Metadata } from 'next';
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { data, useParams } from 'react-router';
 
 import Card from '@/components/Card';
 import Container from '@/components/Container';
 import ArrowLeftIcon from '@/components/PostLayout/ArrowLeftIcon';
+import { Link } from '@/components/primitives';
+import { toMetaDescriptors } from '@/lib/content/metadata';
 import { formatDate } from '@/lib/formatDate';
-import { getAllProjects, getProjectUpdates } from '@/lib/projects/utils';
+import { getProject, getProjectUpdates } from '@/lib/projects/content';
 
-export async function generateStaticParams() {
-    const projects = await getAllProjects();
-    return projects.map(project => ({
-        slug: project.slug
-    }));
-}
-
-type ProjectUpdatesPageProps = {
-    params: Promise<{ slug: string }>;
-};
-
-export async function generateMetadata({
-    params
-}: ProjectUpdatesPageProps): Promise<Metadata> {
-    const { slug } = await params;
-    const projects = await getAllProjects();
-    const project = projects.find(p => p.slug === slug);
+export function meta({ params }: { params: { slug?: string } }) {
+    const project = params.slug ? getProject(params.slug) : undefined;
 
     if (!project) {
-        return {};
+        return [{ title: 'Not found - Sergio Leon' }];
     }
 
-    return {
+    return toMetaDescriptors({
         title: `${project.name} Updates`,
         description: `Latest news and announcements for ${project.name}`
-    };
+    });
 }
 
-export default async function ProjectUpdatesPage({
-    params
-}: ProjectUpdatesPageProps) {
-    const { slug } = await params;
-    const projects = await getAllProjects();
-    const project = projects.find(p => p.slug === slug);
-
-    if (!project) {
-        notFound();
+export function loader({ params }: { params: { slug?: string } }) {
+    if (!params.slug || !getProject(params.slug)) {
+        throw data('Project not found', { status: 404 });
     }
 
-    const updates = await getProjectUpdates(slug);
+    return null;
+}
+
+export default function ProjectUpdatesRoute() {
+    const { slug } = useParams();
+    const project = getProject(slug!)!;
+    const updates = getProjectUpdates(slug!);
 
     return (
         <Container className="mt-16 lg:mt-32">

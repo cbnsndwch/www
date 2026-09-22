@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import type { PropsWithChildren } from 'react';
+
+import { Link } from '@/components/primitives';
 
 import ContainerInner from './Container/Inner';
 import ContainerOuter from './Container/Outer';

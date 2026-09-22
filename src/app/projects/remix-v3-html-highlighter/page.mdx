@@ -1,7 +1,5 @@
-import Image from 'next/image';
-import { getProjectUpdates } from '@/lib/projects/updates';
+import { Image } from '@/components/primitives';
 import logoHighlighter from '@/images/logos/tile-remix-v3-html-highlighter.webp';
-import ProjectLayout from '@/components/ProjectLayout';
 import { GitHubIcon, VSCodeIcon } from '@/components/SocialIcons';
 import Tweet from '@/components/Tweet';
 
@@ -39,19 +37,6 @@ export const metadata = {
     title: project.name,
     description: project.description
 };
-
-export default async function (props) {
-    const updates = await getProjectUpdates('remix-v3-html-highlighter');
-
-    return (
-        <ProjectLayout
-            project={{ slug: 'remix-v3-html-highlighter', ...project }}
-            updates={updates}
-            {...props}
-        />
-    );
-
-}
 
 <Tweet id="1998610829118148884" />
 

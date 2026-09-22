@@ -1,9 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
 
 import { AppContext } from '@/app/providers';
+import { useRouter } from '@/components/primitives';
 
 import ArrowLeftIcon from './ArrowLeftIcon';
 

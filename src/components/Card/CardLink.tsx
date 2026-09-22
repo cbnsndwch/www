@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/components/primitives';
 
 export default function CardLink({
     children,

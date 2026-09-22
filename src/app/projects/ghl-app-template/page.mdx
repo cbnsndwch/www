@@ -1,6 +1,4 @@
-import { getProjectUpdates } from '@/lib/projects/updates';
 import logoPlanetaria from '@/images/logos/tile-ghl-app-template.webp';
-import ProjectLayout from '@/components/ProjectLayout';
 import { GitHubIcon, NpmIcon } from '@/components/SocialIcons';
 
 export const project = {
@@ -36,19 +34,6 @@ export const metadata = {
     title: project.name,
     description: project.description
 };
-
-export default async function (props) {
-    const updates = await getProjectUpdates('ghl-app-template');
-
-    return (
-        <ProjectLayout
-            project={{ slug: 'ghl-app-template', ...project }}
-            updates={updates}
-            {...props}
-        />
-    );
-
-}
 
 The **GHL App Template** is the definitive starting point for developers building on the HighLevel platform. It provides a robust NestJS foundation, pre-configured OAuth2 and SSO flows, and a modular architecture that scales from simple tools to complex marketplace applications.
 

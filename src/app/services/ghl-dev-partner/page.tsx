@@ -1,6 +1,5 @@
-import { type Metadata } from 'next';
-
 import Container from '@/components/Container';
+import type { Metadata } from '@/lib/content/metadata';
 
 import HideEngagementWidget from './HideEngagementWidget';
 

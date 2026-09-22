@@ -1,6 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
-
+import { Image } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import type { PostCover } from '@/lib/posts/contracts';
 
 export type CoverImageProps = {

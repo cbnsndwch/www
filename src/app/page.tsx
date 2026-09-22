@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import Image, { type ImageProps } from 'next/image';
-import Link from 'next/link';
 import type { ComponentPropsWithoutRef, ComponentType } from 'react';
 
 import Container from '@/components/Container';
 import PostSummaryList from '@/components/Home/PostSummaryList';
+import { Image, type ImageProps } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import {
     GitHubIcon,
     FacebookIcon,
@@ -24,7 +24,7 @@ import image2 from '@/images/photos/image-2.jpg';
 import image3 from '@/images/photos/image-3.jpg';
 import image4 from '@/images/photos/image-4.jpg';
 import image5 from '@/images/photos/image-5.jpg';
-import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/utils';
+import { getRecentGuestPosts, getRecentPosts } from '@/lib/posts/content';
 
 function BriefcaseIcon(props: ComponentPropsWithoutRef<'svg'>) {
     return (
@@ -208,7 +208,7 @@ function Photos() {
                 {[image1, image2, image3, image4, image5].map(
                     (image, imageIndex) => (
                         <div
-                            key={image.src}
+                            key={image}
                             className={clsx(
                                 'relative aspect-9/10 w-44 flex-none overflow-hidden rounded-xl bg-zinc-100 dark:bg-zinc-800 sm:w-72 sm:rounded-2xl',
                                 rotations[imageIndex % rotations.length]
@@ -228,9 +228,9 @@ function Photos() {
     );
 }
 
-export default async function Home() {
-    const recentPosts = await getRecentPosts();
-    const recentGuestPosts = await getRecentGuestPosts();
+export default function Home() {
+    const recentPosts = getRecentPosts();
+    const recentGuestPosts = getRecentGuestPosts();
 
     return (
         <>

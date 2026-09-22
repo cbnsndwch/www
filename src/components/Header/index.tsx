@@ -1,9 +1,9 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import { type CSSProperties, type ElementRef, useEffect, useRef } from 'react';
 
 import Container from '@/components/Container';
+import { usePathname } from '@/components/primitives';
 
 import Avatar from './Avatar';
 import AvatarContainer from './AvatarContainer';

@@ -1,5 +1,6 @@
 import clsx from 'clsx';
-import Link from 'next/link';
+
+import { Link } from '@/components/primitives';
 
 export type PostTagProps = {
     title: string;

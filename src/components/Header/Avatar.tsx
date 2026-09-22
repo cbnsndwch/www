@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import Image from 'next/image';
-import Link from 'next/link';
 import type { ComponentPropsWithoutRef } from 'react';
 
+import { Image } from '@/components/primitives';
+import { Link } from '@/components/primitives';
 import avatarImage from '@/images/avatar.jpg';
 
 type AvatarProps = {

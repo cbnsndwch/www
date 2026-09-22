@@ -5,7 +5,8 @@
         "app/**/*",
         "src/**/*",
         "workers/**/*",
-        "worker-configuration.d.ts"
+        "worker-configuration.d.ts",
+        "window.d.ts"
     ],
     "compilerOptions": {
         "composite": true,
