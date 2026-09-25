@@ -54,7 +54,7 @@
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
         "@types/webpack-env": "^1.18.8",
-        "dotenv": "^18.0.1",
+        "dotenv": "^18.0.2",
         "mdx": "^0.3.1",
         "npm-check-updates": "^23.1.0",
         "oxfmt": "0.70.0",
